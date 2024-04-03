@@ -2,5 +2,203 @@
 
 <h3>Rental Contract Management</h3>
 
+<div class="container border">
+    <section id="section-one">
+        <fieldset>
+            <legend>Rental Contracts</legend>
+            <div id="contract-search">
+                <div id="contract-search">
+                    <select class="form-select" id="search-criteria">
+                        <option selected value="">Search Criteria</option>
+                        <option value="">All Contracts</option>
+                        <option value="">Active Contracts</option>
+                        <option value="">Inactive Contracts</option>
+                    </select>
+                </div>
 
+                <div>
+                    <button class="btn btn-primary">Search</button>
+                </div>
+            </div>
+
+             <div id="results" class="">
+                  <div class="" id="col-results-1">
+                      <div id="table-container-1">
+                          <table id="search-client-results" class="table table-striped">
+                              <thead>
+                                  <tr>
+                                      <th>Contract Number</th>
+                                      <th>Status</th>
+                                      <th>Expiry Date</th>
+                                      <th>Days Remaining</th>
+                                      <th>Notes</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>024-0001</td>
+                                      <td>Active</td>
+                                      <td>2024-05-23</td>
+                                      <td>50</td>
+                                      <td>Client was contacted on April 1st for renewal, response pending.</td>
+                                  </tr>
+                                <tr>
+                                    <td>024-0002</td>
+                                    <td>Active</td>
+                                    <td>2024-06-15</td>
+                                    <td>78</td>
+                                    <td>Reminder email sent to client regarding upcoming expiry.</td>
+                                </tr>
+                                <tr>
+                                    <td>024-0003</td>
+                                    <td>Active</td>
+                                    <td>2024-07-02</td>
+                                    <td>95</td>
+                                    <td>Contract reviewed and approved by legal team.</td>
+                                </tr>
+                                <tr>
+                                    <td>024-0004</td>
+                                    <td>Active</td>
+                                    <td>2024-08-19</td>
+                                    <td>143</td>
+                                    <td>Client informed about the need for updated insurance documents.</td>
+                                </tr>
+                                <tr>
+                                    <td>024-0005</td>
+                                    <td>Active</td>
+                                    <td>2024-09-07</td>
+                                    <td>161</td>
+                                    <td>Contract negotiation meeting scheduled for next week.</td>
+                                </tr>
+                                <tr>
+                                    <td>024-0006</td>
+                                    <td>Active</td>
+                                    <td>2024-10-25</td>
+                                    <td>209</td>
+                                    <td>Client requested extension; under review.</td>
+                                </tr>
+                                <tr>
+                                    <td>024-0007</td>
+                                    <td>Active</td>
+                                    <td>2024-11-11</td>
+                                    <td>226</td>
+                                    <td>Contract performance metrics meeting scheduled.</td>
+                                </tr>
+                                <tr>
+                                    <td>024-0008</td>
+                                    <td>Active</td>
+                                    <td>2024-12-28</td>
+                                    <td>274</td>
+                                    <td>Internal audit completed; no issues found.</td>
+                                </tr>
+                                <tr>
+                                    <td>024-0009</td>
+                                    <td>Active</td>
+                                    <td>2025-01-15</td>
+                                    <td>292</td>
+                                    <td>Client requested minor amendments to contract terms.</td>
+                                </tr>
+                                <tr>
+                                    <td>024-0010</td>
+                                    <td>Active</td>
+                                    <td>2025-02-02</td>
+                                    <td>309</td>
+                                    <td>Annual review meeting scheduled with client.</td>
+                                </tr>
+                                <tr>
+                                    <td>024-0011</td>
+                                    <td>Active</td>
+                                    <td>2025-03-20</td>
+                                    <td>356</td>
+                                    <td>Contract performance evaluation completed.</td>
+                                </tr>
+                                <tr>
+                                    <td>024-0012</td>
+                                    <td>Active</td>
+                                    <td>2024-06-15</td>
+                                    <td>78</td>
+                                    <td>Reminder email sent to client regarding upcoming expiry.</td>
+                                </tr>
+                                <tr>
+                                    <td>024-0013</td>
+                                    <td>Active</td>
+                                    <td>2024-07-02</td>
+                                    <td>95</td>
+                                    <td>Contract reviewed and approved by legal team.</td>
+                                </tr>
+                                <tr>
+                                    <td>024-0014</td>
+                                    <td>Active</td>
+                                    <td>2024-08-19</td>
+                                    <td>143</td>
+                                    <td>Client informed about the need for updated insurance documents.</td>
+                                </tr>
+                                <tr>
+                                    <td>024-0015</td>
+                                    <td>Active</td>
+                                    <td>2024-09-07</td>
+                                    <td>161</td>
+                                    <td>Contract negotiation meeting scheduled for next week.</td>
+                                </tr>
+                                <tr>
+                                    <td>024-0016</td>
+                                    <td>Active</td>
+                                    <td>2024-10-25</td>
+                                    <td>209</td>
+                                    <td>Client requested extension; under review.</td>
+                                </tr>
+                              </tbody>
+                          </table>
+                      </div>                    
+                  </div>                
+             </div>           
+        </fieldset>
+    </section>
+    <!--End section-one-->
+     <section id="section-two">
+         <fieldset>
+             <legend>New Contract</legend>
+             <div id="new-contract" class="w-100">
+                <div class="row-cols-3">
+                    <label for="renter-name" class="form-label col-2">Renter Name:</label>
+                    <input class="col-4 form-control" id="renter-name" />
+                </div>
+                <div>
+                    <label for="renter-address" class="form-label col-2">Address:</label>
+                    <input class="form-control" id="renter-address" />
+                </div>
+                <div>
+                    <label for="renter-phone-number" class="form-label col-2">Phone Number:</label>
+                    <input class="form-control" id="renter-phone-number" />
+                </div>
+                <div>
+                    <label for="rate" class="form-label col-2">Rate:</label>
+                    <input class="form-control" id="rate" />
+                </div>
+                <div>
+                    <label for="start-date" class="form-label col-2">Start Date:</label>
+                    <input class="form-control" type="date" id="start-date" />
+                </div>
+                <div>
+                    <label for="end-date" class="form-check-label col-2">Start Date:</label>
+                    <input class="form-control" type="date" id="end-date" />
+                </div>
+                <div>
+                    <label for="end-date" class="form-check-label col-2">Renter Verified:</label>
+                    <span>Yes</span><input class="form-check-input mx-3" name="renter-verification" type="radio" id="renter-verified" />
+                    <span>No</span><input class="form-check-input mx-3" name="renter-verification" type="radio" id="renter-not-verified" />
+                </div>
+                <div>
+                    <label for="end-date" class="form-check-label col-2">Contract Status:</label>
+                    <span>Active</span><input class="form-check-input mx-3" name="contract-status" type="radio" id="contract-active" />
+                    <span>Inactive</span><input class="form-check-input mx-3" name="contract-status" type="radio" id="contract-Inactive" />
+                </div>
+                
+                
+
+             </div>
+         </fieldset>
+     </section>
+
+</div>
 

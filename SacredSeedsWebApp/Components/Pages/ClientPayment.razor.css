@@ -16,6 +16,10 @@ h3 {
     
 }
 
+.form-control {
+    max-width: 60%;
+}
+
 #section-one, #section-two  {
     padding-bottom: 2.5rem;
     border-bottom: dotted 1px;
@@ -25,7 +29,11 @@ h3 {
     display: flex;
     gap: 2rem;
     margin: auto;
-    width: 50%;
+    width: 70%;
+}
+
+#search .form-control {
+    max-width: 90%;
 }
 
 #search-client-results {
@@ -40,7 +48,7 @@ thead {
     color: white;
 }
 
-table tr{
+table td{
     cursor: pointer;    
 }
 
@@ -55,8 +63,6 @@ table tr:hover{
 
 #col-results-2 {
     padding-left: 1rem;
-    margin-top: 1rem;
-
 }
 
 #table-container-1, #table-container-3 {
@@ -64,7 +70,8 @@ table tr:hover{
     max-height: 500px;
 }
 #client-info div{    
-    margin-bottom: .8rem;
+    margin-bottom: .5rem;
+    display: flex;
 }
 table input {
     border: none;

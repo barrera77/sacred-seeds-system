@@ -6,9 +6,9 @@
   <section id="section-one" >
         <fieldset>
             <legend>Client Search</legend>
-            <div id="search" class="">
+            <div id="search" class="row-cols-3">
                 <div>
-                    <select class="form-select" id="search-criteria">
+                    <select class="form-control form-select w-100" id="search-criteria">
                         <option disabled selected value="">Search Criteria</option>
                         <option value="">Appointment Date</option>
                         <option value="">Client Name</option>
@@ -60,29 +60,29 @@
 
             <div class="col-6" id="col-results-2">
                 <h5>Client Details</h5>
-                <fieldset class="mt-3">
+                <fieldset class="mt-0">
                     <div id="client-info">
                         @if (Clients != null)
                         {
                             <div>
                                 <label for="client-id" class="col-4">Client Id:</label>
-                                <input disabled id="client-id" />
+                                <input class="form-control" disabled id="client-id" />
                             </div>
                             <div>
                                 <label for="client-name" class="col-4">Client Name:</label>
-                                <input disabled id="client-name" />
+                                <input class="form-control" disabled id="client-name" />
                             </div>
                             <div>
                                 <label for="client-address" class="col-4">Address:</label>
-                                <input disabled id="client-address" />
+                                <input class="form-control" disabled id="client-address" />
                             </div>
                             <div>
                                 <label for="client-contact-name" class="col-4">Contact Name:</label>
-                                <input disabled id="client-contact-name" />
+                                <input class="form-control" disabled id="client-contact-name" />
                             </div>
                             <div>
                                 <label for="client-phone-number" class="col-4">Phone Number:</label>
-                                <input disabled id="client-phone-number" />
+                                <input class="form-control" disabled id="client-phone-number" />
                             </div>
                         }
                     </div>

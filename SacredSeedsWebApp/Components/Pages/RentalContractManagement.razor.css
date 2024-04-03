@@ -6,3 +6,53 @@ h3 {
     color: white;
     padding: 1rem;
 }
+
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 0;
+    background-color: black;
+    color: white;
+}
+
+td {
+    cursor: pointer;
+}
+
+.container {
+    margin-top: 2rem;
+    padding: 1rem;
+}
+.form-control {
+    max-width: 40%;
+}
+
+#section-one, #section-two {
+    padding-bottom: 2.5rem;
+    border-bottom: dotted 1px;
+}
+
+#section-two {
+    padding-top: 1rem;
+}
+
+#contract-search {
+    display: flex;
+    gap: 2rem;
+    margin: auto;
+    width: 50%;
+}
+
+#results {
+    margin-top: 2rem;
+}
+
+#table-container-1, #table-container-3 {
+    overflow-y: scroll;
+    max-height: 500px;
+}
+
+#new-contract div {
+    margin-bottom: .8rem;
+    display: flex;    
+}
