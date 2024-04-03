@@ -1,0 +1,93 @@
+﻿body {
+}
+h5 {
+    font-weight: bold;
+}
+
+h3 {
+    background: linear-gradient( 90deg, rgba(2, 0, 36, 1) 0%, rgba(68, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100% );
+    color: white;
+    padding: 1rem;
+}
+
+.container {
+    margin-top: 2rem;
+    padding: 1rem;
+    
+}
+
+#section-one, #section-two  {
+    padding-bottom: 2.5rem;
+    border-bottom: dotted 1px;
+}
+
+#search {    
+    display: flex;
+    gap: 2rem;
+    margin: auto;
+    width: 50%;
+}
+
+#search-client-results {
+    margin-top: .5rem;
+    
+}
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 0;
+    background-color: black;
+    color: white;
+}
+
+table tr{
+    cursor: pointer;    
+}
+
+table tr:hover{
+    background-color: black;   
+    color: white;
+}
+
+#results {
+    margin-top: 2rem;
+}
+
+#col-results-2 {
+    padding-left: 1rem;
+    margin-top: 1rem;
+
+}
+
+#table-container-1, #table-container-3 {
+    overflow-y: scroll;
+    max-height: 500px;
+}
+#client-info div{    
+    margin-bottom: .8rem;
+}
+table input {
+    border: none;
+    background-color: transparent;
+    width: 2rem;
+}
+#usage-date {
+    border: none;
+    background-color: transparent;
+    width: auto;
+}
+
+#table-container-2 {
+    overflow-y: scroll;
+    height: 200px;
+}
+
+#package-info {
+    margin-top: 3rem;
+}
+
+#table-container-1 {
+    padding: 0;
+    margin-top: 0;
+}
+

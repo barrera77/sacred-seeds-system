@@ -1,0 +1,347 @@
+﻿@page "/client-payment"
+
+<h3>Client Payment</h3>
+
+<div class="container border">   
+  <section id="section-one" >
+        <fieldset>
+            <legend>Client Search</legend>
+            <div id="search" class="">
+                <div>
+                    <select class="form-select" id="search-criteria">
+                        <option disabled selected value="">Search Criteria</option>
+                        <option value="">Appointment Date</option>
+                        <option value="">Client Name</option>
+                    </select>
+                </div>
+                <div>
+                    <input class="form-control" type="date" id="search-input" />
+                </div>
+                <div>
+                    <button class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </fieldset>
+        <div id="results" class="d-flex">
+            <div class="col-6" id="col-results-1">
+                <div id="table-container-1">
+                    <table id="search-client-results" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Client ID</th>
+                                <th>Name</th>
+                                <th>Appointment Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @if (Clients != null)
+                            {
+                                @foreach (var c in Clients)
+                                {
+                                    <tr>
+                                        <td>@c.ClientId</td>
+                                        <td>@c.Name</td>
+                                        <td>@c.AppointmentDate.ToString("yyyy-MM-dd")</td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="5">No clients found.</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-6" id="col-results-2">
+                <h5>Client Details</h5>
+                <fieldset class="mt-3">
+                    <div id="client-info">
+                        @if (Clients != null)
+                        {
+                            <div>
+                                <label for="client-id" class="col-4">Client Id:</label>
+                                <input disabled id="client-id" />
+                            </div>
+                            <div>
+                                <label for="client-name" class="col-4">Client Name:</label>
+                                <input disabled id="client-name" />
+                            </div>
+                            <div>
+                                <label for="client-address" class="col-4">Address:</label>
+                                <input disabled id="client-address" />
+                            </div>
+                            <div>
+                                <label for="client-contact-name" class="col-4">Contact Name:</label>
+                                <input disabled id="client-contact-name" />
+                            </div>
+                            <div>
+                                <label for="client-phone-number" class="col-4">Phone Number:</label>
+                                <input disabled id="client-phone-number" />
+                            </div>
+                        }
+                    </div>
+                </fieldset>
+               <div class="mt-4">
+                    <h5>Client Sessions</h5>
+                    <div id="table-container-2">
+
+                        <table id="client-sessions-list" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Session Number</th>
+                                    <th>Date</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1001-001</td>
+                                    <td>
+                                        <input id="usage-date" placeholder="N/A" type="date">
+                                    </td>
+                                    <td>N/A</td>
+                                </tr>
+                                <tr>
+                                    <td>1001-001</td>
+                                    <td>2024-03-01</td>
+                                    <td>Session used</td>
+                                </tr>
+                                <tr>
+                                    <td>1001-002</td>
+                                    <td>2024-03-02</td>
+                                    <td>Session used</td>
+                                </tr>
+                                <tr>
+                                    <td>1001-003</td>
+                                    <td>2024-03-03</td>
+                                    <td>Session used</td>
+                                </tr>
+                                <tr>
+                                    <td>1001-004</td>
+                                    <td>2024-03-04</td>
+                                    <td>Session used</td>
+                                </tr>
+                                <tr>
+                                    <td>1001-005</td>
+                                    <td>2024-03-05</td>
+                                    <td>Session used</td>
+                                </tr>
+                                <tr>
+                                    <td>1002-001</td>
+                                    <td>2024-03-01</td>
+                                    <td>Session used</td>
+                                </tr>
+                                <tr>
+                                    <td>1002-002</td>
+                                    <td>
+                                        <input id="usage-date" placeholder="N/A" type="date">
+                                    </td>
+                                    <td>Session unused</td>
+                                </tr>
+                                <tr>
+                                    <td>1002-003</td>
+                                    <td>
+                                        <input id="usage-date" placeholder="N/A" type="date">
+                                    </td>
+                                    <td>Session unused</td>
+                                </tr>
+                                <tr>
+                                    <td>1003-001</td>
+                                    <td>2024-03-01</td>
+                                    <td>Session used</td>
+                                </tr>
+                                <tr>
+                                    <td>1003-002</td>
+                                    <td>2024-03-02</td>
+                                    <td>Session used</td>
+                                </tr>
+                                <tr>
+                                    <td>1003-003</td>
+                                    <td>2024-03-03</td>
+                                    <td>Session used</td>
+                                </tr>
+                                <tr>
+                                    <td>1003-004</td>
+                                    <td>2024-03-04</td>
+                                    <td>Session used</td>
+                                </tr>
+                                <tr>
+                                    <td>1003-005</td>
+                                    <td>2024-03-05</td>
+                                    <td>Session used</td>
+                                </tr>
+                                <tr>
+                                    <td>1003-006</td>
+                                    <td>
+                                        <input id="usage-date" placeholder="N/A" type="date">
+                                    </td>
+                                    <td>Session unused</td>
+                                </tr>
+                                <tr>
+                                    <td>1003-007</td>
+                                    <td>
+                                        <input id="usage-date" placeholder="N/A" type="date">
+                                    </td>
+                                    <td>Session unused</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+               </div>
+            </div>
+        </div>   
+  </section>
+    <!--End section-one-->
+  <section id="section-two">    
+    <div id="package-info" class="">
+        <h4>Client Package Info</h4>
+        <div id="table-container-3">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Package<br />Number</th>
+                        <th>Session<br />Number</th>
+                        <th>Used</th>
+                        <th>Usage Date</th>
+                        <th>Remaining<br />Sessions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1001</td>
+                        <td>1001-001</td>
+                        <td>
+                            <input type="text" value="No">
+                        </td>
+                        <td>
+                            <input id="usage-date" placeholder="N/A" type="date">
+                        </td>
+                        <td>3</td>
+                    </tr>
+
+                    <tr>
+                        <td>1001</td>
+                        <td>1001-001</td>
+                        <td>Yes</td>
+                        <td>2024-03-01</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>1001</td>
+                        <td>1001-002</td>
+                        <td>Yes</td>
+                        <td>2024-03-02</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>1001</td>
+                        <td>1001-003</td>
+                        <td>Yes</td>
+                        <td>2024-03-03</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>1001</td>
+                        <td>1001-004</td>
+                        <td>Yes</td>
+                        <td>2024-03-04</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>1001</td>
+                        <td>1001-005</td>
+                        <td>Yes</td>
+                        <td>2024-03-05</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>1002</td>
+                        <td>1002-001</td>
+                        <td>Yes</td>
+                        <td>2024-03-01</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>1002</td>
+                        <td>1002-002</td>
+                        <td>No</td>
+                        <td>
+                            <input id="usage-date" placeholder="N/A" type="date">
+                        </td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>1002</td>
+                        <td>1002-003</td>
+                        <td>No</td>
+                        <td>
+                            <input id="usage-date" placeholder="N/A" type="date">
+                        </td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>1003</td>
+                        <td>1003-001</td>
+                        <td>Yes</td>
+                        <td>2024-03-01</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>1003</td>
+                        <td>1003-002</td>
+                        <td>Yes</td>
+                        <td>2024-03-02</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>1003</td>
+                        <td>1003-003</td>
+                        <td>Yes</td>
+                        <td>2024-03-03</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>1003</td>
+                        <td>1003-004</td>
+                        <td>Yes</td>
+                        <td>2024-03-04</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>1003</td>
+                        <td>1003-005</td>
+                        <td>Yes</td>
+                        <td>2024-03-05</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>1003</td>
+                        <td>1003-006</td>
+                        <td>No</td>
+                        <td>
+                            <input id="usage-date" placeholder="N/A" type="date">
+                        </td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>1003</td>
+                        <td>1003-007</td>
+                        <td>No</td>
+                        <td>
+                            <input id="usage-date" placeholder="N/A" type="date">
+                        </td>
+                        <td>6</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </section>
+
+</div>
