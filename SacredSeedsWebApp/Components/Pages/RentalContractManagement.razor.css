@@ -19,6 +19,11 @@ td {
     cursor: pointer;
 }
 
+table tr:hover {
+    background-color: black;
+    color: white;
+}
+
 .container {
     margin-top: 2rem;
     padding: 1rem;
@@ -26,6 +31,13 @@ td {
 .form-control {
     max-width: 40%;
 }
+
+.btn {
+    color: white;
+    width: 9rem;
+    font-weight: bold;
+}
+
 
 #section-one, #section-two {
     padding-bottom: 2.5rem;
@@ -55,4 +67,11 @@ td {
 #new-contract div {
     margin-bottom: .8rem;
     display: flex;    
+}
+
+#new-contract-buttons-menu {
+    max-width: 40%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
 }

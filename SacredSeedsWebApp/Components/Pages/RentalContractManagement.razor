@@ -12,12 +12,16 @@
                         <option selected value="">Search Criteria</option>
                         <option value="">All Contracts</option>
                         <option value="">Active Contracts</option>
-                        <option value="">Inactive Contracts</option>
+                        <option value="">Pending Contracts</option>
                     </select>
                 </div>
 
                 <div>
                     <button class="btn btn-primary">Search</button>
+                </div>
+
+                <div>
+                    <button class="btn btn-info" @onclick="OnHandleAddNewContract">New Contract</button>
                 </div>
             </div>
 
@@ -155,33 +159,33 @@
         </fieldset>
     </section>
     <!--End section-one-->
-     <section id="section-two">
+     <section id="section-two" hidden="@IsHidden" class="">
          <fieldset>
              <legend>New Contract</legend>
              <div id="new-contract" class="w-100">
                 <div class="row-cols-3">
-                    <label for="renter-name" class="form-label col-2">Renter Name:</label>
-                    <input class="col-4 form-control" id="renter-name" />
+                    <label for="renter-name" class="form-label col-2" >Renter Name:</label>
+                    <input class="col-4 form-control" id="renter-name" @bind="RenterName"/>
                 </div>
                 <div>
                     <label for="renter-address" class="form-label col-2">Address:</label>
-                    <input class="form-control" id="renter-address" />
+                    <input class="form-control" id="renter-address" @bind="RenterAddress"/>
                 </div>
                 <div>
                     <label for="renter-phone-number" class="form-label col-2">Phone Number:</label>
-                    <input class="form-control" id="renter-phone-number" />
+                    <input class="form-control" id="renter-phone-number" @bind="PhoneNumber" />
                 </div>
                 <div>
                     <label for="rate" class="form-label col-2">Rate:</label>
-                    <input class="form-control" id="rate" />
+                    <input class="form-control" id="rate" @bind="Rate"/>
                 </div>
                 <div>
                     <label for="start-date" class="form-label col-2">Start Date:</label>
-                    <input class="form-control" type="date" id="start-date" />
+                    <input class="form-control" type="date" id="start-date" @bind="StartDate"/>
                 </div>
                 <div>
-                    <label for="end-date" class="form-check-label col-2">Start Date:</label>
-                    <input class="form-control" type="date" id="end-date" />
+                    <label for="end-date" class="form-check-label col-2">End Date:</label>
+                    <input class="form-control" type="date" id="end-date" @bind="EndDate"/>
                 </div>
                 <div>
                     <label for="end-date" class="form-check-label col-2">Renter Verified:</label>
@@ -191,11 +195,19 @@
                 <div>
                     <label for="end-date" class="form-check-label col-2">Contract Status:</label>
                     <span>Active</span><input class="form-check-input mx-3" name="contract-status" type="radio" id="contract-active" />
-                    <span>Inactive</span><input class="form-check-input mx-3" name="contract-status" type="radio" id="contract-Inactive" />
+                    <span>Pending</span><input class="form-check-input mx-3" name="contract-status" type="radio" id="contract-Inactive" />
                 </div>
-                
-                
-
+             </div>
+             <div id="new-contract-buttons-menu" class="m-auto">
+                <div>
+                    <button class="btn btn-primary">Save</button>
+                </div>
+                <div>
+                    <button class="btn btn-info" @onclick="ClearFields">Clear</button>
+                </div>
+                <div>
+                    <button class="btn btn-danger" @onclick="OnHandleCancelNewContract">Cancel</button>
+                </div>
              </div>
          </fieldset>
      </section>
