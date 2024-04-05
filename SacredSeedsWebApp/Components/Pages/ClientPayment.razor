@@ -24,7 +24,6 @@
 }
 
 
-
 <div class="container border">   
   <section id="section-one" >
         <fieldset>
@@ -70,9 +69,9 @@
                         </thead>
                         <tbody>
 
-                            @if (Clients != null)
+                            @if (SearchClients != null && SearchClients.Any())
                             {
-                                @foreach (var c in Clients)
+                                @foreach (var c in SearchClients)
                                 {
                                     <tr @onclick="() => HandleSelectedClient(c.ClientId)">
                                         <td>@c.ClientId</td>
@@ -83,8 +82,10 @@
                             }
                             else
                             {
-                                <tr>
-                                    <td colspan="5">No clients found.</td>
+                                <tr id="table-alert" class="@AlertClass">
+                                    <td colspan="12">
+                                        <p class="text-center m-auto"><strong>No clients</strong></p>
+                                    </td>
                                 </tr>
                             }
 
@@ -185,133 +186,147 @@
                         <th>Remaining<br />Sessions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody>     
                     <tr>
                         <td>1001</td>
                         <td>1001-001</td>
-                        <td>
-                            <input type="text" value="No">
-                        </td>
-                        <td>
-                            <input id="usage-date" placeholder="N/A" type="date">
-                        </td>
-                        <td>3</td>
-                    </tr>
-
-                    <tr>
-                        <td>1001</td>
-                        <td>1001-001</td>
+                        <td>5</td>                       
+                        <td>2024-02-01</td>
                         <td>Yes</td>
-                        <td>2024-03-01</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>1001</td>
-                        <td>1001-002</td>
-                        <td>Yes</td>
-                        <td>2024-03-02</td>
-                        <td>4</td>
-                    </tr>
-                    <tr>
-                        <td>1001</td>
-                        <td>1001-003</td>
-                        <td>Yes</td>
-                        <td>2024-03-03</td>
-                        <td>3</td>
-                    </tr>
-                    <tr>
-                        <td>1001</td>
-                        <td>1001-004</td>
-                        <td>Yes</td>
-                        <td>2024-03-04</td>
+                        <td>2024-02-15</td>
                         <td>2</td>
                     </tr>
-                    <tr>
-                        <td>1001</td>
-                        <td>1001-005</td>
-                        <td>Yes</td>
-                        <td>2024-03-05</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>1002</td>
-                        <td>1002-001</td>
-                        <td>Yes</td>
-                        <td>2024-03-01</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>1002</td>
-                        <td>1002-002</td>
-                        <td>No</td>
-                        <td>
-                            <input id="usage-date" placeholder="N/A" type="date">
-                        </td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>1002</td>
-                        <td>1002-003</td>
-                        <td>No</td>
-                        <td>
-                            <input id="usage-date" placeholder="N/A" type="date">
-                        </td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>1003</td>
-                        <td>1003-001</td>
-                        <td>Yes</td>
-                        <td>2024-03-01</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>1003</td>
-                        <td>1003-002</td>
-                        <td>Yes</td>
-                        <td>2024-03-02</td>
-                        <td>9</td>
-                    </tr>
-                    <tr>
-                        <td>1003</td>
-                        <td>1003-003</td>
-                        <td>Yes</td>
-                        <td>2024-03-03</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <td>1003</td>
-                        <td>1003-004</td>
-                        <td>Yes</td>
-                        <td>2024-03-04</td>
-                        <td>7</td>
-                    </tr>
-                    <tr>
-                        <td>1003</td>
-                        <td>1003-005</td>
-                        <td>Yes</td>
-                        <td>2024-03-05</td>
-                        <td>6</td>
-                    </tr>
-                    <tr>
-                        <td>1003</td>
-                        <td>1003-006</td>
-                        <td>No</td>
-                        <td>
-                            <input id="usage-date" placeholder="N/A" type="date">
-                        </td>
-                        <td>6</td>
-                    </tr>
-                    <tr>
-                        <td>1003</td>
-                        <td>1003-007</td>
-                        <td>No</td>
-                        <td>
-                            <input id="usage-date" placeholder="N/A" type="date">
-                        </td>
-                        <td>6</td>
-                    </tr>
-                </tbody>
+                   
+                        <tr>
+                            <td>1001</td>
+                            <td>1001-002</td>
+                            <td>5</td>
+                            <td>2024-02-01</td>
+                            <td>Yes</td>
+                            <td>2024-02-12</td>                            
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>1001</td>
+                            <td>1001-003</td>
+                            <td>5</td>
+                            <td>2024-02-01</td>
+                            <td>Yes</td>
+                            <td>2024-02-18</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>1001</td>
+                            <td>1001-004</td>
+                            <td>5</td>
+                            <td>2024-02-01</td>
+                            <td>No</td>
+                            <td></td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>1001</td>
+                            <td>1001-005</td>
+                            <td>5</td>
+                            <td>2024-02-01</td>
+                            <td>No</td>
+                            <td></td>
+                            <td>2</td>
+                        </tr>
+
+                        <!--10-session pack-->
+                        <tr>
+                            <td>1001</td>
+                            <td>1001-006</td>
+                            <td>10</td>
+                            <td>2024-02-20</td>
+                            <td>Yes</td>
+                            <td>2024-02-20</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>1001</td>
+                            <td>1001-007</td>
+                            <td>10</td>
+                            <td>2024-02-20</td>
+                            <td>Yes</td>
+                            <td>2024-03-11</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>1001</td>
+                            <td>1001-008</td>
+                            <td>10</td>
+                            <td>2024-02-20</td>
+                            <td>Yes</td>
+                            <td>2024-03-20</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>1001</td>
+                            <td>1001-009</td>
+                            <td>10</td>
+                            <td>2024-02-20</td>
+                            <td>Yes</td>
+                            <td>2024-04-01</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>1001</td>
+                            <td>1001-0010</td>
+                            <td>10</td>
+                            <td>2024-02-20</td>
+                            <td>No</td>
+                            <td></td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>1001</td>
+                            <td>1001-011</td>
+                            <td>10</td>
+                            <td>2024-02-20</td>
+                            <td>No</td>
+                            <td></td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>1001</td>
+                            <td>1001-012</td>
+                            <td>10</td>
+                            <td>2024-02-20</td>
+                            <td>No</td>
+                            <td></td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>1001</td>
+                            <td>1001-013</td>
+                            <td>10</td>
+                            <td>2024-02-20</td>
+                            <td>No</td>
+                            <td></td>
+                            <td>6</td>
+                        </tr>
+                                                <tr>
+                            <td>1001</td>
+                            <td>1001-014</td>
+                            <td>10</td>
+                            <td>2024-02-20</td>
+                            <td>No</td>
+                            <td></td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>1001</td>
+                            <td>1001-015</td>
+                            <td>10</td>
+                            <td>2024-02-20</td>
+                            <td>No</td>
+                            <td></td>
+                            <td>6</td>
+                        </tr>
+
+                    </tbody>
             </table>
         </div>
     </div>
@@ -319,41 +334,92 @@
     <section id="section-three">
         <fieldset>
             <legend>Payment Details</legend>
-            <div id="payment-details" class="col-6">
-               @*  <div class="d-flex">
-                    <label for="usage-date" class="form-label col-3">Usage Date:</label>
-                    <input class="form-control" type="date" id="package-usage-date" />
-                </div> *@
+            <div id="payment-details" class="col-8">
+                <div class="">
+                    <label for="purchase-type" class="form-check-label col-3">Purchase Type:</label>
+                    <div>
+                        <span>Session</span><input class="form-check-input mx-3" name="purchase-type" type="radio" id="purchase-session" checked="@(!PurchasePackage)" @onchange="() => PurchasePackage = false" />
+                        <span>Package</span><input class="form-check-input mx-3" name="purchase-type" type="radio" id="purchase-package" checked="@PurchasePackage" @onchange="() => PurchasePackage = true" />
+                    </div>
+                    @if (PurchasePackage)
+                    {
+                        <select class="form-control form-select mx-3" id="package-type">
+                            <option disabled selected value="">Select Package Type</option>
+                            <option value="5">5 Sessions</option>
+                            <option value="10">10 Sessions</option>
+                        </select>
+                    }
+                    else
+                    {
+                        @* <select class="form-control form-select mx-3" id="session-quantity">
+                            <option disabled selected value="">Select Sessions Quantity</option>   
+                            <option></option>
+                        </select> *@
+
+                        <input class="form-control" type="number"  placeholder="Sessions Quantity"/>
+                    }
+                </div>
                 <div>
                     <label for="referral" class="form-check-label col-3">Referral:</label>
-                    <span>Yes</span><input class="form-check-input mx-3" name="referral" type="radio" id="" />
-                    <span>No</span><input class="form-check-input mx-3" name="referral" type="radio" id="" />
+                    <div>
+                        <span>Yes</span><input class="form-check-input mx-3" name="referral" type="radio" id="" checked="@HasReferrals" @onchange="() => HasReferrals = true" />
+                        <span>No</span><input class="form-check-input mx-3" name="referral" type="radio" id="" checked="@(!HasReferrals)" @onchange="() => HasReferrals = false"/>
+                    </div>
                 </div>
 
                 <div class="row-cols-2">
                     <label for="" class="form-label col-3">Referral Name(s):</label>
-                    <div class="row-cols-2">
-                        <select class="form-control form-select" id="referral-client-1">
-                            <option disabled selected value="">Select Client</option>
-                            @if (Clients != null)
-                            {
-                                @foreach (var client in Clients)
+                    @if(HasReferrals)
+                    {
+                        <div class="row-cols-2">
+                            <select class="form-control form-select" id="referral-client-1">
+                                <option disabled selected value="">Select Client</option>
+                                @if (Clients != null)
                                 {
-                                    <option>@client.Name</option>
+                                    @foreach (var client in Clients)
+                                    {
+                                        <option>@client.Name</option>
+                                    }
                                 }
-                            }
-                        </select>
-                        <select class="form-control form-select mx-3" id="referral-client-2">
-                            <option disabled selected value="">Select Client</option>
-                            @if(Clients != null)
-                            {
-                                @foreach(var client in Clients)
+                            </select>
+                            <select class="form-control form-select mx-3" id="referral-client-2">
+                                <option disabled selected value="">Select Client</option>
+                                @if (Clients != null)
                                 {
-                                    <option>@client.Name</option>
+                                    @foreach (var client in Clients)
+                                    {
+                                        <option>@client.Name</option>
+                                    }
                                 }
-                            }
-                        </select>
-                    </div>
+                            </select>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row-cols-2">
+                            <select disabled="@(!HasReferrals)" class=" form-control form-select" id="referral-client-1">
+                                <option disabled selected value="">Select Client</option>
+                                @if (Clients != null)
+                                {
+                                    @foreach (var client in Clients)
+                                    {
+                                        <option>@client.Name</option>
+                                    }
+                                }
+                            </select>
+                            <select disabled="@(!HasReferrals)" class="form-control form-select mx-3" id="referral-client-2">
+                                <option disabled selected value="">Select Client</option>
+                                @if (Clients != null)
+                                {
+                                    @foreach (var client in Clients)
+                                    {
+                                        <option>@client.Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        
+                    }
                 </div>
             </div>
 

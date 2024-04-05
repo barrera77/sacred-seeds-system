@@ -6,6 +6,7 @@ namespace SacredSeedsWebApp.Components.Pages
     public partial class ClientPayment
     {
         private List<Client>? Clients { get; set; }
+        private List<Client>? SearchClients { get; set; }
         private List<Session> Sessions { get; set; }
         private List<Session> ClientSessions { get; set; }
         private List<string> Errors { get; set; }
@@ -16,8 +17,12 @@ namespace SacredSeedsWebApp.Components.Pages
         private string SearchCriteria { get; set; } = "";
         private string SearchByName { get; set; } = "";
         private DateTime? SearchByDate { get; set; } = null;
+        private bool PurchasePackage { get; set; } = false;
+        private bool HasReferrals { get; set; } = false;
+
 
         private string feedback { get; set; } = "";
+        private string AlertClass { get; set; }
 
 
         [Inject]
@@ -124,15 +129,13 @@ namespace SacredSeedsWebApp.Components.Pages
                     ClientSessions.Clear();
                 }
 
-
                 foreach (var session in Sessions)
                 {
                     if (session.ClientId == clientId)
                     {
                         ClientSessions.Add(session);
                     }
-                }
-
+                }               
             }
         }
 
@@ -155,11 +158,45 @@ namespace SacredSeedsWebApp.Components.Pages
                 feedback = "Error: Please provide a client name to search";
                 Errors.Add(feedback);
             }
-           
-            
+            else
+            {
+                OnHandleSearch();
+            }
         }
 
-      
-       
+        private void OnHandleSearch()
+        {
+            ReadClientFile();
+
+            if (SearchCriteria == "name")
+            {
+                if(!string.IsNullOrWhiteSpace(SearchByName))
+                {
+                    // Initialize the ClientSessions list if it's null
+                    if (SearchClients == null)
+                    {
+                        SearchClients = new List<Client>();
+                    }
+                    else
+                    {
+                        // Clear the list if it's not null
+                        SearchClients.Clear();
+                    }
+                    foreach (var client in Clients)
+                    {
+                        if (client.Name.Contains(SearchByName, StringComparison.OrdinalIgnoreCase))
+                        {
+                            SearchClients.Add(client);
+                        }
+                    }
+
+                    if (SearchClients.Count() == 0)
+                    {
+                        AlertClass = "alert alert-danger";
+                    }                   
+                }
+
+            }
+        }
     }
 }
