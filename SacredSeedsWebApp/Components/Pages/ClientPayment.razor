@@ -2,23 +2,58 @@
 
 <h3>Client Payment</h3>
 
+@* Error Validation feedback *@
+
+@if (Errors.Count > 0)
+{
+    <div class="alert alert-danger">
+        <p class="mb-3">Please fix the following issues:</p>
+        <ul>
+            @foreach (var error in Errors)
+            {
+                <li>@error</li>
+            }
+        </ul>
+    </div>
+}
+@if (!string.IsNullOrWhiteSpace(feedback) && Errors.Count == 0)
+{
+    <div class="alert alert-info">
+        @feedback
+    </div>
+}
+
+
+
 <div class="container border">   
   <section id="section-one" >
         <fieldset>
             <legend>Client Search</legend>
             <div id="search" class="row-cols-3">
                 <div>
-                    <select class="form-control form-select w-100" id="search-criteria">
-                        <option disabled selected value="">Search Criteria</option>
-                        <option value="">Appointment Date</option>
-                        <option value="">Client Name</option>
+                    <select class="form-control form-select w-100" id="search-criteria" @bind="SearchCriteria">
+                        <option selected value="">Search Criteria</option>
+                        <option value="date">Appointment Date</option>
+                        <option value="name">Client Name</option>
                     </select>
                 </div>
                 <div>
-                    <input class="form-control" type="date" id="search-input" />
+                    @if (SearchCriteria == "date")
+                    {
+                        <input class="form-control" type="date" id="search-input" @bind="SearchByDate" />
+                    }
+                    else if (SearchCriteria == "name")
+                    {
+                        <input class="form-control" type="text" id="search-input" @bind="SearchByName" />
+                    }
+                    else if (SearchCriteria == "")
+                    {
+                        <input class="form-control" disabled type="text" id="search-input" />
+                    }
+
                 </div>
                 <div>
-                    <button class="btn btn-primary">Search</button>
+                    <button class="btn btn-primary" @onclick="OnHandleSearchCriteria">Search</button>
                 </div>
             </div>
         </fieldset>
@@ -113,7 +148,7 @@
                                     {
                                         <tr>
                                             <td>@session.SessionNumber</td>
-                                            <td>@session.AppointmentDate?.ToString("yyyy-MMM-dd");</td>
+                                            <td>@session.AppointmentDate?.ToString("yyyy-MMM-dd")</td>
                                             <td>@session.Notes</td>
                                         </tr>
                                     }

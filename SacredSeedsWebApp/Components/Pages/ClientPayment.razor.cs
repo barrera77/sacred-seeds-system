@@ -8,15 +8,24 @@ namespace SacredSeedsWebApp.Components.Pages
         private List<Client>? Clients { get; set; }
         private List<Session> Sessions { get; set; }
         private List<Session> ClientSessions { get; set; }
+        private List<string> Errors { get; set; }
 
-        public Client Client { get; set; }
-        public Session Session { get; set; }            
+        public Client Client { get; set; } 
+        public Session Session { get; set; }   
+        
+        private string SearchCriteria { get; set; } = "";
+        private string SearchByName { get; set; } = "";
+        private DateTime? SearchByDate { get; set; } = null;
+
+        private string feedback { get; set; } = "";
+
 
         [Inject]
         public IWebHostEnvironment WebHostEnvironment { get; set; } = default!;
 
         protected override Task OnInitializedAsync()
         {
+            Errors = new();
             ReadClientFile();
             ReadSessionFile();
 
@@ -96,7 +105,6 @@ namespace SacredSeedsWebApp.Components.Pages
                 reader.Close();
             }
         }
-
         private void HandleSelectedClient(string clientId)
         {
             ClientSessions = new();
@@ -128,6 +136,30 @@ namespace SacredSeedsWebApp.Components.Pages
             }
         }
 
+        private void OnHandleSearchCriteria()
+        {
+            Errors.Clear();
+            feedback = "";
+            if (string.IsNullOrWhiteSpace(SearchCriteria))
+            {
+                feedback = "Error: Please select a search Criteria and provide a value";
+                Errors.Add(feedback);
+            }
+            else if(SearchCriteria == "date" && !DateTime.TryParse(SearchByDate.ToString(), out _))
+            {
+                feedback = "Error: Please provide a session date to search";
+                Errors.Add(feedback);
+            }
+            else if (SearchCriteria == "name" && string.IsNullOrWhiteSpace(SearchByName))
+            {
+                feedback = "Error: Please provide a client name to search";
+                Errors.Add(feedback);
+            }
+           
+            
+        }
+
+      
        
     }
 }
