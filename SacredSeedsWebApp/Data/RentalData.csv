@@ -1,16 +1,15 @@
-024-0001,Active,2024-05-23,50,"Client was contacted on April 1st for renewal, response pending."
-024-0002,Active,2024-06-15,78,"Reminder email sent to client regarding upcoming expiry."
-024-0003,Active,2024-07-02,95,"Contract reviewed and approved by legal team."
-024-0004,Active,2024-08-19,143,"Client informed about the need for updated insurance documents."
-024-0005,Active,2024-09-07,161,"Contract negotiation meeting scheduled for next week."
-024-0006,Active,2024-10-25,209,"Client requested extension; under review."
-024-0007,Active,2024-11-11,226,"Contract performance metrics meeting scheduled."
-024-0008,Active,2024-12-28,274,"Internal audit completed; no issues found."
-024-0009,Active,2025-01-15,292,"Client requested minor amendments to contract terms."
-024-0010,Active,2025-02-02,309,"Annual review meeting scheduled with client."
-024-0011,Active,2025-03-20,356,"Contract performance evaluation completed."
-024-0012,Active,2024-06-15,78,"Reminder email sent to client regarding upcoming expiry."
-024-0013,Active,2024-07-02,95,"Contract reviewed and approved by legal team."
-024-0014,Active,2024-08-19,143,"Client informed about the need for updated insurance documents."
-024-0015,Active,2024-09-07,161,"Contract negotiation meeting scheduled for next week."
-024-0016,Active,2024-10-25,209,"Client requested extension; under review."
+1,024-0001,John Smith,123 Main Street,(123) 456-7890,0,2024-03-01,2024-05-01,50,Active,True,Client was contacted on April 1st for renewal, response pending.
+2,024-0002,Emily Johnson,456 Elm Avenue,(234) 567-8901,0,2024-03-01,2024-04-30,60,Active,True,Reminder email sent to client regarding upcoming expiry.
+3,024-0003,Michael Williams,789 Oak Drive,(345) 678-9012,0,2024-03-01,2024-04-15,45,Active,True,Contract reviewed and approved by legal team.
+4,024-0004,Jessica Brown,1011 Pine Street,(456) 789-0123,0,2024-03-01,2024-04-05,35,Active,True,Client informed about the need for updated insurance documents.
+5,024-0005,Christopher Davis,1314 Maple Lane,(567) 890-1234,0,2024-03-01,2024-04-01,30,Active,True,Contract negotiation meeting scheduled for next week.
+6,024-0006,Amanda Martinez,1516 Cedar Court,(678) 901-2345,0,2024-03-01,2024-03-15,14,Active,True,Client requested extension; under review.
+7,024-0007,Matthew Thompson,1718 Birch Avenue,(789) 012-3456,0,2024-03-01,2024-03-30,29,Active,True,Contract performance metrics meeting scheduled.
+8,024-0008,Samantha Garcia,1920 Spruce Road,(890) 123-4567,0,2024-03-01,2024-03-20,19,Active,True,Internal audit completed; no issues found.
+9,024-0009,Daniel Miller,2122 Ash Street,(901) 234-5678,0,2024-05-23,2025-01-23,124,Active,True,Client requested minor amendments to contract terms.
+10,024-0010,Michelle Wilson,2324 Cedar Crescent,(012) 345-6789,0,2024-06-09,2025-02-09,124,Active,True,Annual review meeting scheduled with client.
+11,024-0011,Joshua Lee,2526 Elm Drive,(123) 456-7890,0,2024-07-27,2025-03-27,124,Active,True,Contract performance evaluation completed.
+12,024-0012,Ashley Anderson,2728 Maple Circle,(234) 567-8901,0,2023-10-18,2024-05-18,78,Active,True,Reminder email sent to client regarding upcoming expiry.
+13,024-0013,Brandon Moore,2930 Oak Street,(345) 678-9012,0,2023-11-21,2024-06-21,95,Active,True,Contract reviewed and approved by legal team.
+14,024-0014,Stephanie Taylor,3132 Pine Avenue,(456) 789-0123,0,2024-01-07,2024-08-07,143,Active,True,Client informed about the need for updated insurance documents.
+15,024-0015,Nicholas Harris,3334 Spruce Boulevard,(567) 890-1234,0,2024-01-25,2024-08-25,161,Active,True,Contract negotiation meeting scheduled for next week.

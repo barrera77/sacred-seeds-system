@@ -1,20 +1,21 @@
-01-0001,Albert Einstein,123 Main St NW Edmonton AB T5J 2G9,John Doe,(123) 456-7890,2024-05-03
-02-0002,Marie Curie,456 Elm St SW Edmonton AB T5K 0M5,Jane Smith,(234) 567-8901,2024-05-04
-03-0003,Leonardo da Vinci,789 Oak St NE Edmonton AB T5H 3P6,Michael Johnson,(345) 678-9012,2024-05-05
-04-0004,William Shakespeare,1011 Maple Ave SE Edmonton AB T5E 4R5,Sarah Brown,(456) 789-0123,2024-05-06
-05-0005,Nikola Tesla,1213 Birch Rd NW Edmonton AB T5N 1L6,Robert Miller,(567) 890-1234,2024-05-07
-06-0006,Ada Lovelace,1415 Cedar St SW Edmonton AB T5M 2X3,Emily Wilson,(678) 901-2345,2024-05-08
-07-0007,Isaac Newton,1617 Pine St NE Edmonton AB T5A 0A1,David Jones,(789) 012-3456,2024-05-09
-08-0008,Mahatma Gandhi,1819 Spruce Ave SE Edmonton AB T5C 2G4,Lisa Anderson,(890) 123-4567,2024-05-10
-09-0009,Mother Teresa,2021 Elmwood Dr NW Edmonton AB T5B 3W7,Mark Taylor,(901) 234-5678,2024-05-11
-10-0010,Charles Darwin,2223 Oakwood Ln NE Edmonton AB T5R 1P8,Michelle Martinez,(012) 345-6789,2024-05-12
-11-0011,Leonhard Euler,2425 Maplewood Ct SW Edmonton AB T5S 0E2,Steven Wilson,(123) 456-7890,2024-05-13
-12-0012,Emily Dickinson,2627 Cedarwood Rd NW Edmonton AB T5V 1N3,Kevin Brown,(234) 567-8901,2024-05-14
-13-0013,Wolfgang Amadeus Mozart,2829 Pinecrest Ave SE Edmonton AB T5T 1L9,Amanda Lee,(345) 678-9012,2024-05-15
-14-0014,Johannes Gutenberg,3031 Spruceland Dr NE Edmonton AB T5H 2Y5,Christopher Garcia,(456) 789-0123,2024-05-16
-15-0015,Stephen Hawking,3233 Elmwood Blvd SW Edmonton AB T5J 3C8,Anna Murphy,(567) 890-1234,2024-05-17
-16-0016,Ada Yonath,3435 Oakridge Rd NW Edmonton AB T5K 2P4,James Johnson,(678) 901-2345,2024-05-18
-17-0017,Thomas Edison,3637 Maplehurst Ave SE Edmonton AB T5M 1S7,Emily Davis,(789) 012-3456,2024-05-19
-18-0018,Beethoven,3839 Cedarhurst Dr NE Edmonton AB T5E 4G8,Matthew Thompson,(890) 123-4567,2024-05-20
-19-0019,Mark Twain,4041 Pineview Rd NW Edmonton AB T5C 0R2,Laura White,(901) 234-5678,2024-05-21
-20-0020,Florence Nightingale,4243 Birchwood Dr SW Edmonton AB T5A 2H8,Jason Martinez,(012) 345-6789,2024-05-22
+contract_number,client_name,email,contact_name,phone_number,referrals,date
+01-0001,Albert Einstein,einstein.albert@example.com,John Doe,(123) 456-7890,2,2024-05-03
+01-0002,Marie Curie,curie.marie@example.com,Jane Smith,(234) 567-8901,1,2024-05-04
+01-0003,Leonardo da Vinci,vinci.leonardo@example.com,Michael Johnson,(345) 678-9012,0,2024-05-05
+01-0004,William Shakespeare,shakespeare.william@example.com,Sarah Brown,(456) 789-0123,2,2024-05-06
+01-0005,Nikola Tesla,tesla.nikola@example.com,Robert Miller,(567) 890-1234,0,2024-05-07
+01-0006,Ada Lovelace,lovelace.ada@example.com,Emily Wilson,(678) 901-2345,1,2024-05-08
+01-0007,Isaac Newton,newton.isaac@example.com,David Jones,(789) 012-3456,0,2024-05-09
+01-0008,Mahatma Gandhi,gandhi.mahatma@example.com,Lisa Anderson,(890) 123-4567,0,2024-05-10
+01-0009,Mother Teresa,teresa.mother@example.com,Mark Taylor,(901) 234-5678,0,2024-05-11
+01-0010,Charles Darwin,darwin.charles@example.com,Michelle Martinez,(012) 345-6789,1,2024-05-12
+01-0011,Leonhard Euler,euler.leonhard@example.com,Steven Wilson,(123) 456-7890,0,2024-05-13
+01-0012,Emily Dickinson,dickinson.emily@example.com,Kevin Brown,(234) 567-8901,2,2024-05-14
+01-0013,Wolfgang Amadeus Mozart,mozart.wolfgang@example.com,Amanda Lee,(345) 678-9012,0,2024-05-15
+01-0014,Johannes Gutenberg,gutenberg.johannes@example.com,Christopher Garcia,(456) 789-0123,1,2024-05-16
+01-0015,Stephen Hawking,hawking.stephen@example.com,Anna Murphy,(567) 890-1234,0,2024-05-17
+01-0016,Ada Yonath,yonath.ada@example.com,James Johnson,(678) 901-2345,0,2024-05-18
+01-0017,Thomas Edison,edison.thomas@example.com,Emily Davis,(789) 012-3456,2,2024-05-19
+01-0018,Beethoven,beethoven@example.com,Matthew Thompson,(890) 123-4567,0,2024-05-20
+01-0019,Mark Twain,twain.mark@example.com,Laura White,(901) 234-5678,0,2024-05-21
+01-0020,Florence Nightingale,nightingale.florence@example.com,Jason Martinez,(012) 345-6789,1,2024-05-22

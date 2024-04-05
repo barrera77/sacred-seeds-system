@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace SacredSeedsSystem
 {
-    internal class RentalData
-    {
-
-
+    public class RentalData
+    {      
         public string RenterName { get; set; }
         public string RenterAddress { get; set; }
         public string PhoneNumber { get; set; }

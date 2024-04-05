@@ -10,25 +10,27 @@ namespace SacredSeedsSystem
       
         public string? ClientId { get; set; }
         public string? Name { get; set; }
-        public string? Address { get; set; }
+        public string? Email { get; set; }
         public string? ContactName { get; set; } 
         public string? PhoneNumber { get; set; }
+        public int? Referrals { get; set; }
         public DateTime AppointmentDate {get; set; }
 
-        public Client(string clientId, string name, string address, string contactName, string phoneNumber, DateTime appointmentDate)
+        public Client(string clientId, string name, string email, string contactName, string phoneNumber, int referrals, DateTime appointmentDate)
         {
             ClientId = clientId;
             Name = name;
-            Address = address;
+            Email = email;
             ContactName = contactName;
             PhoneNumber = phoneNumber;
+            Referrals = referrals;
             AppointmentDate = appointmentDate;
         }    
         
         public override string ToString()
         {
 
-            return $"{ClientId},{Name}, {Address},{ContactName},{PhoneNumber}, {AppointmentDate.ToString("MMM dd yyyy")}";
+            return $"{ClientId},{Name}, {Email},{ContactName},{PhoneNumber}, {Referrals}, {AppointmentDate.ToString("MMM dd yyyy")}";
         }
 
         public static Client Parse(String text)
@@ -36,9 +38,9 @@ namespace SacredSeedsSystem
             string[] parts = text.Split(",");
             Client NewClient = null;
 
-            if (parts.Length == 6)
+            if (parts.Length == 7)
             {
-                NewClient = new Client(parts[0], parts[1], parts[2], parts[3], parts[4], DateTime.Parse(parts[5]));
+                NewClient = new Client(parts[0], parts[1], parts[2], parts[3], parts[4], Int32.Parse(parts[5]), DateTime.Parse(parts[6]));
             }
 
             return NewClient;

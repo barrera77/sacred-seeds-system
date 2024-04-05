@@ -1,0 +1,69 @@
+1,1001-001,60,None,01-0001,125,2024-01-15,10:00:00,10:00:00,11:00:00,paid,used,Alergic to certain oils may need extra caution
+2,1001-002,60,Foot Spa,01-0001,175,2024-01-22,11:00:00,11:00:00,12:00:00,paid,used,Client prefers lavender oil
+3,1001-003,60,Ultra-Red Therapy,01-0001,175,2024-01-29,12:00:00,12:00:00,13:00:00,paid,used,Previous injury on left ankle be gentle
+4,1001-004,60,Cold Fusion Laser,01-0001,175,2024-02-05,13:00:00,13:00:00,14:00:00,paid,used,No specific notes
+5,1001-005,60,None,01-0001,125,2024-02-12,14:00:00,14:00:00,15:00:00,paid,used,Client arrives early may need to accommodate
+6,1001-006,60,None,01-0001,125,2024-02-19,15:00:00,15:00:00,16:00:00,paid,used,Client has a history of back pain extra attention needed
+7,1001-007,60,None,01-0001,125,2024-05-15,16:00:00,16:00:00,17:00:00,not paid,unused,Client prefers no talking during the session
+8,1001-008,120,Foot Spa,01-0002,250,2023-12-01,13:30:00,13:30:00,15:30:00,paid,used,No specific notes
+9,1001-009,90,Ultra-Red Therapy,01-0002,187.5,2023-12-08,16:00:00,16:00:00,17:30:00,paid,used,Client is pregnant adjust treatment accordingly
+10,1001-010,60,Cold Fusion Laser,01-0002,125,2023-12-15,14:00:00,14:00:00,15:00:00,paid,used,Previous surgery on right knee be careful
+11,1001-011,120,Cold Fusion Laser,01-0002,250,2023-12-22,17:30:00,17:30:00,19:30:00,paid,used,No specific notes
+12,1001-012,60,None,01-0002,125,2024-01-05,10:30:00,10:30:00,11:30:00,paid,used,Client prefers a quiet environment
+13,1001-013,120,None,01-0002,250,2024-01-12,14:30:00,14:30:00,16:30:00,paid,used,Client has sensitive skin check for any reactions
+14,1001-014,60,None,01-0002,125,2024-04-19,15:00:00,15:00:00,16:00:00,not paid,unused,Client might arrive late be flexible with scheduling
+22,1001-015,120,Foot Spa,01-0003,250,2024-01-26,13:30:00,13:30:00,15:30:00,paid,used,Client prefers stronger pressure during massage
+23,1001-016,90,Ultra-Red Therapy,01-0003,187.5,2024-02-02,16:00:00,16:00:00,17:30:00,paid,used,No specific notes
+24,1001-017,60,Cold Fusion Laser,01-0003,125,2024-02-09,14:00:00,14:00:00,15:00:00,paid,used,Client usually falls asleep during the session
+25,1001-018,120,Cold Fusion Laser,01-0003,250,2024-02-16,17:30:00,17:30:00,19:30:00,paid,used,Client prefers extra focus on lower back
+26,1001-019,60,None,01-0003,125,2024-02-23,10:30:00,10:30:00,11:30:00,paid,used,Client prefers no music during session
+27,1001-020,120,None,01-0003,250,2024-03-01,14:30:00,14:30:00,16:30:00,paid,used,Client has a known sensitivity to citrus scents
+28,1001-021,60,None,01-0003,125,2024-04-12,15:00:00,15:00:00,16:00:00,not paid,unused,Client prefers a warm room temperature
+29,1001-022,90,None,01-0004,187.5,2023-12-05,10:00:00,10:00:00,11:30:00,paid,used,Client prefers deep tissue massage
+30,1001-023,90,None,01-0004,187.5,2023-12-12,12:00:00,12:00:00,13:30:00,paid,used,Client has an aversion to strong scents
+31,1001-024,90,None,01-0004,187.5,2023-12-19,14:00:00,14:00:00,15:30:00,paid,used,No specific notes
+32,1001-025,60,None,01-0004,125,2024-02-01,11:00:00,11:00:00,12:00:00,paid,used,Client prefers to avoid conversation during session
+33,1001-026,60,None,01-0004,125,2024-02-08,13:00:00,13:00:00,14:00:00,paid,used,Client has a preference for soft lighting
+34,1001-027,60,None,01-0004,125,2024-02-15,15:00:00,15:00:00,16:00:00,paid,used,Client has a known allergy to lavender oil
+35,1001-028,60,None,01-0004,125,2024-04-28,17:00:00,17:00:00,18:00:00,not paid,unused,Client has sensitive skin check for any reactions
+36,2001-001,60,None,01-0005,0,2024-03-30,10:00:00,10:00:00,11:00:00,paid,used,No specific notes
+37,2001-002,60,None,01-0005,0,2024-04-06,12:00:00,12:00:00,13:00:00,paid,used,Client prefers minimal talking during session
+38,2001-003,60,None,01-0005,0,2024-04-13,14:00:00,14:00:00,15:00:00,paid,used,No specific notes
+39,2001-004,60,None,01-0005,0,2024-04-20,16:00:00,16:00:00,17:00:00,paid,used,Client has a preference for extra focus on shoulders
+40,1001-005,60,None,01-0005,0,2024-02-12,14:00:00,14:00:00,15:00:00,paid,unused,Client prefers appointments in the afternoon
+41,1001-029,60,None,01-0005,0,paid,unused,No specific notes
+42,1001-030,60,None,01-0005,0,paid,unused,No specific notes
+43,1001-031,60,None,01-0005,0,paid,unused,No specific notes
+44,1001-032,60,None,01-0005,0,paid,unused,No specific notes
+45,1001-033,60,None,01-0005,0,paid,unused,No specific notes
+46,1001-034,60,None,01-0006,125,2024-01-12,10:00:00,10:00:00,11:00:00,paid,used,Client prefers a firm massage pressure
+47,1001-035,60,Foot Spa,01-0006,175,2024-01-19,12:00:00,12:00:00,13:00:00,paid,used,Client is allergic to almond oil
+48,1001-036,90,None,01-0006,187.5,2024-01-26,14:00:00,14:00:00,15:30:00,paid,used,Client has sensitive skin check for any reactions
+49,1001-037,60,None,01-0006,125,2024-02-02,16:00:00,16:00:00,17:00:00,paid,used,No specific notes
+50,1001-038,60,None,01-0006,125,2024-02-09,18:00:00,18:00:00,19:00:00,paid,used,Client prefers silence during session
+51,1001-039,60,None,01-0006,125,2024-04-25,10:00:00,10:00:00,11:00:00,not paid,unused,No specific notes
+52,2001-006,60,None,01-0007,0,2024-03-20,10:00:00,10:00:00,11:00:00,paid,used,No specific notes
+53,2001-007,60,None,01-0007,0,2024-03-27,12:00:00,12:00:00,13:00:00,paid,used,No specific notes
+54,2001-008,60,None,01-0007,0,paid,unused,No specific notes
+55,2001-009,60,None,01-0007,0,paid,unused,No specific notes
+56,2001-010,60,None,01-0007,0,2024-04-12,15:00:00,15:00:00,16:00:00,paid,unused,No specific notes
+58,2001-011,60,None,01-0008,0,2024-02-10,10:00:00,10:00:00,11:00:00,paid,used,Client prefers a warm room temperature
+59,2001-012,60,None,01-0008,0,2024-02-17,12:00:00,12:00:00,13:00:00,paid,used,Client prefers a firm massage pressure
+60,2001-013,90,None,01-0008,0,2024-02-24,14:00:00,14:00:00,15:30:00,paid,used,Client has sensitive skin check for any reactions
+61,2001-014,60,Foot Spa,01-0008,0,2024-03-02,16:00:00,16:00:00,17:00:00,paid,used,No specific notes
+62,2001-015,60,Ultra-Red Therapy,01-0008,0,2024-03-09,18:00:00,18:00:00,19:00:00,paid,used,Client prefers no talking during session
+63,2001-016,60,None,01-0008,0,2024-03-16,20:00:00,20:00:00,21:00:00,paid,used,No specific notes
+64,2001-017,60,None,01-0008,0,paid,unused,No specific notes
+65,2001-018,60,None,01-0008,0,paid,unused,No specific notes
+66,2001-019,60,None,01-0008,0,paid,unused,No specific notes
+67,2001-020,60,None,01-0008,0,paid,unused,No specific notes
+68,1001-040,60,None,01-0009,125,2024-03-10,10:00:00,10:00:00,11:00:00,paid,used,Client prefers extra focus on shoulders
+69,1001-041,60,None,01-0009,125,2024-03-17,12:00:00,12:00:00,13:00:00,paid,used,No specific notes
+70,1001-042,60,None,01-0009,125,2024-03-24,14:00:00,14:00:00,15:00:00,paid,used,No specific notes
+71,1001-043,60,None,01-0009,125,2024-03-31,16:00:00,16:00:00,17:00:00,paid,used,Client prefers deep tissue massage
+72,1001-044,60,None,01-0009,125,2024-04-06,14:00:00,14:00:00,15:00:00,not paid,unused,Client has a preference for extra focus on lower back
+73,2001-021,60,None,01-0010,0,2024-02-20,10:00:00,10:00:00,11:00:00,paid,used,No specific notes
+74,2001-022,60,None,01-0010,0,2024-02-27,12:00:00,12:00:00,13:00:00,paid,used,Client prefers a quiet environment
+75,2001-023,60,None,01-0010,0,paid,unused,No specific notes
+76,2001-024,60,None,01-0010,0,paid,unused,No specific notes
+77,2001-025,60,None,01-0010,0,paid,unused,No specific notes

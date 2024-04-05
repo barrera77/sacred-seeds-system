@@ -39,7 +39,7 @@
                             {
                                 @foreach (var c in Clients)
                                 {
-                                    <tr>
+                                    <tr @onclick="() => HandleSelectedClient(c.ClientId)">
                                         <td>@c.ClientId</td>
                                         <td>@c.Name</td>
                                         <td>@c.AppointmentDate.ToString("yyyy-MM-dd")</td>
@@ -62,32 +62,39 @@
                 <h5>Client Details</h5>
                 <fieldset class="mt-0">
                     <div id="client-info">
-                        @if (Clients != null)
+                        @if (Client != null)
                         {
                             <div>
                                 <label for="client-id" class="col-4">Client Id:</label>
-                                <input class="form-control" disabled id="client-id" />
+                                <input class="form-control" disabled id="client-id" @bind="Client.ClientId"/>
                             </div>
                             <div>
                                 <label for="client-name" class="col-4">Client Name:</label>
-                                <input class="form-control" disabled id="client-name" />
+                                <input class="form-control" disabled id="client-name" @bind="Client.Name"/>
                             </div>
                             <div>
-                                <label for="client-address" class="col-4">Address:</label>
-                                <input class="form-control" disabled id="client-address" />
+                                <label for="client-email" class="col-4">Email:</label>
+                                <input class="form-control" disabled id="client-email" @bind="Client.Email" />
                             </div>
                             <div>
                                 <label for="client-contact-name" class="col-4">Contact Name:</label>
-                                <input class="form-control" disabled id="client-contact-name" />
+                                <input class="form-control" disabled id="client-contact-name" @bind="Client.ContactName" />
                             </div>
                             <div>
                                 <label for="client-phone-number" class="col-4">Phone Number:</label>
-                                <input class="form-control" disabled id="client-phone-number" />
+                                <input class="form-control" disabled id="client-phone-number" @bind="Client.PhoneNumber" />
+                            </div>
+                        }
+                        else
+                        {
+                            <div id="table-alert" class="alert alert-warning">
+                                <p class="text-center m-auto"><strong>Select a client from the list</strong></p>
+                                
                             </div>
                         }
                     </div>
                 </fieldset>
-               <div class="mt-4">
+               <div class="mt-2">
                     <h5>Client Sessions</h5>
                     <div id="table-container-2">
 
@@ -100,96 +107,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1001-001</td>
-                                    <td>
-                                        <input id="usage-date" placeholder="N/A" type="date">
-                                    </td>
-                                    <td>N/A</td>
-                                </tr>
-                                <tr>
-                                    <td>1001-001</td>
-                                    <td>2024-03-01</td>
-                                    <td>Session used</td>
-                                </tr>
-                                <tr>
-                                    <td>1001-002</td>
-                                    <td>2024-03-02</td>
-                                    <td>Session used</td>
-                                </tr>
-                                <tr>
-                                    <td>1001-003</td>
-                                    <td>2024-03-03</td>
-                                    <td>Session used</td>
-                                </tr>
-                                <tr>
-                                    <td>1001-004</td>
-                                    <td>2024-03-04</td>
-                                    <td>Session used</td>
-                                </tr>
-                                <tr>
-                                    <td>1001-005</td>
-                                    <td>2024-03-05</td>
-                                    <td>Session used</td>
-                                </tr>
-                                <tr>
-                                    <td>1002-001</td>
-                                    <td>2024-03-01</td>
-                                    <td>Session used</td>
-                                </tr>
-                                <tr>
-                                    <td>1002-002</td>
-                                    <td>
-                                        <input id="usage-date" placeholder="N/A" type="date">
-                                    </td>
-                                    <td>Session unused</td>
-                                </tr>
-                                <tr>
-                                    <td>1002-003</td>
-                                    <td>
-                                        <input id="usage-date" placeholder="N/A" type="date">
-                                    </td>
-                                    <td>Session unused</td>
-                                </tr>
-                                <tr>
-                                    <td>1003-001</td>
-                                    <td>2024-03-01</td>
-                                    <td>Session used</td>
-                                </tr>
-                                <tr>
-                                    <td>1003-002</td>
-                                    <td>2024-03-02</td>
-                                    <td>Session used</td>
-                                </tr>
-                                <tr>
-                                    <td>1003-003</td>
-                                    <td>2024-03-03</td>
-                                    <td>Session used</td>
-                                </tr>
-                                <tr>
-                                    <td>1003-004</td>
-                                    <td>2024-03-04</td>
-                                    <td>Session used</td>
-                                </tr>
-                                <tr>
-                                    <td>1003-005</td>
-                                    <td>2024-03-05</td>
-                                    <td>Session used</td>
-                                </tr>
-                                <tr>
-                                    <td>1003-006</td>
-                                    <td>
-                                        <input id="usage-date" placeholder="N/A" type="date">
-                                    </td>
-                                    <td>Session unused</td>
-                                </tr>
-                                <tr>
-                                    <td>1003-007</td>
-                                    <td>
-                                        <input id="usage-date" placeholder="N/A" type="date">
-                                    </td>
-                                    <td>Session unused</td>
-                                </tr>
+                                @if (ClientSessions != null)
+                                {
+                                    @foreach (var session in ClientSessions)
+                                    {
+                                        <tr>
+                                            <td>@session.SessionNumber</td>
+                                            <td>@session.AppointmentDate?.ToString("yyyy-MMM-dd");</td>
+                                            <td>@session.Notes</td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr id="table-alert" class="alert alert-warning">
+                                        <td colspan="12">
+                                            <p class="text-center m-auto"><strong>Select a client from the list</strong></p>
+                                        </td>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>
@@ -207,6 +143,8 @@
                     <tr>
                         <th>Package<br />Number</th>
                         <th>Session<br />Number</th>
+                        <th>Package<br />Type</th>
+                        <th>Purchase<br />Date</th>
                         <th>Used</th>
                         <th>Usage Date</th>
                         <th>Remaining<br />Sessions</th>
@@ -343,5 +281,50 @@
         </div>
     </div>
     </section>
+    <section id="section-three">
+        <fieldset>
+            <legend>Payment Details</legend>
+            <div id="payment-details" class="col-6">
+               @*  <div class="d-flex">
+                    <label for="usage-date" class="form-label col-3">Usage Date:</label>
+                    <input class="form-control" type="date" id="package-usage-date" />
+                </div> *@
+                <div>
+                    <label for="referral" class="form-check-label col-3">Referral:</label>
+                    <span>Yes</span><input class="form-check-input mx-3" name="referral" type="radio" id="" />
+                    <span>No</span><input class="form-check-input mx-3" name="referral" type="radio" id="" />
+                </div>
+
+                <div class="row-cols-2">
+                    <label for="" class="form-label col-3">Referral Name(s):</label>
+                    <div class="row-cols-2">
+                        <select class="form-control form-select" id="referral-client-1">
+                            <option disabled selected value="">Select Client</option>
+                            @if (Clients != null)
+                            {
+                                @foreach (var client in Clients)
+                                {
+                                    <option>@client.Name</option>
+                                }
+                            }
+                        </select>
+                        <select class="form-control form-select mx-3" id="referral-client-2">
+                            <option disabled selected value="">Select Client</option>
+                            @if(Clients != null)
+                            {
+                                @foreach(var client in Clients)
+                                {
+                                    <option>@client.Name</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+        </fieldset>
+       
+    </section>
 
 </div>
+

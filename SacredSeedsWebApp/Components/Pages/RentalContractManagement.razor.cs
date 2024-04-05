@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using SacredSeedsSystem;
 
 namespace SacredSeedsWebApp.Components.Pages
 {
@@ -7,7 +8,7 @@ namespace SacredSeedsWebApp.Components.Pages
         [Inject]
         public IWebHostEnvironment WebHostEnvironment { get; set; } = default!;
         private bool IsHidden { get; set; }
-        public List<string>RentalContracts { get; set; }
+        public List<RentalData> RentalContracts { get; set; }
         public string RenterName { get; set; }
         public string RenterAddress {  get; set; }
         public string PhoneNumber {  get; set; }
@@ -23,7 +24,18 @@ namespace SacredSeedsWebApp.Components.Pages
 
             return base.OnInitializedAsync();
         }
-        
+
+        public void ReadFile()
+        {
+            RentalContracts = new();
+
+            string csvFilePath = $@"{WebHostEnvironment.ContentRootPath}\Data\ClientsList.csv";
+
+            using (StreamReader reader = new StreamReader(csvFilePath))
+            {
+
+            }
+        }
 
         private void OnHandleAddNewContract()
         {
