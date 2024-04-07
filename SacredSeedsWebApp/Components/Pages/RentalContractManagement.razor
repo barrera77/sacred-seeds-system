@@ -2,6 +2,14 @@
 
 <h3>Rental Contract Management</h3>
 
+@if (!string.IsNullOrWhiteSpace(feedback))
+{
+    <div class="alert alert-info">
+        @feedback
+    </div>
+}
+
+
 <div class="container border">
     <section id="section-one">
         <fieldset>
@@ -39,118 +47,19 @@
                                   </tr>
                               </thead>
                               <tbody>
-                                  <tr>
-                                      <td>024-0001</td>
-                                      <td>Active</td>
-                                      <td>2024-05-23</td>
-                                      <td>50</td>
-                                      <td>Client was contacted on April 1st for renewal, response pending.</td>
-                                  </tr>
-                                <tr>
-                                    <td>024-0002</td>
-                                    <td>Active</td>
-                                    <td>2024-06-15</td>
-                                    <td>78</td>
-                                    <td>Reminder email sent to client regarding upcoming expiry.</td>
-                                </tr>
-                                <tr>
-                                    <td>024-0003</td>
-                                    <td>Active</td>
-                                    <td>2024-07-02</td>
-                                    <td>95</td>
-                                    <td>Contract reviewed and approved by legal team.</td>
-                                </tr>
-                                <tr>
-                                    <td>024-0004</td>
-                                    <td>Active</td>
-                                    <td>2024-08-19</td>
-                                    <td>143</td>
-                                    <td>Client informed about the need for updated insurance documents.</td>
-                                </tr>
-                                <tr>
-                                    <td>024-0005</td>
-                                    <td>Active</td>
-                                    <td>2024-09-07</td>
-                                    <td>161</td>
-                                    <td>Contract negotiation meeting scheduled for next week.</td>
-                                </tr>
-                                <tr>
-                                    <td>024-0006</td>
-                                    <td>Active</td>
-                                    <td>2024-10-25</td>
-                                    <td>209</td>
-                                    <td>Client requested extension; under review.</td>
-                                </tr>
-                                <tr>
-                                    <td>024-0007</td>
-                                    <td>Active</td>
-                                    <td>2024-11-11</td>
-                                    <td>226</td>
-                                    <td>Contract performance metrics meeting scheduled.</td>
-                                </tr>
-                                <tr>
-                                    <td>024-0008</td>
-                                    <td>Active</td>
-                                    <td>2024-12-28</td>
-                                    <td>274</td>
-                                    <td>Internal audit completed; no issues found.</td>
-                                </tr>
-                                <tr>
-                                    <td>024-0009</td>
-                                    <td>Active</td>
-                                    <td>2025-01-15</td>
-                                    <td>292</td>
-                                    <td>Client requested minor amendments to contract terms.</td>
-                                </tr>
-                                <tr>
-                                    <td>024-0010</td>
-                                    <td>Active</td>
-                                    <td>2025-02-02</td>
-                                    <td>309</td>
-                                    <td>Annual review meeting scheduled with client.</td>
-                                </tr>
-                                <tr>
-                                    <td>024-0011</td>
-                                    <td>Active</td>
-                                    <td>2025-03-20</td>
-                                    <td>356</td>
-                                    <td>Contract performance evaluation completed.</td>
-                                </tr>
-                                <tr>
-                                    <td>024-0012</td>
-                                    <td>Active</td>
-                                    <td>2024-06-15</td>
-                                    <td>78</td>
-                                    <td>Reminder email sent to client regarding upcoming expiry.</td>
-                                </tr>
-                                <tr>
-                                    <td>024-0013</td>
-                                    <td>Active</td>
-                                    <td>2024-07-02</td>
-                                    <td>95</td>
-                                    <td>Contract reviewed and approved by legal team.</td>
-                                </tr>
-                                <tr>
-                                    <td>024-0014</td>
-                                    <td>Active</td>
-                                    <td>2024-08-19</td>
-                                    <td>143</td>
-                                    <td>Client informed about the need for updated insurance documents.</td>
-                                </tr>
-                                <tr>
-                                    <td>024-0015</td>
-                                    <td>Active</td>
-                                    <td>2024-09-07</td>
-                                    <td>161</td>
-                                    <td>Contract negotiation meeting scheduled for next week.</td>
-                                </tr>
-                                <tr>
-                                    <td>024-0016</td>
-                                    <td>Active</td>
-                                    <td>2024-10-25</td>
-                                    <td>209</td>
-                                    <td>Client requested extension; under review.</td>
-                                </tr>
+                               @if (RentalContracts != null)
+                                {
+                                    @foreach (var contract in RentalContracts)
+                                    {
+                                        <tr>
+                                            <td>@contract.ContractNumber</td>
+                                            <td>@contract.IsActive</td>
+                                            <td>@contract.EndDate</td>
+                                            <td>@contract.DaysRemaining</td>
+                                            <td>@contract.Notes</td>
+                                        </tr>                                        
+                                    }
+                                }                             
                               </tbody>
                           </table>
                       </div>                    
@@ -165,27 +74,48 @@
              <div id="new-contract" class="w-100">
                 <div class="row-cols-3">
                     <label for="renter-name" class="form-label col-2" >Renter Name:</label>
-                    <input class="col-4 form-control" id="renter-name" @bind="RenterName"/>
+                    <input class="col-4 form-control" id="renter-name" />
                 </div>
                 <div>
                     <label for="renter-address" class="form-label col-2">Address:</label>
-                    <input class="form-control" id="renter-address" @bind="RenterAddress"/>
+                    <input class="form-control" id="renter-address" />
+                </div>
+                <div>
+                    <label for="province" class="form-label col-2">Province:</label>
+                    <select class="form-select" id="province">
+                        <option vlaue="">Select Province</option>
+                        <option vlaue="">AB</option>
+                        <option vlaue="">SK</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="city" class="form-label col-2">City:</label>
+                    <select class="form-select" id="city">
+                        <option vlaue="">Select City</option>
+                        <option vlaue="">Edmonton</option>
+                        <option vlaue="">Calgary</option>
+                    </select>
                 </div>
                 <div>
                     <label for="renter-phone-number" class="form-label col-2">Phone Number:</label>
-                    <input class="form-control" id="renter-phone-number" @bind="PhoneNumber" />
+                    <input class="form-control" id="renter-phone-number" />
                 </div>
                 <div>
                     <label for="rate" class="form-label col-2">Rate:</label>
-                    <input class="form-control" id="rate" @bind="Rate"/>
+                    <select class="form-select" id="rate">
+                        <option vlaue="0">Select rate</option>
+                        <option vlaue="80">80</option>
+                        <option vlaue="120">120</option>
+                        <option vlaue="100">100</option>
+                    </select>
                 </div>
                 <div>
                     <label for="start-date" class="form-label col-2">Start Date:</label>
-                    <input class="form-control" type="date" id="start-date" @bind="StartDate"/>
+                    <input class="form-control" type="date" id="start-date" />
                 </div>
                 <div>
                     <label for="end-date" class="form-check-label col-2">End Date:</label>
-                    <input class="form-control" type="date" id="end-date" @bind="EndDate"/>
+                    <input class="form-control" type="date" id="end-date" />
                 </div>
                 <div>
                     <label for="end-date" class="form-check-label col-2">Renter Verified:</label>

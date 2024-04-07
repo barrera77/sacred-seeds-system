@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using SacredSeedsSystem;
+using System.Runtime.CompilerServices;
 
 namespace SacredSeedsWebApp.Components.Pages
 {
@@ -18,12 +19,22 @@ namespace SacredSeedsWebApp.Components.Pages
         private string SearchByName { get; set; } = "";
         private DateTime? SearchByDate { get; set; } = null;
         private bool PurchasePackage { get; set; } = false;
+        private bool PurchaseSession { get; set; } = true;
+
         private bool HasReferrals { get; set; } = false;
 
 
         private string feedback { get; set; } = "";
         private string AlertClass { get; set; }
-
+        private double Subtotal { get; set; }
+        private double GST {  get; set; }
+        private double Total { get; set; }
+        private int Quantity { get; set; } = 0;
+        private double _SESSIONCOST = 125;
+        private double _PACKAGE5COST = 500;
+        private double _PACKAGE10COST = 900;
+        private double _EXTRAS = 50;
+            
 
         [Inject]
         public IWebHostEnvironment WebHostEnvironment { get; set; } = default!;
@@ -33,7 +44,6 @@ namespace SacredSeedsWebApp.Components.Pages
             Errors = new();
             ReadClientFile();
             ReadSessionFile();
-
             return base.OnInitializedAsync();
         }
 
@@ -197,6 +207,16 @@ namespace SacredSeedsWebApp.Components.Pages
                 }
 
             }
+        }
+
+        private void CalculateSubtotal()
+        {
+            if (!PurchasePackage)
+            {
+                Subtotal = 25 * (Quantity); 
+            }
+           
+           
         }
     }
 }

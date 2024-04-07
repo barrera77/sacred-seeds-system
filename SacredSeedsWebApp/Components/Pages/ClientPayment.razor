@@ -32,6 +32,7 @@
                 <div>
                     <select class="form-control form-select w-100" id="search-criteria" @bind="SearchCriteria">
                         <option selected value="">Search Criteria</option>
+                        <option value="all">All Clients</option>
                         <option value="date">Appointment Date</option>
                         <option value="name">Client Name</option>
                     </select>
@@ -331,98 +332,152 @@
         </div>
     </div>
     </section>
-    <section id="section-three">
+    <section id="section-three" class="mt-3 mb-5">
         <fieldset>
-            <legend>Payment Details</legend>
-            <div id="payment-details" class="col-8">
-                <div class="">
-                    <label for="purchase-type" class="form-check-label col-3">Purchase Type:</label>
-                    <div>
-                        <span>Session</span><input class="form-check-input mx-3" name="purchase-type" type="radio" id="purchase-session" checked="@(!PurchasePackage)" @onchange="() => PurchasePackage = false" />
-                        <span>Package</span><input class="form-check-input mx-3" name="purchase-type" type="radio" id="purchase-package" checked="@PurchasePackage" @onchange="() => PurchasePackage = true" />
-                    </div>
-                    @if (PurchasePackage)
-                    {
-                        <select class="form-control form-select mx-3" id="package-type">
-                            <option disabled selected value="">Select Package Type</option>
-                            <option value="5">5 Sessions</option>
-                            <option value="10">10 Sessions</option>
-                        </select>
-                    }
-                    else
-                    {
-                        @* <select class="form-control form-select mx-3" id="session-quantity">
-                            <option disabled selected value="">Select Sessions Quantity</option>   
-                            <option></option>
+            <legend>Purchase/Payment Details</legend>
+            <div class="d-flex">
+
+                <div id="purchase" class="col-6">
+                   @*  <div>
+                        <label>Client Name:</label>
+                        <input class="form-control mx-3 " />
+                    </div> *@
+                    <div class="">
+                        <label for="purchase-type" class="form-check-label col-3">Purchase Type:</label>
+                        <div>
+                            <span>Session</span><input class="form-check-input mx-3" name="purchase-type" type="radio" id="purchase-session" checked="@PurchaseSession" @onclick="() =>  { PurchaseSession = true; PurchasePackage = false; }" />
+                            <span>Package</span><input class="form-check-input mx-3" name="purchase-type" type="radio" id="purchase-package" checked="@PurchasePackage" @onclick="() =>  { PurchasePackage = true; PurchaseSession = false; }" />
+                        </div>
+                        @if (PurchasePackage)
+                        {
+                            <select class="form-control form-select mx-3" id="package-type"  >
+                                <option disabled selected value="0">Select Package Type</option>
+                                <option value="@_PACKAGE5COST">5 Sessions</option>
+                                <option value="@_PACKAGE10COST">10 Sessions</option>
+                            </select>
+                        }
+                        else
+                        {
+                            @* <select class="form-control form-select mx-3" id="session-quantity">
+                        <option disabled selected value="">Select Sessions Quantity</option>
+                        <option></option>
                         </select> *@
 
-                        <input class="form-control" type="number"  placeholder="Sessions Quantity"/>
-                    }
-                </div>
-                <div>
-                    <label for="referral" class="form-check-label col-3">Referral:</label>
+                            <input id="session-quantity" class="form-control" type="number" placeholder="Sessions Quantity" @bind="Quantity" @oninput="CalculateSubtotal" />
+                        }
+                    </div>
                     <div>
-                        <span>Yes</span><input class="form-check-input mx-3" name="referral" type="radio" id="" checked="@HasReferrals" @onchange="() => HasReferrals = true" />
-                        <span>No</span><input class="form-check-input mx-3" name="referral" type="radio" id="" checked="@(!HasReferrals)" @onchange="() => HasReferrals = false"/>
+                        <label class="form-label col-3">Extra Services:</label>
+                        <select class="form-control form-select mx-3 w-50">
+                            <option selected value="">Select Services</option>
+                            <option value="">Foot Spa</option>
+                            <option value="">Ultra-red Therapy</option>
+                            <option value="">cold fusion laser</option>
+                        </select>
+                    </div>
+                   <div class="">
+                        <div>
+                            <label class="form-label col-4">Start Time: </label>
+                        <input class="form-control w-50 mx-3"/>
+                    </div>
+                        <div>
+                            <label class="form-label col-4">End Time: </label>
+                            <input class="form-control w-50 mx-3" />
+                        </div>
+                   </div>
+                    <div>
+                        <label for="referral" class="form-check-label col-3">Referral:</label>
+                        <div>
+                            <span>Yes</span><input class="form-check-input mx-3" name="referral" type="radio" id="" checked="@HasReferrals" @onchange="() => HasReferrals = true" />
+                            <span>No</span><input class="form-check-input mx-3" name="referral" type="radio" id="" checked="@(!HasReferrals)" @onchange="() => HasReferrals = false" />
+                        </div>
+                    </div>
+
+                    <div class="row-cols-2">
+                        <label for="" class="form-label col-3">Referral Name(s):</label>
+                        @if (HasReferrals)
+                        {
+                            <div class="row-cols-2">
+                                <select class="form-control form-select" id="referral-client-1">
+                                    <option disabled selected value="">Select Client</option>
+                                    @if (Clients != null)
+                                    {
+                                        @foreach (var client in Clients)
+                                        {
+                                            <option>@client.Name</option>
+                                        }
+                                    }
+                                </select>
+                                <select class="form-control form-select mx-3" id="referral-client-2">
+                                    <option disabled selected value="">Select Client</option>
+                                    @if (Clients != null)
+                                    {
+                                        @foreach (var client in Clients)
+                                        {
+                                            <option>@client.Name</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row-cols-2">
+                                <select disabled="@(!HasReferrals)" class=" form-control form-select" id="referral-client-1">
+                                    <option disabled selected value="">Select Client</option>
+                                    @if (Clients != null)
+                                    {
+                                        @foreach (var client in Clients)
+                                        {
+                                            <option>@client.Name</option>
+                                        }
+                                    }
+                                </select>
+                                <select disabled="@(!HasReferrals)" class="form-control form-select mx-3" id="referral-client-2">
+                                    <option disabled selected value="">Select Client</option>
+                                    @if (Clients != null)
+                                    {
+                                        @foreach (var client in Clients)
+                                        {
+                                            <option>@client.Name</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div id="payment" class="col-6 mx-3">
+                    <div>
+                        <label class="col-3">Subtotal: </label>
+                        <input @bind="@Subtotal" type="number" class="form-control" id="subtotal" />
+                    </div>
+
+                    <div>
+                        <label class="col-3">GST: </label>
+                        <input @bind="@GST" class="form-control" />
+                    </div>
+
+                    <div>
+                        <label class="col-3">Total: </label>
+                        <input @bind="@Total" class="form-control" />
+                    </div>
+
+                    <div class="d-flex">
+                        <label class="col-3">Payment Method</label>
+                        <select class="form-control form-select w-50">
+                            <option selected value="">Select Payment Method</option>
+                            <option value="cash">Cash</option>
+                            <option value="credit">Credit Card</option>
+                        </select>
+                    </div>
+                    <div class="g-3 m-auto">
+                        <button class="btn btn-primary">Pay</button>
+                        <button class="btn btn-danger">Cancel</button>
                     </div>
                 </div>
 
-                <div class="row-cols-2">
-                    <label for="" class="form-label col-3">Referral Name(s):</label>
-                    @if(HasReferrals)
-                    {
-                        <div class="row-cols-2">
-                            <select class="form-control form-select" id="referral-client-1">
-                                <option disabled selected value="">Select Client</option>
-                                @if (Clients != null)
-                                {
-                                    @foreach (var client in Clients)
-                                    {
-                                        <option>@client.Name</option>
-                                    }
-                                }
-                            </select>
-                            <select class="form-control form-select mx-3" id="referral-client-2">
-                                <option disabled selected value="">Select Client</option>
-                                @if (Clients != null)
-                                {
-                                    @foreach (var client in Clients)
-                                    {
-                                        <option>@client.Name</option>
-                                    }
-                                }
-                            </select>
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="row-cols-2">
-                            <select disabled="@(!HasReferrals)" class=" form-control form-select" id="referral-client-1">
-                                <option disabled selected value="">Select Client</option>
-                                @if (Clients != null)
-                                {
-                                    @foreach (var client in Clients)
-                                    {
-                                        <option>@client.Name</option>
-                                    }
-                                }
-                            </select>
-                            <select disabled="@(!HasReferrals)" class="form-control form-select mx-3" id="referral-client-2">
-                                <option disabled selected value="">Select Client</option>
-                                @if (Clients != null)
-                                {
-                                    @foreach (var client in Clients)
-                                    {
-                                        <option>@client.Name</option>
-                                    }
-                                }
-                            </select>
-                        </div>
-                        
-                    }
-                </div>
             </div>
-
         </fieldset>
        
     </section>

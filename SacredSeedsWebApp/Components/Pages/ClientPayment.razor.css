@@ -103,16 +103,25 @@ table input {
     margin-top: 0;
 }
 
-#payment-details div {
+#purchase div {
     margin-bottom: .5rem;
     display: flex;
 }
 
-#payment-details select {
+#purchase select {
     max-width: 70%;
 }
 
 #package-usage-date {
     max-width: 50%;
+}
+
+#payment div {
+    display: flex;
+}
+
+
+#section-three {
+    padding: 5px;
 }
 
