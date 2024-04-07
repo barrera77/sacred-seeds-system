@@ -15,14 +15,22 @@ thead {
     color: white;
 }
 
-td {
+td, th {
     cursor: pointer;
+    text-align: center;
 }
+
 
 table tr:hover {
     background-color: black;
     color: white;
 }
+
+table tr:hover #edit-contract, #contact-renter {
+    background-color: white;
+    color: black;
+}
+
 
 .container {
     margin-top: 2rem;
@@ -38,8 +46,7 @@ table tr:hover {
     font-weight: bold;
 }
 
-
-#section-one, #section-two {
+#section-one, #section-two, #section-three, #section-four {
     padding-bottom: 2.5rem;
     border-bottom: dotted 1px;
 }
@@ -69,9 +76,36 @@ table tr:hover {
     display: flex;    
 }
 
-#new-contract-buttons-menu {
+#new-contract-buttons-menu, #contact-buttons-menu {
     max-width: 40%;
     display: flex;
     justify-content: space-between;
-    margin-top: 2rem;
+    margin: auto;
+   
 }
+
+#edit-contract a, #contact-renter a {
+    color: black;
+    text-decoration: none;
+    font-weight: 100;
+}
+
+#edit-contract a:hover {
+    text-decoration: underline;
+}
+#contact-renter a:hover {
+    text-decoration: underline;
+}
+
+
+#contract-number, #renter-name, #email, #phone {
+    max-width: 70%;
+    margin-bottom: 1rem;
+}
+
+#message, #notes {
+    max-width: 80%;
+    margin-bottom: 1rem;
+}
+
+

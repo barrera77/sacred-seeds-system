@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Http;
 using SacredSeedsSystem;
+using System.Diagnostics.Contracts;
+using System.Net.Mail;
 
 namespace SacredSeedsWebApp.Components.Pages
 {
@@ -8,6 +10,7 @@ namespace SacredSeedsWebApp.Components.Pages
     {        
         private bool IsHidden { get; set; }
         public List<RentalData> RentalContracts { get; set; }
+        private List<RentalData> SearchContracts { get; set; }
         public RentalData RentalContract { get; set; }
         public string RenterName { get; set; }
         public string RenterAddress {  get; set; }
@@ -19,7 +22,11 @@ namespace SacredSeedsWebApp.Components.Pages
         public bool IsActive { get; set; }
 
         private string feedback {  get; set; }
-        
+        private string SearchCriteria { get; set; } = "";
+        private string RenterEmail { get; set; } = "";
+        private string EmailBody { get; set; } = "";
+
+
 
         [Inject]
         public IWebHostEnvironment WebHostEnvironment { get; set; } = default!;
@@ -27,8 +34,7 @@ namespace SacredSeedsWebApp.Components.Pages
         protected override Task OnInitializedAsync()
         {
             
-            IsHidden = true;
-            ReadContractsFile();
+            IsHidden = true;            
             return base.OnInitializedAsync();
         }
 
@@ -69,12 +75,112 @@ namespace SacredSeedsWebApp.Components.Pages
 
         }
 
-        private void OnHandleAddNewContract()
+        private async Task HandleSearch(ChangeEventArgs e)
+        {
+            ReadContractsFile();
+
+            SearchCriteria = Convert.ToString(e.Value);
+
+            switch (SearchCriteria)
+            {
+                case "all":
+                    if (SearchContracts == null)
+                    {
+                        SearchContracts = new();
+                    }
+                    else
+                    {
+                        SearchContracts.Clear();
+                    }
+
+                    foreach (var contract in RentalContracts)
+                    {
+                        SearchContracts.Add(contract);                        
+                    }
+                    await InvokeAsync(StateHasChanged);
+                    break;
+
+                case "active":
+                    if (SearchContracts == null)
+                    {
+                        SearchContracts = new();
+                    }
+                    else
+                    {
+                        SearchContracts.Clear();
+                    }
+                    foreach (var contract in RentalContracts)
+                    {
+                        if (contract.IsActive.ToLower() == "active")
+                        {
+                            SearchContracts.Add(contract);
+                        }
+                    }
+                    await InvokeAsync(StateHasChanged);
+                    break;
+                case "pending":
+                    if (SearchContracts == null)
+                    {
+                        SearchContracts = new();
+                    }
+                    else
+                    {
+                        SearchContracts.Clear();
+                    }
+                    foreach (var contract in RentalContracts)
+                    {
+                        if (contract.IsActive.ToLower() == "pending")
+                        {
+                            SearchContracts.Add(contract);
+                        }
+                    }
+                    await InvokeAsync(StateHasChanged);
+                    break;
+                case "expired":
+                        if (SearchContracts == null)
+                    {
+                        SearchContracts = new();
+                    }
+                    else
+                    {
+                        SearchContracts.Clear();
+                    }
+                    foreach (var contract in RentalContracts)
+                    {
+                        if (contract.IsActive.ToLower() == "expired")
+                        {
+                            SearchContracts.Add(contract);
+                        }
+                    }
+                    await InvokeAsync(StateHasChanged);
+                    break;
+                default:
+                    SearchContracts.Clear();
+                    break;
+            }
+        }
+
+        private void HandleEditContract()
+        {
+
+        }
+
+        private void HandleContactRenter()
+        {
+
+        }
+
+        private void HandleCreateReport()
+        {
+
+        }
+
+        private void HandleAddNewContract()
         {
             IsHidden = false;
         }
 
-        private void OnHandleCancelNewContract()
+        private void HandleCancelAction()
         {
             ClearFields();
             IsHidden = true;
@@ -86,6 +192,33 @@ namespace SacredSeedsWebApp.Components.Pages
             RenterAddress = "";
             PhoneNumber = "";
             Rate = 0;   
+        }
+
+        private async Task SendEmail(string renterEmail, string emailBody)
+        {
+            try
+            {
+                using (MailMessage emailMessage = new MailMessage())
+                {
+                    emailMessage.From = new MailAddress("sacred.seeds@outlook.com");
+                    emailMessage.To.Add(renterEmail);
+                    emailMessage.Subject = "Contract Expiration Reminder";
+                    emailMessage.Body = $"<p>{emailBody}<p>";
+                    emailMessage.IsBodyHtml = true;
+
+                    using (SmtpClient smpt = new SmtpClient("smtp.office365.com"))
+                    {
+                        smpt.Credentials = new System.Net.NetworkCredential("sacred.seeds@outlook.com", "anap1525");
+                        smpt.EnableSsl = true;
+                        smpt.Send(emailMessage);
+                        feedback = "Mail Sent";
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                feedback = e.Message;
+            }
         }
 
 

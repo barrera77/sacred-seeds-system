@@ -16,21 +16,20 @@
             <legend>Rental Contracts</legend>
             <div id="contract-search">
                 <div id="contract-search">
-                    <select class="form-select" id="search-criteria">
+                    <select class="form-select" id="search-criteria" value="@SearchCriteria" @onchange="HandleSearch">
                         <option selected value="">Search Criteria</option>
-                        <option value="">All Contracts</option>
-                        <option value="">Active Contracts</option>
-                        <option value="">Pending Contracts</option>
+                        <option value="all">All Contracts</option>
+                        <option value="active">Active Contracts</option>
+                        <option value="pending">Pending Contracts</option>
+                        <option value="expired">Expired Contracts</option>
                     </select>
                 </div>
-
                 <div>
-                    <button class="btn btn-primary">Search</button>
+                    <button class="btn btn-primary" @onclick="HandleAddNewContract">New Contract</button>
                 </div>
-
                 <div>
-                    <button class="btn btn-info" @onclick="OnHandleAddNewContract">New Contract</button>
-                </div>
+                    <button class="btn btn-info">Reports</button>
+                </div>                
             </div>
 
              <div id="results" class="">
@@ -39,24 +38,34 @@
                           <table id="search-client-results" class="table table-striped">
                               <thead>
                                   <tr>
-                                      <th>Contract Number</th>
+                                      <th colspan="2">Action</th>
+                                      <th>Contract<br />Number</th>
                                       <th>Status</th>
                                       <th>Expiry Date</th>
-                                      <th>Days Remaining</th>
+                                      <th>Days<br />Remaining</th>
                                       <th>Notes</th>
                                   </tr>
                               </thead>
                               <tbody>
-                               @if (RentalContracts != null)
+                               @if (SearchContracts != null)
                                 {
-                                    @foreach (var contract in RentalContracts)
+                                    @foreach (var contract in SearchContracts)
                                     {
                                         <tr>
+                                            <td id="edit-contract"><a id="edit" class="">Edit</a></td>
+                                            <td id="contact-renter"><a id="contact" class="">Contact</a></td>
                                             <td>@contract.ContractNumber</td>
                                             <td>@contract.IsActive</td>
                                             <td>@contract.EndDate</td>
-                                            <td>@contract.DaysRemaining</td>
-                                            <td>@contract.Notes</td>
+                                            @if (contract.DaysRemaining <= 30 && contract.IsActive != "pending")
+                                            {
+                                                <td class="text-danger">@contract.DaysRemaining</td>
+                                            }
+                                            else
+                                            {
+                                                <td>@contract.DaysRemaining</td>
+                                            }
+                                            <td class="text-start">@contract.Notes</td>
                                         </tr>                                        
                                     }
                                 }                             
@@ -136,11 +145,97 @@
                     <button class="btn btn-info" @onclick="ClearFields">Clear</button>
                 </div>
                 <div>
-                    <button class="btn btn-danger" @onclick="OnHandleCancelNewContract">Cancel</button>
+                    <button class="btn btn-danger" @onclick="HandleCancelAction">Cancel</button>
                 </div>
              </div>
          </fieldset>
      </section>
+    <!--End section-two-->
 
+    <section id="section-three">
+        <fieldset>
+            <legend class="mb-4">Contact Renter</legend>
+            <div class="d-flex">
+               <div class="col-5">
+                    <div class="d-flex">
+                        <label for="contract-number" class="col-3">Contract Number:</label>
+                        <input class="form-control w-100" disabled id="contract-number" />
+                    </div>
+                    <div class="d-flex">
+                        <label for="renter-name" class="col-3">Renter Name:</label>
+                        <input class="form-control" disabled id="renter-name" />
+                    </div>
+                    <div class="d-flex">
+                        <label for="email" class="col-3">Email:</label>
+                        <input class="form-control" type="email" id="email" @bind="RenterEmail" />
+                    </div>
+                    <div class="d-flex">
+                        <label for="phone" class="col-3">Phone Number:</label>
+                        <input class="form-control" disabled id="phone" />
+                    </div>
+               </div>
+               <div class="col-7">
+                    <div class="d-flex">
+                        <label for="message" class="col-2">Message:</label>
+                        <textarea class="form-control" rows="3" id="message" @bind="EmailBody"/>
+                    </div>
+                    <div class="d-flex">
+                        <label for="notes" class="col-2">Notes:</label>
+                        <textarea class="form-control" rows="3" id="notes" />
+                    </div>
+               </div>
+                
+            </div>
+            <div id="contact-buttons-menu" class="mt-3">
+                <div>
+                    <button class="btn btn-primary" @onclick="@(() => SendEmail(RenterEmail, EmailBody))">Contact</button>
+                </div>
+                <div>
+                    <button class="btn btn-info" @onclick="ClearFields">Clear</button>
+                </div>
+                <div>
+                    <button class="btn btn-danger" @onclick="HandleCancelAction">Cancel</button>
+                </div>
+            </div>
+        </fieldset>
+
+    </section>
+    <!--End section-three-->
+
+    <section id="section-four">
+        <fieldset>
+            <legend>Edit Contract</legend>
+            <div id=""></div>
+            <div id="new-contract-buttons-menu" class="m-auto">
+                <div>
+                    <button class="btn btn-primary">Save Changes</button>
+                </div>
+                <div>
+                    <button class="btn btn-info" @onclick="ClearFields">Clear</button>
+                </div>
+                <div>
+                    <button class="btn btn-danger" @onclick="HandleCancelAction">Cancel</button>
+                </div>
+            </div>
+        </fieldset>
+    </section>
+    <!--End section-four-->
+    <section id="section-five">
+        <fieldset>
+            <legend>Create Report</legend>
+            <div></div>
+            <div id="new-contract-buttons-menu" class="m-auto">
+                <div>
+                    <button class="btn btn-primary">Create Report</button>
+                </div>
+                <div>
+                    <button class="btn btn-info" @onclick="ClearFields">Clear</button>
+                </div>
+                <div>
+                    <button class="btn btn-danger" @onclick="HandleCancelAction">Cancel</button>
+                </div>
+            </div>
+        </fieldset>
+    </section>
 </div>
 
