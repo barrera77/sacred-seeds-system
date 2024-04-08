@@ -8,7 +8,8 @@ namespace SacredSeedsWebApp.Components.Pages
 {
     public partial class RentalContractManagement
     {        
-        private bool IsHidden { get; set; }
+        private bool SectionTwoIsHidden { get; set; }
+        private bool SectionThreeIsHidden { get; set; }
         public List<RentalData> RentalContracts { get; set; }
         private List<RentalData> SearchContracts { get; set; }
         public RentalData RentalContract { get; set; }
@@ -33,8 +34,9 @@ namespace SacredSeedsWebApp.Components.Pages
 
         protected override Task OnInitializedAsync()
         {
-            
-            IsHidden = true;            
+
+            SectionTwoIsHidden = true;
+            SectionThreeIsHidden = true;
             return base.OnInitializedAsync();
         }
 
@@ -160,6 +162,17 @@ namespace SacredSeedsWebApp.Components.Pages
             }
         }
 
+        private void HandleSelectedContract(string? contractNumber)
+        {
+            SectionThreeIsHidden = false;           
+
+            if (!string.IsNullOrWhiteSpace(contractNumber))
+            {
+                RentalContract = SearchContracts.FirstOrDefault(c => c.ContractNumber == contractNumber);
+            }
+        }
+
+
         private void HandleEditContract()
         {
 
@@ -177,13 +190,12 @@ namespace SacredSeedsWebApp.Components.Pages
 
         private void HandleAddNewContract()
         {
-            IsHidden = false;
         }
 
-        private void HandleCancelAction()
+        private bool HandleCancelAction()
         {
             ClearFields();
-            IsHidden = true;
+            return true;
         }
 
         private void ClearFields()

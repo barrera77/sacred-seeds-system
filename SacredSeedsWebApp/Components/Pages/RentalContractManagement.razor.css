@@ -30,6 +30,9 @@ table tr:hover #edit-contract, #contact-renter {
     background-color: white;
     color: black;
 }
+label {
+    align-content: center;
+}
 
 
 .container {
@@ -71,11 +74,6 @@ table tr:hover #edit-contract, #contact-renter {
     max-height: 500px;
 }
 
-#new-contract div {
-    margin-bottom: .8rem;
-    display: flex;    
-}
-
 #new-contract-buttons-menu, #contact-buttons-menu {
     max-width: 40%;
     display: flex;
@@ -97,9 +95,8 @@ table tr:hover #edit-contract, #contact-renter {
     text-decoration: underline;
 }
 
-
-#contract-number, #renter-name, #email, #phone {
-    max-width: 70%;
+.rental-data-input {
+    max-width: 65%;
     margin-bottom: 1rem;
 }
 

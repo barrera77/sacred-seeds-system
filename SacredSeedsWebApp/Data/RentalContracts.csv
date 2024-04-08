@@ -28,6 +28,6 @@
 28,024-0028,Elton John,1234 Jasper Avenue NW Edmonton AB T5J 1Y5,(780) 555-1234,120,9/20/2023,12/19/2023,0,Expired,true,Notified client about expired contract and offered renewal solutions
 29,024-0029,Michael Jackson,7306 132 Avenue NW Edmonton AB T5C 2H1,(780) 555-7306,110,8/5/2023,11/3/2023,0,Expired,true,Followed up with client to ensure timely renewal action
 30,024-0030,Freddie Mercury,3690 118 Avenue NW Edmonton AB T5W 0Z2,(780) 555-3690,95,6/18/2023,9/16/2023,0,Expired,true,Assisted client in gathering necessary paperwork for contract renewal
-31,024-0000,Claudia Doe,5678 Example Avenue NW Edmonton AB T2B 2B2,(234) 567-8901,80,4/16/2024,5/16/2024,30,pending,false,Client verification pending
-32,024-0000,Alice In Chains,9101 Sample Street NW Edmonton AB T3C 3C3,(345) 678-9012,80,4/17/2024,5/17/2024,29,pending,false,Contract signature pending
-33,024-0000,Rob Zombie,123 Main Street NW Edmonton AB T4D 4D4,(456) 789-0123,80,4/18/2024,5/18/2024,28,pending,false,Client verification pending
+31,024-0031,Claudia Doe,5678 Example Avenue NW Edmonton AB T2B 2B2,(234) 567-8901,80,4/16/2024,5/16/2024,30,pending,false,Client verification pending
+32,024-0032,Alice In Chains,9101 Sample Street NW Edmonton AB T3C 3C3,(345) 678-9012,80,4/17/2024,5/17/2024,29,pending,false,Contract signature pending
+33,024-0033,Rob Zombie,123 Main Street NW Edmonton AB T4D 4D4,(456) 789-0123,80,4/18/2024,5/18/2024,28,pending,false,Client verification pending

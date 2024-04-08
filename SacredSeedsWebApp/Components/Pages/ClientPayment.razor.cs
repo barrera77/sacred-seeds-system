@@ -205,7 +205,6 @@ namespace SacredSeedsWebApp.Components.Pages
                         AlertClass = "alert alert-danger";
                     }                   
                 }
-
             }
         }
 
@@ -214,9 +213,7 @@ namespace SacredSeedsWebApp.Components.Pages
             if (!PurchasePackage)
             {
                 Subtotal = 25 * (Quantity); 
-            }
-           
-           
+            }    
         }
     }
 }

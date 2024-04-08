@@ -51,7 +51,7 @@
                                 {
                                     @foreach (var contract in SearchContracts)
                                     {
-                                        <tr>
+                                        <tr @onclick="() => HandleSelectedContract(contract.ContractNumber)">
                                             <td id="edit-contract"><a id="edit" class="">Edit</a></td>
                                             <td id="contact-renter"><a id="contact" class="">Contact</a></td>
                                             <td>@contract.ContractNumber</td>
@@ -77,7 +77,7 @@
         </fieldset>
     </section>
     <!--End section-one-->
-     <section id="section-two" hidden="@IsHidden" class="">
+    <section id="section-two" hidden="@SectionTwoIsHidden" class="">
          <fieldset>
              <legend>New Contract</legend>
              <div id="new-contract" class="w-100">
@@ -145,46 +145,49 @@
                     <button class="btn btn-info" @onclick="ClearFields">Clear</button>
                 </div>
                 <div>
-                    <button class="btn btn-danger" @onclick="HandleCancelAction">Cancel</button>
+                    <button class="btn btn-danger" @onclick="() => SectionTwoIsHidden = HandleCancelAction()">Cancel</button>
                 </div>
              </div>
          </fieldset>
      </section>
     <!--End section-two-->
 
-    <section id="section-three">
+    <section id="section-three" hidden="@SectionThreeIsHidden">
         <fieldset>
             <legend class="mb-4">Contact Renter</legend>
             <div class="d-flex">
-               <div class="col-5">
-                    <div class="d-flex">
-                        <label for="contract-number" class="col-3">Contract Number:</label>
-                        <input class="form-control w-100" disabled id="contract-number" />
+                @if (RentalContract != null)
+                {
+                    <div class="col-5">
+                        <div class="d-flex">
+                            <label for="contract-number" class="col-3">Contract Number:</label>
+                            <input class="form-control w-100" disabled id="contract-number" @bind="RentalContract.ContractNumber" />
+                        </div>
+                        <div class="d-flex">
+                            <label for="renter-name" class="col-3">Renter Name:</label>
+                            <input class="form-control" disabled id="renter-name" @bind="RentalContract.RenterName" />
+                        </div>
+                        <div class="d-flex">
+                            <label for="email" class="col-3">Email:</label>
+                            <input class="form-control" type="email" id="email" @bind="RenterEmail" />
+                        </div>
+                        <div class="d-flex">
+                            <label for="phone" class="col-3">Phone Number:</label>
+                            <input class="form-control" disabled id="phone" @bind="RentalContract.PhoneNumber" />
+                        </div>
                     </div>
-                    <div class="d-flex">
-                        <label for="renter-name" class="col-3">Renter Name:</label>
-                        <input class="form-control" disabled id="renter-name" />
+                    <div class="col-7">
+                        <div class="d-flex">
+                            <label for="message" class="col-2">Message:</label>
+                            <textarea class="form-control" rows="3" id="message" @bind="EmailBody" />
+                        </div>
+                        <div class="d-flex">
+                            <label for="notes" class="col-2">Notes:</label>
+                            <textarea class="form-control" rows="3" id="notes" @bind="RentalContract.Notes" />
+                        </div>
                     </div>
-                    <div class="d-flex">
-                        <label for="email" class="col-3">Email:</label>
-                        <input class="form-control" type="email" id="email" @bind="RenterEmail" />
-                    </div>
-                    <div class="d-flex">
-                        <label for="phone" class="col-3">Phone Number:</label>
-                        <input class="form-control" disabled id="phone" />
-                    </div>
-               </div>
-               <div class="col-7">
-                    <div class="d-flex">
-                        <label for="message" class="col-2">Message:</label>
-                        <textarea class="form-control" rows="3" id="message" @bind="EmailBody"/>
-                    </div>
-                    <div class="d-flex">
-                        <label for="notes" class="col-2">Notes:</label>
-                        <textarea class="form-control" rows="3" id="notes" />
-                    </div>
-               </div>
-                
+
+                }     
             </div>
             <div id="contact-buttons-menu" class="mt-3">
                 <div>
@@ -194,7 +197,7 @@
                     <button class="btn btn-info" @onclick="ClearFields">Clear</button>
                 </div>
                 <div>
-                    <button class="btn btn-danger" @onclick="HandleCancelAction">Cancel</button>
+                    <button class="btn btn-danger" @onclick="() => SectionThreeIsHidden = HandleCancelAction()">Cancel</button>
                 </div>
             </div>
         </fieldset>
@@ -214,7 +217,7 @@
                     <button class="btn btn-info" @onclick="ClearFields">Clear</button>
                 </div>
                 <div>
-                    <button class="btn btn-danger" @onclick="HandleCancelAction">Cancel</button>
+                    <button class="btn btn-danger" >Cancel</button>
                 </div>
             </div>
         </fieldset>
@@ -232,7 +235,7 @@
                     <button class="btn btn-info" @onclick="ClearFields">Clear</button>
                 </div>
                 <div>
-                    <button class="btn btn-danger" @onclick="HandleCancelAction">Cancel</button>
+                    <button class="btn btn-danger" >Cancel</button>
                 </div>
             </div>
         </fieldset>
