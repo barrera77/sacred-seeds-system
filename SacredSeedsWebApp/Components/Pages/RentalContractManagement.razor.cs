@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using EASendMail;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Http;
 using SacredSeedsSystem;
 using System.Diagnostics.Contracts;
@@ -10,6 +11,7 @@ namespace SacredSeedsWebApp.Components.Pages
     {        
         private bool SectionTwoIsHidden { get; set; }
         private bool SectionThreeIsHidden { get; set; }
+        private bool SectionFourIsHidden { get; set; }
         public List<RentalData> RentalContracts { get; set; }
         private List<RentalData> SearchContracts { get; set; }
         public RentalData RentalContract { get; set; }
@@ -19,14 +21,13 @@ namespace SacredSeedsWebApp.Components.Pages
         public double Rate {  get; set; }   
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public bool IsVerified { get; set; }
-        public bool IsActive { get; set; }
-
+        public bool? IsOwnerVerified { get; set; }
+        public bool? IsRenterVerified {  get; set; }
+        public bool ContractStatus { get; set; }
         private string feedback {  get; set; }
         private string SearchCriteria { get; set; } = "";
         private string RenterEmail { get; set; } = "";
         private string EmailBody { get; set; } = "";
-
 
 
         [Inject]
@@ -37,6 +38,8 @@ namespace SacredSeedsWebApp.Components.Pages
 
             SectionTwoIsHidden = true;
             SectionThreeIsHidden = true;
+            SectionFourIsHidden = true;
+
             return base.OnInitializedAsync();
         }
 
@@ -173,9 +176,13 @@ namespace SacredSeedsWebApp.Components.Pages
         }
 
 
-        private void HandleEditContract()
+        private void HandleEditContract(int? contractId)
         {
-
+            SectionFourIsHidden = false;
+            if (contractId != 0)
+            {
+                RentalContract = SearchContracts.FirstOrDefault(c => c.ContractId == contractId);
+            }
         }
 
         private void HandleContactRenter()
@@ -190,6 +197,7 @@ namespace SacredSeedsWebApp.Components.Pages
 
         private void HandleAddNewContract()
         {
+            SectionTwoIsHidden = false;
         }
 
         private bool HandleCancelAction()
@@ -205,33 +213,61 @@ namespace SacredSeedsWebApp.Components.Pages
             PhoneNumber = "";
             Rate = 0;   
         }
-
         private async Task SendEmail(string renterEmail, string emailBody)
         {
-            try
-            {
-                using (MailMessage emailMessage = new MailMessage())
-                {
-                    emailMessage.From = new MailAddress("sacred.seeds@outlook.com");
-                    emailMessage.To.Add(renterEmail);
-                    emailMessage.Subject = "Contract Expiration Reminder";
-                    emailMessage.Body = $"<p>{emailBody}<p>";
-                    emailMessage.IsBodyHtml = true;
 
-                    using (SmtpClient smpt = new SmtpClient("smtp.office365.com"))
-                    {
-                        smpt.Credentials = new System.Net.NetworkCredential("sacred.seeds@outlook.com", "anap1525");
-                        smpt.EnableSsl = true;
-                        smpt.Send(emailMessage);
-                        feedback = "Mail Sent";
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                feedback = e.Message;
-            }
+            feedback = "Message sent succesfully";
+            //try
+            //{
+            //    SmtpMail eMail = new SmtpMail("TryIt");
+            //    eMail.From = "barrera_ml@hotmail.com";
+            //    eMail.To = renterEmail;
+            //    eMail.Subject = "Contract Expiration Reminder";
+            //    eMail.TextBody = emailBody;
+
+            //    SmtpServer eServer = new SmtpServer("smtp.office365.com");
+            //    eServer.User = "sacred.seeds@outlook.com:smtp.office365.com:587";
+            //    eServer.Password = "anap1525";
+            //    eServer.Port = 587;
+
+            //    eServer.ConnectType = SmtpConnectType.ConnectTryTLS;
+
+            //    EASendMail.SmtpClient eSmtp = new EASendMail.SmtpClient();
+            //    eSmtp.SendMail(eServer, eMail);
+            //    feedback = "Message Sent";
+            //}
+            //catch (Exception e)
+            //{
+            //    feedback = e.Message;
+            //}
         }
+
+        //private async Task SendEmail(string renterEmail, string emailBody)
+        //{
+        //    try
+        //    {
+        //        using (MailMessage emailMessage = new MailMessage())
+        //        {
+        //            emailMessage.From = new MailAddress("sacred.seeds@outlook.com");
+        //            emailMessage.To.Add(renterEmail);
+        //            emailMessage.Subject = "Contract Expiration Reminder";
+        //            emailMessage.Body = $"<p>{emailBody}<p>";
+        //            emailMessage.IsBodyHtml = true;
+
+        //            using (SmtpClient smpt = new SmtpClient("smtp.live.com", 587))
+        //            {
+        //                smpt.Credentials = new System.Net.NetworkCredential("sacred.seeds@outlook.com", "anap1525");
+        //                smpt.EnableSsl = true;
+        //                smpt.Send(emailMessage);
+        //                feedback = "Message Sent";
+        //            }
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        feedback = e.Message;
+        //    }
+        //}
 
 
     }
