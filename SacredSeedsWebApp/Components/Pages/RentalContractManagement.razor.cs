@@ -12,12 +12,18 @@ namespace SacredSeedsWebApp.Components.Pages
         private bool SectionTwoIsHidden { get; set; }
         private bool SectionThreeIsHidden { get; set; }
         private bool SectionFourIsHidden { get; set; }
+        private bool SectionFiveIsHidden { get; set; }
         public List<RentalData> RentalContracts { get; set; }
         private List<RentalData> SearchContracts { get; set; }
         public RentalData RentalContract { get; set; }
+        public string ContractNumber { get; set; }
         public string RenterName { get; set; }
         public string RenterAddress {  get; set; }
+        public string PostalCode { get; set; }
         public string PhoneNumber {  get; set; }
+        public string RenterEmail { get; set; }
+        public string Notes { get; set; }
+
         public double Rate {  get; set; }   
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
@@ -26,7 +32,7 @@ namespace SacredSeedsWebApp.Components.Pages
         public bool ContractStatus { get; set; }
         private string feedback {  get; set; }
         private string SearchCriteria { get; set; } = "";
-        private string RenterEmail { get; set; } = "";
+        //private string RenterEmail { get; set; } = "";
         private string EmailBody { get; set; } = "";
 
 
@@ -39,6 +45,15 @@ namespace SacredSeedsWebApp.Components.Pages
             SectionTwoIsHidden = true;
             SectionThreeIsHidden = true;
             SectionFourIsHidden = true;
+            SectionFiveIsHidden = true;
+
+            ContractNumber = "024-0034";
+            RenterName = "Chi-Chi Peralta";
+            RenterAddress = "6914 177 Street NW";
+            PostalCode = "T5N 1N3";
+            PhoneNumber = "(306) 225-4589";
+            RenterEmail = "chi.chi.peralta@example.com";
+            Notes = "Renter verification needed. Renter contacted 05-Apr-24";    
 
             return base.OnInitializedAsync();
         }
@@ -116,7 +131,7 @@ namespace SacredSeedsWebApp.Components.Pages
                     }
                     foreach (var contract in RentalContracts)
                     {
-                        if (contract.IsActive.ToLower() == "active")
+                        if (contract.ContractStatus.ToLower() == "active")
                         {
                             SearchContracts.Add(contract);
                         }
@@ -134,7 +149,7 @@ namespace SacredSeedsWebApp.Components.Pages
                     }
                     foreach (var contract in RentalContracts)
                     {
-                        if (contract.IsActive.ToLower() == "pending")
+                        if (contract.ContractStatus.ToLower() == "pending")
                         {
                             SearchContracts.Add(contract);
                         }
@@ -152,7 +167,7 @@ namespace SacredSeedsWebApp.Components.Pages
                     }
                     foreach (var contract in RentalContracts)
                     {
-                        if (contract.IsActive.ToLower() == "expired")
+                        if (contract.ContractStatus.ToLower() == "expired")
                         {
                             SearchContracts.Add(contract);
                         }
@@ -167,7 +182,10 @@ namespace SacredSeedsWebApp.Components.Pages
 
         private void HandleSelectedContract(string? contractNumber)
         {
-            SectionThreeIsHidden = false;           
+            SectionTwoIsHidden = true;
+            SectionThreeIsHidden = false;
+            SectionFourIsHidden = true;
+            SectionFiveIsHidden = true;
 
             if (!string.IsNullOrWhiteSpace(contractNumber))
             {
@@ -178,27 +196,59 @@ namespace SacredSeedsWebApp.Components.Pages
 
         private void HandleEditContract(int? contractId)
         {
+            SectionTwoIsHidden = true;
+            SectionThreeIsHidden = true;
             SectionFourIsHidden = false;
+
+            SectionFiveIsHidden = true;
+
             if (contractId != 0)
             {
-                RentalContract = SearchContracts.FirstOrDefault(c => c.ContractId == contractId);
+                RentalContract = SearchContracts.FirstOrDefault(c => c.ContractId == contractId);                
             }
         }
 
-        private void HandleContactRenter()
+        private void HandleSaveChanges()
         {
-
+            feedback = "Changes saved succesfully";
+            RentalContract = null;
+            SectionThreeIsHidden = false;
         }
-
+      
         private void HandleCreateReport()
         {
+            feedback = "Report Created Succesfully";
 
         }
 
         private void HandleAddNewContract()
         {
             SectionTwoIsHidden = false;
+            SectionFiveIsHidden = true;
+            SectionFourIsHidden = true;
+            SectionThreeIsHidden = true;
         }
+        private void HandleAddNewContractExistingRenter(int? contractId)
+        {
+            SectionFiveIsHidden = false;
+            SectionFourIsHidden= true;
+            SectionThreeIsHidden = true;
+            SectionTwoIsHidden= true;
+
+            if (contractId != 0)
+            {
+                RentalContract = SearchContracts.FirstOrDefault(c => c.ContractId == contractId);
+            }
+        }
+
+        private void HandleSaveNewContract()
+        {
+            ClearFields();
+            RentalContract = null;
+            ContractNumber = "024-0035";
+            feedback = "Contract Saved";
+        }
+
 
         private bool HandleCancelAction()
         {
@@ -210,7 +260,10 @@ namespace SacredSeedsWebApp.Components.Pages
         {
             RenterName = "";
             RenterAddress = "";
+            PostalCode = "";
+            RenterEmail = "";
             PhoneNumber = "";
+            Notes = "";
             Rate = 0;   
         }
         private async Task SendEmail(string renterEmail, string emailBody)

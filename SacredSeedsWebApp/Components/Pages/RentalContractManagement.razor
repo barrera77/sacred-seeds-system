@@ -25,10 +25,10 @@
                     </select>
                 </div>
                 <div>
-                    <button class="btn btn-primary" @onclick="HandleAddNewContract">New Contract</button>
+                    <button id="new-contract-new-customer" class="btn btn-outline-secondary" @onclick="HandleAddNewContract">New Contract</button>
                 </div>
                 <div>
-                    <button class="btn btn-info">Reports</button>
+                    <button class="btn btn-outline-secondary">Reports</button>
                 </div>                
             </div>
 
@@ -38,7 +38,7 @@
                           <table id="search-client-results" class="table table-striped">
                               <thead>
                                   <tr>
-                                      <th colspan="2">Action</th>
+                                      <th colspan="3">Action</th>
                                       <th>Contract<br />Number</th>
                                       <th>Status</th>
                                       <th>Expiry Date</th>
@@ -54,10 +54,11 @@
                                         <tr>
                                             <td id="edit-contract"><a id="edit" class="" @onclick="() => HandleEditContract(contract.ContractId)" >Edit</a></td>
                                             <td id="contact-renter"><a id="contact" class="" @onclick="() => HandleSelectedContract(contract.ContractNumber)">Contact</a></td>
+                                            <td id="add-new-contract"><a @onclick="() => HandleAddNewContractExistingRenter(contract.ContractId)">New</a></td>
                                             <td>@contract.ContractNumber</td>
-                                            <td>@contract.IsActive</td>
-                                            <td>@contract.EndDate</td>
-                                            @if (contract.DaysRemaining <= 30 && contract.IsActive != "pending")
+                                            <td>@contract.ContractStatus</td>
+                                            <td>@contract.EndDate?.ToString("yyyy-mm-dd")</td>
+                                            @if (contract.DaysRemaining <= 30 && contract.ContractStatus != "pending")
                                             {
                                                 <td class="text-danger">@contract.DaysRemaining</td>
                                             }
@@ -66,7 +67,7 @@
                                                 <td>@contract.DaysRemaining</td>
                                             }
                                             <td class="text-start">@contract.Notes</td>
-                                        </tr>                                        
+                                        </tr>                                       
                                     }
                                 }                             
                               </tbody>
@@ -85,44 +86,55 @@
                 <div class="col-6">
                     <div class="d-flex">
                         <label for="contract-number" class="form-label col-3">Contract Number:</label>
-                        <input class="rental-data-input form-control" disabled id="contract-number" />
+                        <input class="rental-data-input form-control" disabled id="contract-number" @bind="ContractNumber"/>
                     </div>
                     <div class="d-flex">
                         <label for="renter-name" class="form-label col-3">Renter Name:</label>
-                        <input class="rental-data-input col-4 form-control" id="renter-name" />
+                        <input class="rental-data-input col-4 form-control" id="renter-name" @bind="RenterName" />
                     </div>
                     <div class="d-flex">
                         <label for="renter-address" class="form-label col-3">Address:</label>
-                        <input class="rental-data-input form-control" id="renter-address" />
+                        <input class="rental-data-input form-control" id="renter-address" @bind="RenterAddress"/>
                     </div>
-                    <div class="d-flex">
-                        <label for="province" class="form-label col-3">Province:</label>
-                        <select class="rental-data-input form-select" id="province">
-                            <option vlaue="">Select Province</option>
-                            <option vlaue="">AB</option>
-                            <option vlaue="">SK</option>
-                        </select>
-                    </div>
-
                     <div class="d-flex">
                         <label for="city" class="form-label col-3">City:</label>
                         <select class="rental-data-input form-select" id="city">
                             <option vlaue="">Select City</option>
-                            <option vlaue="">Edmonton</option>
-                            <option vlaue="">Calgary</option>
+                            <option vlaue="edmonton" selected>Edmonton</option>
+                            <option vlaue="calgary">Calgary</option>
                         </select>
+                    </div>
+                    <div class="d-flex row-cols-2">
+                        <div class="d-flex col-5">
+                            <label for="province" class="form-label col-4">Province:</label>
+                            <select class="rental-data-input form-select" id="province">
+                                <option vlaue="">Select Province</option>
+                                <option vlaue="AB" selected>AB</option>
+                                <option vlaue="SK">SK</option>
+                            </select>
+                        </div>
+
+                        <div class="d-flex">
+                            <label for="postal-code" class="form-label col-4 text-center">Postal Code:</label>
+                            <input class="rental-data-input form-control" id="postal-code" @bind="PostalCode"/>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <label for="phone" class="form-label col-3">Phone:</label>
+                        <input class="rental-data-input form-control" id="phone" @bind="PhoneNumber"/>
+                    </div>
+                    <div class="d-flex">
+                        <label for="email" class="form-label col-3">Email:</label>
+                        <input class="rental-data-input form-control" id="email" @bind="RenterEmail"/>
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="d-flex">
-                        <label for="phone" class="form-label col-3">Phone:</label>
-                        <input class="rental-data-input form-control" id="phone" />
-                    </div>
+                    
                     <div class="d-flex">
                         <label for="rate" class="form-label col-3">Rate:</label>
                         <select class="rental-data-input form-select" id="rate">
                             <option vlaue="0">Select rate</option>
-                            <option vlaue="80">80</option>
+                            <option vlaue="80" selected>$80</option>
                             <option vlaue="120">120</option>
                             <option vlaue="100">100</option>
                         </select>
@@ -136,34 +148,39 @@
                         <input class="rental-data-input form-control" type="date" id="end-date" />
                     </div>
                     <div class="d-flex">
-                        <div class="d-flex col-6">
-                            <label for="owner-verification" class="form-check-label col-5">Owner Verified:</label>
-                            <span>Yes</span><input class="form-check-input mx-3" name="owner-verification" type="radio" id="owner-verified" />
-                            <span>No</span><input class="form-check-input mx-3" name="owner-verification" type="radio" id="owner-not-verified" />
-                        </div>
-                        <div class="d-flex col-6">
-                            <label for="renter-verification" class="form-check-label col-5">Renter Verified:</label>
-                            <span>Yes</span><input class="form-check-input mx-3" name="renter-verification" type="radio" id="renter-verified" />
-                            <span>No</span><input class="form-check-input mx-3" name="renter-verification" type="radio" id="renter-not-verified" />
-                        </div>
+                        <label for="owner-verification" class="form-check-label col-3">Owner Verified:</label>
+                        <span>Yes</span><input class="form-check-input mx-3" name="owner-verification" type="radio" id="owner-verified" checked />
+                        <span>No</span><input class="form-check-input mx-3" name="owner-verification" type="radio" id="owner-not-verified" />
                     </div>
-                    <div class="d-flex mt-2">
+
+                    <div class="d-flex my-3">
+                        <label for="renter-verification" class="form-check-label col-3">Renter Verified:</label>
+                        <span>Yes</span><input class="form-check-input mx-3" name="renter-verification" type="radio" id="renter-verified" checked  />
+                        <span>No</span><input class="form-check-input mx-3" name="renter-verification" type="radio" id="renter-not-verified" checked />
+                    </div>
+
+
+                    <div class="d-flex my-3 ">
                         <label for="end-date" class="form-check-label col-3">Contract Status:</label>
                         <span>Active</span><input class="form-check-input mx-3" name="contract-status" type="radio" id="contract-active" />
-                        <span>Pending</span><input class="form-check-input mx-3" name="contract-status" type="radio" id="contract-pending" />
+                        <span>Pending</span><input class="form-check-input mx-3" name="contract-status" type="radio" id="contract-pending" checked/>
                         <span>Inactive</span><input class="form-check-input mx-3" name="contract-status" type="radio" id="contract-Inactive" />
+                    </div>
+                    <div class="d-flex">
+                        <label for="notes" class="col-2">Notes:</label>
+                        <textarea class="form-control" rows="3" id="notes" @bind="Notes"/>
                     </div>
                 </div>
             </div>
-            <div id="new-contract-buttons-menu" class="mt-3">
+            <div id="new-contract-buttons-menu" class="menu-buttons mt-3">
                 <div>
-                    <button class="btn btn-primary">Save</button>
+                    <button class="btn btn-outline-secondary" @onclick="HandleSaveNewContract">Save</button>
                 </div>
                 <div>
-                    <button class="btn btn-info" @onclick="ClearFields">Clear</button>
+                    <button class="btn btn-outline-secondary" @onclick="ClearFields">Clear</button>
                 </div>
                 <div>
-                    <button class="btn btn-danger" @onclick="() => SectionTwoIsHidden = HandleCancelAction()">Cancel</button>
+                    <button class="btn btn-outline-secondary" @onclick="() => SectionTwoIsHidden = HandleCancelAction()">Cancel</button>
                 </div>
              </div>
          </fieldset>
@@ -179,19 +196,19 @@
                     <div class="col-5">
                         <div class="d-flex">
                             <label for="contract-number" class="col-3">Contract Number:</label>
-                            <input class="form-control w-100" disabled id="contract-number" @bind="RentalContract.ContractNumber" />
+                            <input class="rental-data-input form-control w-100" disabled id="contract-number" @bind="RentalContract.ContractNumber" />
                         </div>
                         <div class="d-flex">
                             <label for="renter-name" class="col-3">Renter Name:</label>
-                            <input class="form-control" disabled id="renter-name" @bind="RentalContract.RenterName" />
+                            <input class="rental-data-input form-control" disabled id="renter-name" @bind="RentalContract.RenterName" />
                         </div>
                         <div class="d-flex">
                             <label for="email" class="col-3">Email:</label>
-                            <input class="form-control" type="email" id="email" @bind="RenterEmail" />
+                            <input class="rental-data-input form-control" type="email" id="email" @bind="RentalContract.RenterEmail" />
                         </div>
                         <div class="d-flex">
                             <label for="phone" class="col-3">Phone Number:</label>
-                            <input class="form-control" disabled id="phone" @bind="RentalContract.PhoneNumber" />
+                            <input class="rental-data-input form-control" disabled id="phone" @bind="RentalContract.PhoneNumber" />
                         </div>
                     </div>
                     <div class="col-7">
@@ -207,15 +224,15 @@
 
                 }     
             </div>
-            <div id="contact-buttons-menu" class="mt-3">
+            <div id="contact-buttons-menu" class="menu-buttons mt-3">
                 <div>
-                    <button class="btn btn-primary" @onclick="@(() => SendEmail(RenterEmail, EmailBody))">Send Message</button>
+                    <button class="btn btn-outline-secondary" @onclick="@(() => SendEmail(RentalContract.RenterEmail, EmailBody))">Send Message</button>
                 </div>
                 <div>
-                    <button class="btn btn-info" @onclick="ClearFields">Clear</button>
+                    <button class="btn btn-outline-secondary" @onclick="ClearFields">Clear</button>
                 </div>
                 <div>
-                    <button class="btn btn-danger" @onclick="() => SectionThreeIsHidden = HandleCancelAction()">Cancel</button>
+                    <button class="btn btn-outline-secondary" @onclick="() => SectionThreeIsHidden = HandleCancelAction()">Cancel</button>
                 </div>
             </div>
         </fieldset>
@@ -243,35 +260,46 @@
                             <input class="rental-data-input form-control" id="renter-address" @bind="RentalContract.RenterAddress"/>
                         </div>
                         <div class="d-flex">
-                            <label for="province" class="form-label col-3">Province:</label>
-                            <select class="rental-data-input form-select" id="province">
-                                <option vlaue="">Select Province</option>
-                                <option vlaue="">AB</option>
-                                <option vlaue="">SK</option>
-                            </select>
-                        </div>
-
-                        <div class="d-flex">
                             <label for="city" class="form-label col-3">City:</label>
                             <select class="rental-data-input form-select" id="city">
                                 <option vlaue="">Select City</option>
-                                <option vlaue="">Edmonton</option>
+                                <option vlaue="@RentalContract.City" selected>@RentalContract.City</option>
                                 <option vlaue="">Calgary</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="col-6">
+                        <div class ="d-flex row-cols-2">
+                            <div class="d-flex col-5">
+                                <label for="province" class="form-label col-4">Province:</label>
+                                <select class="rental-data-input form-select" id="province">
+                                    <option vlaue="">Select Province</option>
+                                    <option vlaue="@RentalContract.Province" selected>@RentalContract.Province</option>
+                                    <option vlaue="">SK</option>
+                                </select>
+                            </div>
+
+                            <div class="d-flex">
+                                <label for="postal-code" class="form-label col-4 text-center">Postal Code:</label>
+                                <input class="rental-data-input form-control" id="postal-code" @bind="RentalContract.PostalCode" />
+                            </div>
+                        </div>
                         <div class="d-flex">
                             <label for="phone" class="form-label col-3">Phone:</label>
                             <input class="rental-data-input form-control" id="phone" @bind="RentalContract.PhoneNumber" />
                         </div>
                         <div class="d-flex">
+                            <label for="email" class="form-label col-3">Email:</label>
+                            <input class="rental-data-input form-control" id="email" @bind="RentalContract.RenterEmail" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        
+                        <div class="d-flex">
                             <label for="rate" class="form-label col-3">Rate:</label>
                             <select class="rental-data-input form-select" id="rate" @bind="RentalContract.Rate">
                                 <option vlaue="0">Select rate</option>
-                                <option vlaue="80">80</option>
-                                <option vlaue="120">120</option>
-                                <option vlaue="100">100</option>
+                                <option vlaue="80">$80</option>
+                                <option vlaue="120">$120</option>
+                                <option vlaue="100">$100</option>
                             </select>
                         </div>
                         <div class="d-flex">
@@ -283,57 +311,174 @@
                             <input class="rental-data-input form-control" type="date" id="end-date" @bind="RentalContract.EndDate" />
                         </div>
                         <div class="d-flex">
-                            <div class="d-flex col-6">
-                                <label for="owner-verification" class="form-check-label col-5">Owner Verified:</label>
-                                <span>Yes</span><input class="form-check-input mx-3" name="owner-verification" type="radio" id="owner-verified" />
-                                <span>No</span><input class="form-check-input mx-3" name="owner-verification" type="radio" id="owner-not-verified" />
-                            </div>
-                            <div class="d-flex col-6">
-                                <label for="renter-verification" class="form-check-label col-5">Renter Verified:</label>
-                                <span>Yes</span><input class="form-check-input mx-3" name="renter-verification" type="radio" id="renter-verified" checked="@(() => IsRenterVerified = RentalContract.IsRenterVerified)"/>
-                                <span>No</span><input class="form-check-input mx-3" name="renter-verification" type="radio" id="renter-not-verified" />
-                            </div>
+                            <label for="owner-verification" class="form-check-label col-3">Owner Verified:</label>
+                            <span>Yes</span><input class="form-check-input mx-3" name="owner-verification" type="radio" id="owner-verified" />
+                            <span>No</span><input class="form-check-input mx-3" name="owner-verification" type="radio" id="owner-not-verified" />
                         </div>
-                        <div class="d-flex mt-2">
+
+                        <div class="d-flex my-3">
+                            <label for="renter-verification" class="form-check-label col-3">Renter Verified:</label>
+                            <span>Yes</span><input class="form-check-input mx-3" name="renter-verification" type="radio" id="renter-verified" checked="@(() => IsRenterVerified = RentalContract.IsRenterVerified)" />
+                            <span>No</span><input class="form-check-input mx-3" name="renter-verification" type="radio" id="renter-not-verified" />
+                        </div>
+                            
+                       
+                        <div class="d-flex my-3 ">                            
                             <label for="end-date" class="form-check-label col-3">Contract Status:</label>
                             <span>Active</span><input class="form-check-input mx-3" name="contract-status" type="radio" id="contract-active" />
                             <span>Pending</span><input class="form-check-input mx-3" name="contract-status" type="radio" id="contract-pending" />
-                            <span>Inactive</span><input class="form-check-input mx-3" name="contract-status" type="radio" id="contract-Inactive" />
+                            <span>Inactive</span><input class="form-check-input mx-3" name="contract-status" type="radio" id="contract-Inactive" />                            
+                        </div>
+                        <div class="d-flex">
+                            <label for="notes" class="col-2">Notes:</label>
+                            <textarea class="form-control" rows="3" id="notes" @bind="RentalContract.Notes" />
                         </div>
                     </div>
                 }
 
             </div>
-            <div id="new-contract-buttons-menu" class="mt-3">
+            <div id="edit-contract-buttons-menu" class="menu-buttons mt-3">
                 <div>
-                    <button class="btn btn-primary">Save Changes</button>
+                    <button class="btn btn-outline-secondary" @onclick="HandleSaveChanges">Save Changes</button>
                 </div>
                 <div>
-                    <button class="btn btn-info" @onclick="ClearFields">Clear</button>
+                    <button class="btn btn-outline-secondary" @onclick="ClearFields">Clear</button>
                 </div>
                 <div>
-                    <button class="btn btn-danger" @onclick="() => SectionFourIsHidden = true">Cancel</button>
+                    <button class="btn btn-outline-secondary" @onclick="() => SectionFourIsHidden = true">Cancel</button>
                 </div>
             </div>
         </fieldset>
     </section>
     <!--End section-four-->
-    <section id="section-five">
+    <section id="section-five" hidden="@SectionFiveIsHidden" class="">
         <fieldset>
-            <legend>Create Report</legend>
-            <div></div>
-            <div id="new-contract-buttons-menu" class="m-auto">
+            <legend>New Contract</legend>
+            <div id="new-contract" class="d-flex">
+               @if(RentalContract != null)
+               {
+                    <div class="col-6">
+                        <div class="d-flex">
+                            <label for="contract-number" class="form-label col-3">Contract Number:</label>
+                            <input class="rental-data-input form-control" disabled id="contract-number" @bind="ContractNumber" />
+                        </div>
+                        <div class="d-flex">
+                            <label for="renter-name" class="form-label col-3">Renter Name:</label>
+                            <input class="rental-data-input col-4 form-control" id="renter-name" @bind="RentalContract.RenterName" />
+                        </div>
+                        <div class="d-flex">
+                            <label for="renter-address" class="form-label col-3">Address:</label>
+                            <input class="rental-data-input form-control" id="renter-address" @bind="RentalContract.RenterAddress" />
+                        </div>
+                        <div class="d-flex">
+                            <label for="city" class="form-label col-3">City:</label>
+                            <select class="rental-data-input form-select" id="RentalContract.city">
+                                <option vlaue="">Select City</option>
+                                <option vlaue="edmonton" selected>Edmonton</option>
+                                <option vlaue="calgary">Calgary</option>
+                            </select>
+                        </div>
+                        <div class="d-flex row-cols-2">
+                            <div class="d-flex col-5">
+                                <label for="province" class="form-label col-4">Province:</label>
+                                <select class="rental-data-input form-select" id="province">
+                                    <option vlaue="">Select Province</option>
+                                    <option vlaue="AB" selected>AB</option>
+                                    <option vlaue="SK">SK</option>
+                                </select>
+                            </div>
+
+                            <div class="d-flex">
+                                <label for="postal-code" class="form-label col-4 text-center">Postal Code:</label>
+                                <input class="rental-data-input form-control" id="postal-code" @bind="RentalContract.PostalCode" />
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <label for="phone" class="form-label col-3">Phone:</label>
+                            <input class="rental-data-input form-control" id="phone" @bind="RentalContract.PhoneNumber" />
+                        </div>
+                        <div class="d-flex">
+                            <label for="email" class="form-label col-3">Email:</label>
+                            <input class="rental-data-input form-control" id="email" @bind="RentalContract.RenterEmail" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+
+                        <div class="d-flex">
+                            <label for="rate" class="form-label col-3">Rate:</label>
+                            <select class="rental-data-input form-select" id="rate">
+                                <option vlaue="0">Select rate</option>
+                                <option vlaue="80" selected>$80</option>
+                                <option vlaue="120">120</option>
+                                <option vlaue="100">100</option>
+                            </select>
+                        </div>
+                        <div class="d-flex">
+                            <label for="start-date" class="form-label col-3">Start Date:</label>
+                            <input class="rental-data-input form-control" type="date" id="start-date" />
+                        </div>
+                        <div class="d-flex">
+                            <label for="end-date" class="form-check-label col-3">End Date:</label>
+                            <input class="rental-data-input form-control" type="date" id="end-date" />
+                        </div>
+                        <div class="d-flex">
+                            <label for="owner-verification" class="form-check-label col-3">Owner Verified:</label>
+                            <span>Yes</span><input class="form-check-input mx-3" name="owner-verification" type="radio" id="owner-verified" checked />
+                            <span>No</span><input class="form-check-input mx-3" name="owner-verification" type="radio" id="owner-not-verified" />
+                        </div>
+
+                        <div class="d-flex my-3">
+                            <label for="renter-verification" class="form-check-label col-3">Renter Verified:</label>
+                            <span>Yes</span><input class="form-check-input mx-3" name="renter-verification" type="radio" id="renter-verified" checked />
+                            <span>No</span><input class="form-check-input mx-3" name="renter-verification" type="radio" id="renter-not-verified" checked />
+                        </div>
+
+
+                        <div class="d-flex my-3 ">
+                            <label for="end-date" class="form-check-label col-3">Contract Status:</label>
+                            <span>Active</span><input class="form-check-input mx-3" name="contract-status" type="radio" id="contract-active" />
+                            <span>Pending</span><input class="form-check-input mx-3" name="contract-status" type="radio" id="contract-pending" checked />
+                            <span>Inactive</span><input class="form-check-input mx-3" name="contract-status" type="radio" id="contract-Inactive" />
+                        </div>
+                        <div class="d-flex">
+                            <label for="notes" class="col-2">Notes:</label>
+                            <textarea class="form-control" rows="3" id="notes" @bind="RentalContract.Notes" />
+                        </div>
+                    </div>
+               }
+            </div>
+            <div id="new-contract-buttons-menu" class="menu-buttons mt-3">
                 <div>
-                    <button class="btn btn-primary">Create Report</button>
+                    <button class="btn btn-outline-secondary" @onclick="HandleSaveNewContract">Save</button>
                 </div>
                 <div>
-                    <button class="btn btn-info" @onclick="ClearFields">Clear</button>
+                    <button class="btn btn-outline-secondary" @onclick="ClearFields">Clear</button>
                 </div>
                 <div>
-                    <button class="btn btn-danger" >Cancel</button>
+                    <button class="btn btn-outline-secondary" @onclick="() => SectionTwoIsHidden = HandleCancelAction()">Cancel</button>
                 </div>
             </div>
         </fieldset>
     </section>
+
+   
+    @* <section id="section-five">
+        <fieldset>
+            <legend>Create Report</legend>
+            <div></div>
+            <div id="new-contract-buttons-menu" class="menu-buttons m-auto">
+                <div>
+                    <button class="btn btn-outline-secondary" @onclick="HandleCreateReport">Create Report</button>
+                </div>
+                <div>
+                    <button class="btn btn-outline-secondary" @onclick="ClearFields">Clear</button>
+                </div>
+                <div>
+                    <button class="btn btn-outline-secondary">Cancel</button>
+                </div>
+            </div>
+        </fieldset>
+    </section> *@
 </div>
 
+      

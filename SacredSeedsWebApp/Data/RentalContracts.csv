@@ -1,33 +1,34 @@
-1,024-0001,John Smith,2319 88 Street NW Edmonton AB T6K 3Z6,(123) 456-7890,80,true,3/5/2024,5/1/2024,57,Active,true,Client was contacted on April 1st for renewal response pending
-2,024-0002,Emily Johnson,4456 72 Avenue NW Edmonton AB T6B 0G4,(234) 567-8901,80,true,3/11/2024,4/30/2024,50,Active,true,Reminder email sent to client regarding upcoming expiry
-3,024-0003,Michael Williams,5732 101 Avenue NW Edmonton AB T6A 0H3,(345) 678-9012,80,true,2/28/2024,4/15/2024,47,Active,true,Contract reviewed and approved by legal team
-4,024-0004,Jessica Brown,1945 34 Street NW Edmonton AB T6T 1Y7,(456) 789-0123,80,true,2/12/2024,4/5/2024,53,Active,true,Client informed about the need for updated insurance documents
-5,024-0005,Christopher Davis,8657 118 Avenue NW Edmonton AB T5B 0S2,(567) 890-1234,80,true,1/30/2024,4/1/2024,62,Active,true,Contract negotiation meeting scheduled for next week
-6,024-0006,Amanda Martinez,3021 57 Street NW Edmonton AB T6L 1E6,(678) 901-2345,80,true,3/1/2024,3/15/2024,14,Active,true,Client requested extension under review
-7,024-0007,Matthew Thompson,5189 82 Avenue NW Edmonton AB T6B 0E8,(789) 012-3456,80,true,3/1/2024,3/30/2024,29,Active,true,Contract performance metrics meeting scheduled
-8,024-0008,Samantha Garcia,6910 178 Street NW Edmonton AB T5T 2X8,(890) 123-4567,80,true,3/1/2024,3/20/2024,19,Active,true,Internal audit completed no issues found
-9,024-0009,Daniel Miller,1432 96 Avenue NW Edmonton AB T5P 1G6,(901) 234-5678,80,true,5/23/2024,1/23/2025,245,Active,true,Client requested minor amendments to contract terms
-10,024-0010,Michelle Wilson,2704 63 Street NW Edmonton AB T6L 1E8,(012) 345-6789,80,true,6/9/2024,2/9/2025,245,Active,true,Annual review meeting scheduled with client
-11,024-0011,Joshua Lee,3851 109 Street NW Edmonton AB T6J 2H4,(123) 456-7890,80,true,7/27/2024,3/27/2025,243,Active,true,Contract performance evaluation completed
-12,024-0012,Ashley Anderson,7306 132 Avenue NW Edmonton AB T5C 2H1,(234) 567-8901,80,true,3/25/2024,4/15/2024,21,Active,true,Reminder email sent to client regarding upcoming expiry
-13,024-0013,Brandon Moore,2145 40 Avenue NW Edmonton AB T6T 0M9,(345) 678-9012,80,true,11/21/2023,6/21/2024,213,Active,true,Contract reviewed and approved by legal team
-14,024-0014,Stephanie Taylor,6723 105 Street NW Edmonton AB T6H 2N5,(456) 789-0123,80,true,1/7/2024,8/7/2024,213,Active,true,Client informed about the need for updated insurance documents
-15,024-0015,Nicholas Harris,9823 51 Avenue NW Edmonton AB T6E 0A8,(567) 890-1234,80,true,1/25/2024,8/25/2024,213,Active,true,Contract negotiation meeting scheduled for next week
-16,024-0016,Marco Gutierrez,1234 Jasper Avenue NW Edmonton AB T5J 1Y5,(780) 555-1234,80,true,1/15/2023,2/15/2023,0,Expired,true,Client informed about the need for updated insurance documents
-17,024-0017,Camilo Sesto,5678 Whyte Avenue NW Edmonton AB T6E 1V2,(780) 555-5678,80,true,3/27/2023,4/27/2023,0,Expired,true,Reached out to client to discuss options for contract renewal
-18,024-0018,Brad Pit,9101 101 Street NW Edmonton AB T5H 0E3,(780) 555-9101,80,true,7/8/2023,8/8/2023,0,Expired,true,Scheduled a meeting with client to address the expired contract
-19,024-0019,Matt Damon,2467 Kingsway Avenue NW Edmonton AB T6L 1J5,(780) 555-2467,80,true,6/19/2023,10/19/2023,0,Expired,true,Sent reminder to client regarding contract expiration and renewal process
-20,024-0020,Christina Aguilera,3690 118 Avenue NW Edmonton AB T5W 0Z2,(780) 555-3690,80,true,8/24/2023,12/30/2023,0,Expired,true,Assisted client in gathering necessary paperwork for contract renewal
-21,024-0021,Tania Libertad,4823 82 Street NW Edmonton AB T6K 3E4,(780) 555-4823,80,true,9/9/2023,2/9/2024,0,Expired,true,Discussed renewal terms and conditions with client
-22,024-0022,Richard Clayderman,6543 137 Avenue NW Edmonton AB T5A 3N3,(780) 555-6543,80,true,4/25/2023,7/25/2023,0,Expired,true,Followed up with client to ensure timely renewal action
-23,024-0023,John Crook,7890 156 Street NW Edmonton AB T5R 1Y8,(780) 555-7890,80,true,6/6/2023,8/6/2023,0,Expired,true,Notified client about expired contract and offered renewal solutions
-24,024-0024,Rick Springfield,1023 124 Street NW Edmonton AB T5M 0M3,(780) 555-1023,80,true,8/17/2023,9/17/2023,0,Expired,true,Updated client on contract status and requested necessary updates
-25,024-0025,Anie Lenox,2056 62 Avenue NW Edmonton AB T6P 0E5,(780) 555-2056,80,true,12/2/2023,1/29/2024,0,Expired,true,Provided guidance to client on navigating renewal process
-26,024-0026,Stevie Wonder,5189 82 Avenue NW Edmonton AB T6B 0E8,(780) 555-5189,90,true,11/15/2023,2/12/2024,0,Expired,true,Sent final notice to client regarding the expired contract
-27,024-0027,Amy Winehouse,2467 Kingsway Avenue NW Edmonton AB T6L 1J5,(780) 555-2467,100,true,10/10/2023,1/7/2024,0,Expired,true,Discussed renewal options with client and initiated renewal process
-28,024-0028,Elton John,1234 Jasper Avenue NW Edmonton AB T5J 1Y5,(780) 555-1234,120,true,9/20/2023,12/19/2023,0,Expired,true,Notified client about expired contract and offered renewal solutions
-29,024-0029,Michael Jackson,7306 132 Avenue NW Edmonton AB T5C 2H1,(780) 555-7306,110,true,8/5/2023,11/3/2023,0,Expired,true,Followed up with client to ensure timely renewal action
-30,024-0030,Freddie Mercury,3690 118 Avenue NW Edmonton AB T5W 0Z2,(780) 555-3690,95,true,6/18/2023,9/16/2023,0,Expired,true,Assisted client in gathering necessary paperwork for contract renewal
-31,024-0031,Claudia Doe,5678 Example Avenue NW Edmonton AB T2B 2B2,(234) 567-8901,80,false,4/16/2024,5/16/2024,30,pending,false,Client verification pending
-32,024-0032,Alice In Chains,9101 Sample Street NW Edmonton AB T3C 3C3,(345) 678-9012,80,false,4/17/2024,5/17/2024,29,pending,false,Contract signature pending
-33,024-0033,Rob Zombie,123 Main Street NW Edmonton AB T4D 4D4,(456) 789-0123,80,true,4/18/2024,5/18/2024,28,pending,false,Client verification pending
+1,024-0001,John Smith,2319 88 Street NW,Edmonton,AB,T6K 3Z6,(123) 456-7890,john.smith@example.com,80,true,2024-03-05,2024-05-01,57,Active,true,Client was contacted on April 1st for renewal response pending
+2,024-0002,Emily Johnson,4456 72 Avenue NW,Edmonton,AB,T6B 0G4,(234) 567-8901,emily.johnson@example.com,80,true,2024-03-11,2024-04-30,50,Active,true,Reminder email sent to client regarding upcoming expiry
+3,024-0003,Michael Williams,5732 101 Avenue NW,Edmonton,AB,T6A 0H3,(345) 678-9012,michael.williams@example.com,80,true,2024-02-28,2024-04-15,47,Active,true,Contract reviewed and approved by legal team
+4,024-0004,Jessica Brown,1945 34 Street NW,Edmonton,AB,T6T 1Y7,(456) 789-0123,jessica.brown@example.com,80,true,2024-02-12,2024-04-05,53,Active,true,Client informed about the need for updated insurance documents
+5,024-0005,Christopher Davis,8657 118 Avenue NW,Edmonton,AB,T5B 0S2,(567) 890-1234,christopher.davis@example.com,80,true,2024-01-30,2024-04-01,62,Active,true,Contract negotiation meeting scheduled for next week
+6,024-0006,Amanda Martinez,3021 57 Street NW,Edmonton,AB,T6L 1E6,(678) 901-2345,amanda.martinez@example.com,80,true,2024-03-01,2024-03-15,14,Active,true,Client requested extension under review
+7,024-0007,Matthew Thompson,5189 82 Avenue NW,Edmonton,AB,T6B 0E8,(789) 012-3456,matthew.thompson@example.com,80,true,2024-03-01,2024-03-30,29,Active,true,Contract performance metrics meeting scheduled
+8,024-0008,Samantha Garcia,6910 178 Street NW,Edmonton,AB,T5T 2X8,(890) 123-4567,samantha.garcia@example.com,80,true,2024-03-01,2024-03-20,19,Active,true,Internal audit completed no issues found
+9,024-0009,Daniel Miller,1432 96 Avenue NW,Edmonton,AB,T5P 1G6,(901) 234-5678,daniel.miller@example.com,80,true,2024-05-23,2025-01-23,245,Active,true,Client requested minor amendments to contract terms
+10,024-0010,Michelle Wilson,2704 63 Street NW,Edmonton,AB,T6L 1E8,(012) 345-6789,michelle.wilson@example.com,80,true,2024-06-09,2025-02-09,245,Active,true,Annual review meeting scheduled with client
+11,024-0011,Joshua Lee,3851 109 Street NW,Edmonton,AB,T6J 2H4,(123) 456-7890,joshua.lee@example.com,80,true,2024-07-27,2025-03-27,243,Active,true,Contract performance evaluation completed
+12,024-0012,Ashley Anderson,7306 132 Avenue NW,Edmonton,AB,T5C 2H1,(234) 567-8901,ashley.anderson@example.com,80,true,2024-03-25,2024-04-15,21,Active,true,Reminder email sent to client regarding upcoming expiry
+13,024-0013,Brandon Moore,2145 40 Avenue NW,Edmonton,AB,T6T 0M9,(345) 678-9012,brandon.moore@example.com,80,true,2023-11-21,2024-06-21,213,Active,true,Contract reviewed and approved by legal team
+14,024-0014,Stephanie Taylor,6723 105 Street NW,Edmonton,AB,T6H 2N5,(456) 789-0123,stephanie.taylor@example.com,80,true,2024-01-07,2024-08-07,213,Active,true,Client informed about the need for updated insurance documents
+15,024-0015,Nicholas Harris,9823 51 Avenue NW,Edmonton,AB,T6E 0A8,(567) 890-1234,nicholas.harris@example.com,80,true,2024-01-25,2024-08-25,213,Active,true,Contract negotiation meeting scheduled for next week
+16,024-0016,Marco Gutierrez,1234 Jasper Avenue NW,Edmonton,AB,T5J 1Y5,(780) 555-1234,marco.gutierrez@example.com,80,true,2023-01-15,2023-02-15,0,Expired,true,Client informed about the need for updated insurance documents
+17,024-0017,Camilo Sesto,5678 Whyte Avenue NW,Edmonton,AB,T6E 1V2,(780) 555-5678,camilo.sesto@example.com,80,true,2023-03-27,2023-04-27,0,Expired,true,Reached out to client to discuss options for contract renewal
+18,024-0018,Brad Pit,9101 101 Street NW,Edmonton,AB,T5H 0E3,(780) 555-9101,brad.pit@example.com,80,true,2023-07-08,2023-08-08,0,Expired,true,Scheduled a meeting with client to address the expired contract
+19,024-0019,Matt Damon,2467 Kingsway Avenue NW,Edmonton,AB,T6L 1J5,(780) 555-2467,matt.damon@example.com,80,true,2023-06-19,2023-10-19,0,Expired,true,Sent reminder to client regarding contract expiration and renewal process
+20,024-0020,Christina Aguilera,3690 118 Avenue NW,Edmonton,AB,T5W 0Z2,(780) 555-3690,christina.aguilera@example.com,80,true,2023-08-24,2023-12-30,0,Expired,true,Assisted client in gathering necessary paperwork for contract renewal
+21,024-0021,Tania Libertad,4823 82 Street NW,Edmonton,AB,T6K 3E4,(780) 555-4823,tania.libertad@example.com,80,true,2023-09-09,2024-02-09,0,Expired,true,Discussed renewal terms and conditions with client
+22,024-0022,Richard Clayderman,6543 137 Avenue NW,Edmonton,AB,T5A 3N3,(780) 555-6543,richard.clayderman@example.com,80,true,2023-04-25,2023-07-25,0,Expired,true,Followed up with client to ensure timely renewal action
+23,024-0023,John Crook,7890 156 Street NW,Edmonton,AB,T5R 1Y8,(780) 555-7890,john.crook@example.com,80,true,2023-06-06,2023-08-06,0,Expired,true,Notified client about expired contract and offered renewal solutions
+24,024-0024,Rick Springfield,1023 124 Street NW,Edmonton,AB,T5M 0M3,(780) 555-1023,rick.springfield@example.com,80,true,2023-08-17,2023-09-17,0,Expired,true,Updated client on contract status and requested necessary updates
+25,024-0025,Anie Lenox,2056 62 Avenue NW,Edmonton,AB,T6P 0E5,(780) 555-2056,anie.lenox@example.com,80,true,2023-12-02,2024-01-29,0,Expired,true,Provided guidance to client on navigating renewal process
+26,024-0026,Stevie Wonder,5189 82 Avenue NW,Edmonton,AB,T6B 0E8,(780) 555-5189,stevie.wonder@example.com,90,true,2023-11-15,2024-02-12,0,Expired,true,Sent final notice to client regarding the expired contract
+27,024-0027,Amy Winehouse,2467 Kingsway Avenue NW,Edmonton,AB,T6L 1J5,(780) 555-2467,amy.winehouse@example.com,100,true,2023-10-10,2024-01-07,0,Expired,true,Discussed renewal options with client and initiated renewal process
+28,024-0028,Elton John,1234 Jasper Avenue NW,Edmonton,AB,T5J 1Y5,(780) 555-1234,elton.john@example.com,120,true,2023-09-20,2023-12-19,0,Expired,true,Notified client about expired contract and offered renewal solutions
+29,024-0029,Michael Jackson,7306 132 Avenue NW,Edmonton,AB,T5C 2H1,(780) 555-7306,michael.jackson@example.com,110,true,2023-08-05,2023-11-03,0,Expired,true,Followed up with client to ensure timely renewal action
+30,024-0030,Freddie Mercury,3690 118 Avenue NW,Edmonton,AB,T5W 0Z2,(780) 555-3690,freddie.mercury@example.com,95,true,2023-06-18,2023-09-16,0,Expired,true,Assisted client in gathering necessary paperwork for contract renewal
+31,024-0031,Claudia Doe,5678 Example Avenue NW,Edmonton,AB,T2B 2B2,(234) 567-8901,claudia.doe@example.com,80,false,2024-04-16,2024-05-16,30,pending,false,Client verification pending
+32,024-0032,Alice In Chains,9101 Sample Street NW,Edmonton,AB,T3C 3C3,(345) 678-9012,alice.inchains@example.com,80,false,2024-04-17,2024-05-17,29,pending,false,Contract signature pending
+33,024-0033,Rob Zombie,123 Main Street NW,Edmonton,AB,T4D 4D4,(456) 789-0123,rob.zombie@example.com,80,true,2024-04-18,2024-05-18,28,pending,false,Client verification pending
+34,024-0034,Chi-Chi Peralta,6914 177 Street NW,Edmonton,AB,T5N 1N3,(306) 225-4589,chi.chi.peralta@example.com,80,true,0,pending,false,Renter verification needed. Renter contacted 05-Apr-24
