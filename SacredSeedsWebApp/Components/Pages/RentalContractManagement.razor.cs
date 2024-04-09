@@ -23,7 +23,6 @@ namespace SacredSeedsWebApp.Components.Pages
         public string PhoneNumber {  get; set; }
         public string RenterEmail { get; set; }
         public string Notes { get; set; }
-
         public double Rate {  get; set; }   
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
@@ -85,14 +84,12 @@ namespace SacredSeedsWebApp.Components.Pages
                             feedback = e.Message;
                         }
                     }
-
                 }
                 catch (IOException e)
                 {
                     feedback = e.Message;
                 }
             }
-
         }
 
         private async Task HandleSearch(ChangeEventArgs e)
@@ -192,8 +189,6 @@ namespace SacredSeedsWebApp.Components.Pages
                 RentalContract = SearchContracts.FirstOrDefault(c => c.ContractNumber == contractNumber);
             }
         }
-
-
         private void HandleEditContract(int? contractId)
         {
             SectionTwoIsHidden = true;

@@ -94,7 +94,7 @@
             <fieldset>
                 <legend>Client Information</legend>
                 <div id="client-info" class="">
-                    <div class="row-cols-2 d-flex">
+                    <div class="row-cols-2 d-flex mt-5">
                        @*  <div>
                             <label for="client-id" class="col-4">Client Id:</label>
                             <input class="form-control" disabled id="client-id" />
@@ -180,8 +180,8 @@
                                 <tr>
                                     <th>Session</th>
                                     <th>Date</th>
-                                    <th>Used</th>
                                     <th>Length</th>
+                                    <th>Total</th>
                                     <th>Paid</th>
                                     <th>Notes</th>
                                 </tr>
@@ -189,84 +189,93 @@
                             <tbody>
                                 <tr>
                                     <td>2001-011</td>
-                                    <td>2024-02-10</td>
-                                    <td>Yes</td>
+                                    <td>2024-04-10</td>
                                     <td>60</td>
-                                    <td>paid</td>
-                                    <td>Client prefers a warm room temperature</td>
+                                    <td>$50.00</td>
+                                    <td>No</td>
+                                    <td>Foot Spa...</td>
                                 </tr>
                                 <tr>
-                                    <td>2001-012</td>
+                                    <td>2001-022</td>
                                     <td>2024-02-17</td>
+                                    <td>120</td>
+                                    <td>$0.00</td>
                                     <td>Yes</td>
-                                    <td>60</td>
-                                    <td>paid</td>
                                     <td>Client prefers a firm massage pressure</td>
                                 </tr>
                                 <tr>
-                                    <td>2001-013</td>
+                                    <td>2001-033</td>
                                     <td>2024-02-24</td>
+                                    <td>30</td>
+                                    <td>$0.00</td>
                                     <td>Yes</td>
-                                    <td>90</td>
-                                    <td>paid</td>
                                     <td>Client has sensitive skin check for any reactions</td>
                                 </tr>
                                 <tr>
-                                    <td>2001-014</td>
+                                    <td>2001-074</td>
                                     <td>2024-03-02</td>
+                                    <td>150</td>
+                                    <td>$0.00</td>
                                     <td>Yes</td>
-                                    <td>60</td>
-                                    <td>paid</td>
                                     <td>No specific notes</td>
                                 </tr>
                                 <tr>
-                                    <td>2001-015</td>
+                                    <td>2001-085</td>
                                     <td>2024-03-09</td>
+                                    <td>90</td>
+                                    <td>$0.00</td>
                                     <td>Yes</td>
-                                    <td>60</td>
-                                    <td>paid</td>
                                     <td>Client prefers no talking during session</td>
                                 </tr>
                                 <tr>
-                                    <td>2001-016</td>
-                                    <td>2024-03-16</td>
+                                    <td>2001-086</td>
+                                    <td>2024-04-10</td>
+                                    <td>90</td>
+                                    <td>$0.00</td>
                                     <td>Yes</td>
+                                    <td>No specific notes</td>
+                                </tr>  
+                                <tr>
+                                    <td>1001-076</td>
+                                    <td>2023-07-15</td>
                                     <td>60</td>
-                                    <td>paid</td>
-                                    <td>No specific notes</td>
+                                    <td>$125.00</td>
+                                    <td>No</td>
+                                    <td>Client requested extra towels</td>
                                 </tr>
                                 <tr>
-                                    <td>2001-017</td>
-                                    <th></th>
-                                    <td>unused</td>
-                                    <td>0</td>
-                                    <td>paid</td>
-                                    <td>No specific notes</td>
+                                    <td>1001-87</td>
+                                    <td>2022-11-28</td>
+                                    <td>60</td>
+                                    <td>$125.00</td>
+                                    <td>Yes</td>
+                                    <td>Client has allergies, avoid scented oils</td>
                                 </tr>
                                 <tr>
-                                    <td>2001-018</td>
-                                    <th></th>
-                                    <td>unused</td>
-                                    <td>0</td>
-                                    <td>paid</td>
-                                    <td>No specific notes</td>
+                                    <td>1001-022</td>
+                                    <td>2023-05-03</td>
+                                    <td>60</td>
+                                    <td>$125.00</td>
+                                    <td>No</td>
+                                    <td>Client prefers extra pillows</td>
                                 </tr>
                                 <tr>
-                                    <td>2001-019</td>
-                                    <th></th>
-                                    <td>unused</td>
-                                    <td>0</td>
-                                    <td>paid</td>
-                                    <td>No specific notes</td>
+                                    <td>1001-019</td>
+                                    <td>2022-09-12</td>
+                                    <td>60</td>
+                                    <td>$125.00</td>
+                                    <td>Yes</td>
+                                    <td>Client requested specific massage techniques</td>
                                 </tr>
                                 <tr>
-                                    <td>2001-020</td>
-                                    <th></th>
-                                    <td>unused</td>
-                                    <td>0</td>
-                                    <td>paid</td>
-                                    <td>No specific notes</td>
+                                    <td>1001-040</td>
+                                    <td>2023-02-21</td>
+                                   <td>60</td>
+                                    <td>$125.00</td>
+                                    <td>No</td>
+                                    <td>Client prefers low lighting during session</td>
                                 </tr>
+
                             </tbody>
                         </table>
 
@@ -288,58 +297,82 @@
 
                     </div>
                     <div class="col-2">
-                        <button class="btn btn-outline-secondary"> Add</button>
+                        <button id="btn-add-referral" class="btn btn-outline-secondary"> Add</button>
                     </div>
                 </div>
-                <div id="col-two">
-                    <div id="table-container-2">
-                        <table id="search-client-results" class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Client Id</th>
-                                    <th>Client Name</th>
-                                    <th>Date</th>
-                                    <th>type</th>
-                                    <th>Credit</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
 
-
+                <div id="col-two" class="row-cols-2 d-flex">
+                   <div class="col-8">
+                        <div id="table-container-2 ">
+                            <table id="search-client-results" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Client Id</th>
+                                        <th>Client Name</th>
+                                        <th>Date</th>
+                                        <th>type</th>
+                                        <th>Credit</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>01-0008</td>
+                                        <td>Mahatma Gandhi</td>
+                                        <td>2023-05-10</td>
+                                        <td>Referred by</td>
+                                        <td>X</td>
+                                    </tr>
+                                    <tr>
+                                        <td>01-0009</td>
+                                        <td>Mother Teresa</td>
+                                        <td>2024-05-11</td>
+                                        <td>Referred</td>
+                                        <td>.5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>01-0010</td>
+                                        <td>Charles Darwin</td>
+                                        <td>2024-05-12</td>
+                                        <td>Referred</td>
+                                        <td>.5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>01-0024</td>
+                                        <td>Isaac Newton</td>
+                                        <td>2023-12-09</td>
+                                        <td>Referred</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>01-0033</td>
+                                        <td>Leonhard Euler</td>
+                                        <td>2023-05-13</td>
+                                        <td>Referred</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                   </div>
+                    <div class="col-4">
+                        <div class="mt-1">
+                            <label for="referral-credits" class="col-5">Cedits</label>
+                            <input class="form-control mt-1" disabled id="referral-credits" placeholder="1 Credit" />                           
+                            
+                        </div>
+                        <div class="menu-buttons" id="referral-buttons">
+                            <button class="btn btn-outline-secondary">Apply</button>
+                            <button class="btn btn-outline-secondary mt-3">Save</button>
+                        </div>
                     </div>
-
-                </div>
-                
+                </div>                
             </fieldset>
         </div>
     </section>
@@ -360,6 +393,26 @@
                                         <th>Remaining</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>2001</strong></td>
+                                        <td><strong>10</strong></td>
+                                        <td><strong>2024-02-15</strong></td>
+                                        <td><strong>3.5</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2032</td>
+                                        <td>5</td>
+                                        <td>2023-08-25</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2020</td>
+                                        <td>5</td>
+                                        <td>2023-06-13</td>
+                                        <td>0</td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -372,13 +425,57 @@
                         <table id="search-client-results" class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Package</th>
-                                    <th>type</th>
-                                    <th>Purchase Date</th>
+                                    <th>Session</th>
+                                    <th>Date Used</th>
+                                    <th>Length</th>
                                     <th>Remaining</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2001-011</td>
+                                    <td>2024-01-12</td>
+                                    <td>60</td>
+                                    <td>9</td>                                    
+                                </tr>
+                                <tr>
+                                    <td>2001-022</td>
+                                    <td>2024-02-17</td>
+                                    <td>120</td>
+                                    <td>7</td>
+                                </tr>
+                                <tr>
+                                    <td>2001-033</td>
+                                    <td>2024-02-24</td>
+                                    <td>30</td>
+                                    <td>6.5</td>
+                                </tr>
+                                <tr>
+                                    <td>2001-074</td>
+                                    <td>2024-03-02</td>
+                                    <td>150</td>
+                                    <td>4</td>                                    
+                                </tr>
+                                <tr>
+                                    <td>2001-085</td>
+                                    <td>2024-03-09</td>
+                                    <td>90</td>
+                                    <td>1.5</td>
+                                </tr>
+                                <tr>
+                                    <td>2001-011</td>
+                                    <td>2024-04-10</td>
+                                    <td>60</td>
+                                    <td>0</td>
+                                </tr>                              
+                            </tbody>
                         </table>
+                    </div>
+                    <div>
+                        <div class="menu-buttons mt-3">
+                            <button class="btn btn-outline-secondary mx-3">Add </button>
+                            <button class="btn btn-outline-secondary">Remove </button>
+                        </div>
                     </div>
                 </div>
             </fieldset>
@@ -410,7 +507,7 @@
                     </div>
                     <div class="row-cols-2 d-flex py-3">
                         <div class="d-flex col-7">
-                            <label class="form-label col-3">Extras:</label>
+                            <label class="form-label col-3">Add-ons:</label>
                             <select class="form-control form-select">
                                 <option selected value="">Select Services</option>
                                 <option value="">Foot Spa</option>
@@ -420,7 +517,7 @@
                         </div>
                         <div class="d-flex">
                             <label class="form-label">Cost: </label>
-                            <input id="input-cost" class="form-control" />
+                            <input id="input-cost" class="form-control" placeholder="$50"/>
                         </div>
                     </div>
                     <div>
@@ -449,13 +546,25 @@
                                         <th>$50.00</th>
                                     </tr>
                                     <tr>
-                                        <td>Other Credits</td>
-                                        <td>0.00</td>
+                                        <td>Session 1 hour</td>
+                                        <td>$125.00</td>
                                         <td>1</td>
-                                        <th>$0.00</th>
+                                        <td>$125.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Free Session Credit</td>
+                                        <td>-$125.00</td>
+                                        <td>1</td>
+                                        <td>-$125.00</td>
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                    <div>
+                        <div id="purchase-buttons"class="menu-buttons mt-3">
+                            <button class="btn btn-outline-secondary">Confirm Purchase</button>
+                            <button class="btn btn-outline-secondary mx-3">Cancel</button>
                         </div>
                     </div>
                 </div>                
@@ -463,32 +572,53 @@
             <fieldset>
                 <legend>Payment</legend>
                 <div id="payment" class="row-cols-2 d-flex">
-                   <div class="col-6">
+                   <div class="col-4">
                         <div class="d-flex">
-                            <label class="col-3">Subtotal: </label>
+                            <label class="col-4">Subtotal: </label>
                             <input type="number" class="form-control" id="subtotal" />
                         </div>
 
-                        <div class="d-flex">
-                            <label class="col-3">GST: </label>
+                        <div class="d-flex mt-2">
+                            <label class="col-4">GST: </label>
                             <input class="form-control" />
                         </div>
 
-                        <div class="d-flex">
-                            <label class="col-3">Total: </label>
+                        <div class="d-flex mt-2">
+                            <label class="col-4">Total: </label>
                             <input class="form-control" />
                         </div>
                    </div>
-                    <div class="">
-                        <label class="">Payment Method</label>
-                        <select class="form-control form-select w-50">
-                            <option selected value="">Select Payment Method</option>
-                            <option value="cash">Cash</option>
-                            <option value="credit">Credit Card</option>
-                        </select>
-                    </div>                    
+                    <div class="col-8">
+                        <div class="d-flex">
+                            <label class="col-4">Payment Method:</label>
+                            <select class="form-control form-select">
+                                <option selected value="">Payment Method</option>
+                                <option value="cash">Cash</option>
+                                <option value="credit">Credit Card</option>
+                                <option value="credit">Debit Card</option>
+
+                            </select>
+                        </div>
+
+                        <div class="d-flex">
+                            <label class="col-3">Card #: </label>
+                            <input type="number" class="form-control" id="subtotal" />
+                        </div>
+                        <div class="d-flex">
+                            <div class="d-flex">
+                                <label class="col-6">Exp: </label>
+                                <input type="number" class="form-control" id="subtotal" />
+                            </div>
+                            <div class="d-flex">
+                                <label class="col-4">CVC: </label>
+                                <input type="number" class="form-control" id="subtotal" />
+                            </div>
+                        </div>
+
+                    </div>   
+                  
                 </div>
-                <div class="g-3 m-auto">
+                <div class="menu-buttons mt-3">
                     <button class="btn btn-outline-secondary">Pay</button>
                     <button class="btn btn-outline-secondary">Cancel</button>
                 </div>

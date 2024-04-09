@@ -19,7 +19,7 @@ table {
 }
 
 .form-control {
-    max-width: 60%;    
+    max-width: 65%;    
 }
 
 
@@ -39,20 +39,20 @@ table {
 }
 
 #client-info div {
-    margin-bottom: .5rem;
+    margin-bottom: .4rem;
     display: flex;
 }
 #notes {
     max-width: 90%;
 }
 
-#client-search-container, #session-history-container {
+#client-search-container, #session-history-container{
     padding-right: 1rem;
 }
 
 #section-one, #section-two, #section-three, #section-four #section-five {
     padding-top: 1.5rem;
-    border-bottom: dotted 1px;
+    border-bottom: dotted 1px;    
 }
 .container {
     padding-bottom: 5rem;
@@ -68,4 +68,60 @@ table {
 
 #input-cost {
     max-width: 63%;
+}
+
+.menu-buttons {
+    max-width: 40%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+#btn-add-referral {
+    width: 7.5rem;
+}
+
+.btn {
+    color: black;
+    width: 9rem;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: none;
+}
+
+#referral-credits {
+    max-width: 7.5rem;
+    margin: auto;
+}
+#referral-buttons {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    
+    max-width: 100%;
+    
+}
+#referral-buttons button {
+    width: 7.5rem;    
+}
+#purchase-buttons {
+    max-width: 100%;
+    margin: auto;
+    justify-content:center;
+}
+#purchase-buttons button {
+    width: 12rem;
+}
+
+#payment label{
+    text-align: right;
+    margin-right: 10px;
+}
+#payment input {
+    max-width: 70%;
+}
+#payment select {
+    max-width: 80%;
 }
