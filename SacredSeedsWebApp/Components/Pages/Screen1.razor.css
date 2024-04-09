@@ -1,0 +1,71 @@
+﻿.body {
+    font-size: small;
+}
+
+tr:hover {
+    cursor: pointer;
+}
+
+label {
+    align-content: center;
+    text-align: right;
+    font-size: small;
+    padding-right: 6px;
+    font-weight: bold;
+}
+
+table {
+    font-size: small;
+}
+
+.form-control {
+    max-width: 60%;    
+}
+
+
+#col-one, #col-two {
+    padding: .5rem;
+    gap:1rem;
+
+}
+
+#table-container-1 {
+    overflow-y: scroll;
+    max-height: 350px;    
+}
+#table-container-2, #table-container-3 {
+    overflow-y: scroll;
+    max-height: 300px;
+}
+
+#client-info div {
+    margin-bottom: .5rem;
+    display: flex;
+}
+#notes {
+    max-width: 90%;
+}
+
+#client-search-container, #session-history-container {
+    padding-right: 1rem;
+}
+
+#section-one, #section-two, #section-three, #section-four #section-five {
+    padding-top: 1.5rem;
+    border-bottom: dotted 1px;
+}
+.container {
+    padding-bottom: 5rem;
+}
+
+#search-criteria, #search-input {
+    max-width: 90%;
+}
+#purchase-summary {
+    border: none;
+    max-width: 80%;
+}
+
+#input-cost {
+    max-width: 63%;
+}

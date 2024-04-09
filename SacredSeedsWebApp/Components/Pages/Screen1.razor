@@ -1,0 +1,509 @@
+﻿@page "/screen-1"
+
+<h3>Screen1</h3>
+
+<div class="container border">
+    <section id="section-one">
+        <div class="row-cols-2 d-flex">
+            <fieldset>
+                <legend>Client Search</legend>
+                <div id="client-search-container">
+                    <div id="col-one" class="row-cols-3 d-flex">
+                        <div class="col-5">
+                            <select class="form-control form-select w-100" id="search-criteria">
+                                <option selected value="">Search Criteria</option>
+                                <option value="all">All Clients</option>
+                                <option value="date">Appointment Date</option>
+                                <option value="name">Client Name</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <input class="form-control" type="text" id="search-input" />
+
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-outline-secondary"> Search</button>
+                        </div>
+                    </div>
+                    <div id="table-container-1">
+                        <table id="search-client-results" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Client ID</th>
+                                    <th>Name</th>
+                                    <th>Appointment Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01-0001</td>
+                                    <td>Albert Einstein</td>
+                                    <td>2024-05-03</td>
+                                </tr>
+                                <tr>
+                                    <td>01-0002</td>
+                                    <td>Marie Curie</td>
+                                    <td>2024-05-04</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>01-0003</strong></td>
+                                    <td><strong>Leonardo da Vinci</strong></td>
+                                    <td><strong>2024-05-05</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>01-0004</td>
+                                    <td>William Shakespeare</td>
+                                    <td>2024-05-06</td>
+                                </tr>
+                                <tr>
+                                    <td>01-0005</td>
+                                    <td>Nikola Tesla</td>
+                                    <td>2024-05-07</td>
+                                </tr>
+                                <tr>
+                                    <td>01-0006</td>
+                                    <td>Ada Lovelace</td>
+                                    <td>2024-05-08</td>
+                                </tr>
+                                <tr>
+                                    <td>01-0007</td>
+                                    <td>Isaac Newton</td>
+                                    <td>2024-05-09</td>
+                                </tr>
+                                <tr>
+                                    <td>01-0008</td>
+                                    <td>Mahatma Gandhi</td>
+                                    <td>2024-05-10</td>
+                                </tr>
+                                <tr>
+                                    <td>01-0009</td>
+                                    <td>Mother Teresa</td>
+                                    <td>2024-05-11</td>
+                                </tr>
+                                <tr>
+                                    <td>01-0010</td>
+                                    <td>Charles Darwin</td>
+                                    <td>2024-05-12</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Client Information</legend>
+                <div id="client-info" class="">
+                    <div class="row-cols-2 d-flex">
+                       @*  <div>
+                            <label for="client-id" class="col-4">Client Id:</label>
+                            <input class="form-control" disabled id="client-id" />
+                        </div> *@
+                        <div>
+                            <label for="first-name" class="col-4">First Name:</label>
+                            <input class="form-control" disabled id="first-name" @bind="firstName"/>
+                        </div>
+                        <div>
+                            <label for="last-name" class="col-5">Last Name:</label>
+                            <input class="form-control" disabled id="last-name" @bind="lastName"/>
+                        </div>
+                    </div>
+                    <div class="d-flex row-cols-2">  
+                        <div class="d-flex">
+                            <label for="client-address" class="form-label col-4">Address:</label>
+                            <input class="form-control" disabled id="client-address" @bind="address"/>
+                        </div>
+                        <div class="d-flex">
+                            <label for="city" class="form-label col-5">City:</label>
+                            <input class="form-control" disabled id="city" @bind="city"/>
+                        </div>
+                    </div>
+                    <div class="d-flex row-cols-2">
+                        <div class="d-flex">
+                            <label for="province" class="form-label col-4">Province:</label>
+                            <input class="form-control" disabled id="province" @bind="province"/>
+                        </div>
+                        <div class="d-flex">
+                            <label for="postal-code" class="form-label col-5">Postal Code:</label>
+                            <input class="form-control" disabled id="postal-code" @bind="postalCode"/>
+                        </div>
+                    </div>
+                    <div class="d-flex row-cols-2">
+                        <div>
+                            <label for="client-email" class="col-4">Email:</label>
+                            <input class="form-control" disabled id="client-email" @bind="clientEmail"/>
+                        </div>
+                        <div>
+                            <label for="client-phone-number" class="col-5">Phone Number:</label>
+                            <input class="form-control" disabled id="client-phone-number" @bind="phoneNumber"/>
+                        </div>
+                    </div>
+                    <div class="d-flex row-cols-2">
+                        <div>
+                            <label for="contact-name" class="col-4">Contact Name:</label>
+                            <input class="form-control" disabled id="contact-name" @bind="contactPerson"/>
+                        </div>
+                        <div>
+                            <label for="contact-number" class="col-5">Contact Number:</label>
+                            <input class="form-control" disabled id="contact-number" @bind="contactNumber"/>
+                        </div>
+                    </div>
+
+                    <div class="d-flex row-cols-2">
+                        <div>
+                            <label for="client-id" class="col-4">Client Id:</label>
+                            <input class="form-control" disabled id="client-id" @bind="clientID"/>
+                        </div>
+                        <div>
+                            <label for="client-type" class="col-5">Type:</label>
+                            <input class="form-control" disabled id="client-type" @bind="clientType " />
+                        </div>
+                        
+                   </div>
+                    <div>
+                        <label for="notes" class="col-2">Notes:</label>
+                        <textarea class="form-control" disabled rows="3" id="notes" @bind="notes" />
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </section>
+    <!--End Section one-->
+    <section id="section-two">
+        <div class="row-cols-2 d-flex">
+            <fieldset class="col-6">
+                <legend>Session History</legend>
+                <div id="session-history-container">
+                    <div id="table-container-2">
+                        <table id="search-client-results" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Session</th>
+                                    <th>Date</th>
+                                    <th>Used</th>
+                                    <th>Length</th>
+                                    <th>Paid</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2001-011</td>
+                                    <td>2024-02-10</td>
+                                    <td>Yes</td>
+                                    <td>60</td>
+                                    <td>paid</td>
+                                    <td>Client prefers a warm room temperature</td>
+                                </tr>
+                                <tr>
+                                    <td>2001-012</td>
+                                    <td>2024-02-17</td>
+                                    <td>Yes</td>
+                                    <td>60</td>
+                                    <td>paid</td>
+                                    <td>Client prefers a firm massage pressure</td>
+                                </tr>
+                                <tr>
+                                    <td>2001-013</td>
+                                    <td>2024-02-24</td>
+                                    <td>Yes</td>
+                                    <td>90</td>
+                                    <td>paid</td>
+                                    <td>Client has sensitive skin check for any reactions</td>
+                                </tr>
+                                <tr>
+                                    <td>2001-014</td>
+                                    <td>2024-03-02</td>
+                                    <td>Yes</td>
+                                    <td>60</td>
+                                    <td>paid</td>
+                                    <td>No specific notes</td>
+                                </tr>
+                                <tr>
+                                    <td>2001-015</td>
+                                    <td>2024-03-09</td>
+                                    <td>Yes</td>
+                                    <td>60</td>
+                                    <td>paid</td>
+                                    <td>Client prefers no talking during session</td>
+                                </tr>
+                                <tr>
+                                    <td>2001-016</td>
+                                    <td>2024-03-16</td>
+                                    <td>Yes</td>
+                                    <td>60</td>
+                                    <td>paid</td>
+                                    <td>No specific notes</td>
+                                </tr>
+                                <tr>
+                                    <td>2001-017</td>
+                                    <th></th>
+                                    <td>unused</td>
+                                    <td>0</td>
+                                    <td>paid</td>
+                                    <td>No specific notes</td>
+                                </tr>
+                                <tr>
+                                    <td>2001-018</td>
+                                    <th></th>
+                                    <td>unused</td>
+                                    <td>0</td>
+                                    <td>paid</td>
+                                    <td>No specific notes</td>
+                                </tr>
+                                <tr>
+                                    <td>2001-019</td>
+                                    <th></th>
+                                    <td>unused</td>
+                                    <td>0</td>
+                                    <td>paid</td>
+                                    <td>No specific notes</td>
+                                </tr>
+                                <tr>
+                                    <td>2001-020</td>
+                                    <th></th>
+                                    <td>unused</td>
+                                    <td>0</td>
+                                    <td>paid</td>
+                                    <td>No specific notes</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Referral Information</legend>
+                <div id="col-one" class="row-cols-3 d-flex">
+                    <div class="col-5">
+                        <select class="form-control form-select w-100" id="search-criteria">
+                            <option value="">Referred Client:</option>
+                            <option value="">Reffered by:</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <input class="form-control" type="text" id="search-input" />
+
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-outline-secondary"> Add</button>
+                    </div>
+                </div>
+                <div id="col-two">
+                    <div id="table-container-2">
+                        <table id="search-client-results" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Client Id</th>
+                                    <th>Client Name</th>
+                                    <th>Date</th>
+                                    <th>type</th>
+                                    <th>Credit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+
+                </div>
+                
+            </fieldset>
+        </div>
+    </section>
+    <!--End section-two-->
+    <section id="section-three">
+        <div class="row-cols-2 d-flex">
+            <fieldset>
+                <legend>Package Information</legend>
+                <div id="session-history-container">
+                    <div id="col-one">
+                        <div id="table-container-2">
+                            <table id="search-client-results" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Package</th>
+                                        <th>type</th>
+                                        <th>Purchase Date</th>
+                                        <th>Remaining</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>        
+            </fieldset>
+            <fieldset>
+                <legend>Package Sessions</legend>
+                <div id="col-two">
+                    <div id="table-container-3">
+                        <table id="search-client-results" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>type</th>
+                                    <th>Purchase Date</th>
+                                    <th>Remaining</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </section>
+    <!--End section-three-->
+    <section id="section-four">
+        <div class="row-cols-2 d-flex">
+            <fieldset>
+                <legend>Purchase</legend>
+                <div id="session-history-container">
+
+                    <div class="d-flex row-cols-2">
+                        <div class="d-flex col-7">
+                            <label for="purchase-type" class="form-check-label col-3">Purchase:</label>
+                            <div class="align-content-center">
+                                <span>Session</span><input class="form-check-input mx-3" name="purchase-type" type="checkbox" id="purchase-session" />
+                                <span class="mx-3">Package</span><input class="form-check-input mx-2" name="purchase-type" type="checkbox" id="purchase-package" }" />
+                            </div>
+                        </div>
+
+                        <div class="col-5">
+                            <select class="form-control form-select w-100" id="search-criteria">
+                                <option selected value="">Select Package Type</option>
+                                <option value="">5 Session:</option>
+                                <option value="">10 Session:</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row-cols-2 d-flex py-3">
+                        <div class="d-flex col-7">
+                            <label class="form-label col-3">Extras:</label>
+                            <select class="form-control form-select">
+                                <option selected value="">Select Services</option>
+                                <option value="">Foot Spa</option>
+                                <option value="">Ultra-red Therapy</option>
+                                <option value="">cold fusion laser</option>
+                            </select>
+                        </div>
+                        <div class="d-flex">
+                            <label class="form-label">Cost: </label>
+                            <input id="input-cost" class="form-control" />
+                        </div>
+                    </div>
+                    <div>
+                        <div id="table-container-4" class="">
+                            <label class="form-label col-2 text-start"><strong>Summary:</strong></label>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Item Description</th>
+                                        <th>Price</th>
+                                        <th>Qty</th>
+                                        <th>ToTal</th>
+                                    </tr>                                    
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Package 10 Sessions</td>
+                                        <td>$900.00</td>
+                                        <td>1</td>
+                                        <th>$900.00</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Foot Spa</td>
+                                        <td>$50.00</td>
+                                        <td>1</td>
+                                        <th>$50.00</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Other Credits</td>
+                                        <td>0.00</td>
+                                        <td>1</td>
+                                        <th>$0.00</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>                
+            </fieldset>
+            <fieldset>
+                <legend>Payment</legend>
+                <div id="payment" class="row-cols-2 d-flex">
+                   <div class="col-6">
+                        <div class="d-flex">
+                            <label class="col-3">Subtotal: </label>
+                            <input type="number" class="form-control" id="subtotal" />
+                        </div>
+
+                        <div class="d-flex">
+                            <label class="col-3">GST: </label>
+                            <input class="form-control" />
+                        </div>
+
+                        <div class="d-flex">
+                            <label class="col-3">Total: </label>
+                            <input class="form-control" />
+                        </div>
+                   </div>
+                    <div class="">
+                        <label class="">Payment Method</label>
+                        <select class="form-control form-select w-50">
+                            <option selected value="">Select Payment Method</option>
+                            <option value="cash">Cash</option>
+                            <option value="credit">Credit Card</option>
+                        </select>
+                    </div>                    
+                </div>
+                <div class="g-3 m-auto">
+                    <button class="btn btn-outline-secondary">Pay</button>
+                    <button class="btn btn-outline-secondary">Cancel</button>
+                </div>
+            </fieldset>
+        </div>
+    </section>
+    <section id="section-five">
+        <div class="row-cols-2 d-flex">
+            <fieldset>
+                <legend></legend>
+            </fieldset>
+            <fieldset>
+                <legend></legend>
+            </fieldset>
+        </div>
+    </section>
+</div>
+

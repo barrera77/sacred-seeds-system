@@ -32,6 +32,9 @@ table tr:hover {
     }
 label {
     align-content: center;
+    text-align: right;
+    font-weight: bold;
+    padding-right: 10px;
 }
 
 
@@ -105,11 +108,7 @@ label {
     margin-bottom: 1rem;
 }
 
-#message, #notes {
+#message, #email-notes {
     max-width: 80%;
     margin-bottom: 1rem;
-}
-
-#postal-code {
-    width: 63%;
 }

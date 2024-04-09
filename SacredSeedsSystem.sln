@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SacredSeedsWebApp", "SacredSeedsWebApp\SacredSeedsWebApp.csproj", "{EDAB14FA-68FA-4328-977C-09251DE3C998}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SacredSeedsWebApp", "SacredSeedsWebApp\SacredSeedsWebApp.csproj", "{EDAB14FA-68FA-4328-977C-09251DE3C998}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SacredSeedsSystem", "SacredSeedsSystem\SacredSeedsSystem.csproj", "{6F5C50D3-42A2-4836-BDA6-7C2D680B5A0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SacredSeedsSystem", "SacredSeedsSystem\SacredSeedsSystem.csproj", "{6F5C50D3-42A2-4836-BDA6-7C2D680B5A0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
