@@ -23,7 +23,7 @@ table {
 }
 
 
-#col-one, #col-two {
+#col-two, #col-one-referral {
     padding: .5rem;
     gap:1rem;
 
@@ -75,10 +75,12 @@ table {
     display: flex;
     justify-content: space-between;
     margin: auto;
+    padding: 1rem;
 }
 
 #btn-add-referral {
     width: 7.5rem;
+    margin-left: 2rem;
 }
 
 .btn {
@@ -124,4 +126,23 @@ table {
 }
 #payment select {
     max-width: 80%;
+}
+
+#exp {
+    max-width: 100%;
+
+}
+#search-referral, #referral-info {
+    max-width: 93%
+}
+#search-input, #search-criteria {
+    max-width: 95%
+}
+
+#btn-search {
+    width: 7.5rem;
+}
+#col-one {
+    max-width: 97%;
+    margin-bottom: 1rem;
 }
