@@ -11,8 +11,7 @@ thead {
     position: sticky;
     top: 0;
     z-index: 0;
-    background-color: black;
-    color: white;
+    background-color: white;
 }
 
 td, th {
@@ -112,3 +111,5 @@ label {
     max-width: 80%;
     margin-bottom: 1rem;
 }
+
+

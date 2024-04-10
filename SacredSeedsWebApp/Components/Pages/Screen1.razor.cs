@@ -4,7 +4,7 @@
     {
 
         private string clientID { get; set; } = "01-0003";
-        private string clientType { get; set; } = "investor";
+        private string clientType { get; set; } = "client";
         private string firstName { get; set; } = "Leonardo";
         private string lastName { get; set; } = "da Vinci";
         private string clientEmail { get; set; } = "vinci.leonardo@example.com";

@@ -9,8 +9,7 @@ thead {
     position: sticky;
     top: 0;
     z-index: 0;
-    background-color: black;
-    color: white;
+    background-color: white;    
 }
 
 label {
@@ -38,11 +37,15 @@ table {
 
 #table-container-1 {
     overflow-y: scroll;
-    max-height: 350px;    
+    max-height: 400px;    
 }
-#table-container-2, #table-container-3 {
+#table-container-2{
     overflow-y: scroll;
     max-height: 300px;
+}
+#table-container-3 {
+    overflow-y: scroll;
+    max-height: 220px;
 }
 
 #client-info div {
@@ -72,11 +75,6 @@ table {
     border: none;
     max-width: 80%;
 }
-
-#input-cost {
-    max-width: 63%;
-}
-
 .menu-buttons {
     max-width: 40%;
     display: flex;
@@ -87,13 +85,12 @@ table {
 
 #btn-add-referral {
     width: 7.5rem;
-    margin-left: 2rem;
+    margin-left: 1.7rem;
 }
 
 .btn {
     color: black;
     width: 9rem;
-    font-weight: bold;
 }
 
 .btn:hover {
@@ -104,30 +101,31 @@ table {
     max-width: 7.5rem;
     margin: auto;
 }
+#referral-credits-label {
+    margin-top: .5rem;
+}
 #referral-buttons {
     display: block;
-    text-align: center;
-    margin-top: 1rem;
-    
+    text-align: center;  
     max-width: 100%;
     
 }
 #referral-buttons button {
     width: 7.5rem;    
 }
+#credits-balance{
+    max-width: 7.5rem;
+}
+
 #purchase-buttons {
     max-width: 100%;
     margin: auto;
-    justify-content:center;
+    justify-content: center;
 }
 #purchase-buttons button {
     width: 12rem;
 }
 
-#payment label{
-    text-align: right;
-    margin-right: 10px;
-}
 #payment input {
     max-width: 70%;
 }
@@ -153,3 +151,41 @@ table {
     max-width: 97%;
     margin-bottom: 1rem;
 }
+
+#payment-buttons {
+    max-width: 100%;
+}
+
+#package-session-buttons {
+    max-width: 100%;
+    text-align: center;
+}
+
+#package-session-buttons btn{
+    width: 7.5rem;
+}
+
+#payment-buttons btn {
+    width: 10rem;
+}
+#purchase-top-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 1.5rem 0;
+}
+#select-package {
+    max-width: 95%;
+}
+
+#select-services {
+    max-width: 75%;
+}
+
+#input-cost {
+    max-width: 55%;
+}
+#col-one-referral {
+    padding: 0;
+}
+

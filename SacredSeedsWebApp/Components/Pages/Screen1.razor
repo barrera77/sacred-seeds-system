@@ -34,56 +34,56 @@
                                     <th>Appointment Date</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>01-0001</td>
-                                    <td>Albert Einstein</td>
-                                    <td>2024-05-03</td>
-                                </tr>
-                                <tr>
-                                    <td>01-0002</td>
-                                    <td>Marie Curie</td>
-                                    <td>2024-05-04</td>
-                                </tr>
+                            <tbody>                              
                                 <tr>
                                     <td><strong>01-0003</strong></td>
                                     <td><strong>Leonardo da Vinci</strong></td>
-                                    <td><strong>2024-05-05</strong></td>
-                                </tr>
-                                <tr>
-                                    <td>01-0004</td>
-                                    <td>William Shakespeare</td>
-                                    <td>2024-05-06</td>
-                                </tr>
-                                <tr>
-                                    <td>01-0005</td>
-                                    <td>Nikola Tesla</td>
-                                    <td>2024-05-07</td>
-                                </tr>
-                                <tr>
-                                    <td>01-0006</td>
-                                    <td>Ada Lovelace</td>
-                                    <td>2024-05-08</td>
-                                </tr>
-                                <tr>
-                                    <td>01-0007</td>
-                                    <td>Isaac Newton</td>
-                                    <td>2024-05-09</td>
-                                </tr>
-                                <tr>
-                                    <td>01-0008</td>
-                                    <td>Mahatma Gandhi</td>
-                                    <td>2024-05-10</td>
-                                </tr>
-                                <tr>
-                                    <td>01-0009</td>
-                                    <td>Mother Teresa</td>
-                                    <td>2024-05-11</td>
+                                    <td><strong>2024-04-10</strong></td>
                                 </tr>
                                 <tr>
                                     <td>01-0010</td>
                                     <td>Charles Darwin</td>
-                                    <td>2024-05-12</td>
+                                    <td>2024-04-04</td>
+                                </tr>
+                                <tr>
+                                    <td>01-0009</td>
+                                    <td>Mother Teresa</td>
+                                    <td>2024-04-03</td>
+                                </tr>
+                                <tr>
+                                    <td>01-0008</td>
+                                    <td>Mahatma Gandhi</td>
+                                    <td>2024-04-02</td>
+                                </tr>
+                                <tr>
+                                    <td>01-0007</td>
+                                    <td>Isaac Newton</td>
+                                    <td>2024-04-01</td>
+                                </tr>
+                                <tr>
+                                    <td>01-0006</td>
+                                    <td>Ada Lovelace</td>
+                                    <td>2024-03-31</td>
+                                </tr>
+                                <tr>
+                                    <td>01-0005</td>
+                                    <td>Nikola Tesla</td>
+                                    <td>2024-03-30</td>
+                                </tr>
+                                <tr>
+                                    <td>01-0004</td>
+                                    <td>William Shakespeare</td>
+                                    <td>2024-03-29</td>
+                                </tr>
+                                <tr>
+                                    <td>01-0002</td>
+                                    <td>Marie Curie</td>
+                                    <td>2024-03-28</td>
+                                </tr>
+                                <tr>
+                                    <td>01-0001</td>
+                                    <td>Albert Einstein</td>
+                                    <td>2024-03-27</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -164,6 +164,10 @@
                         <label for="notes" class="col-2">Notes:</label>
                         <textarea class="form-control" disabled rows="3" id="notes" @bind="notes" />
                     </div>
+                </div>
+                <div id="payment-buttons" class="menu-buttons mt-2">
+                    <button class="btn btn-outline-secondary mx-3">Edit</button>
+                    <button class="btn btn-outline-secondary">Save</button>
                 </div>
             </fieldset>
         </div>
@@ -311,7 +315,7 @@
                                         <th>Client Name</th>
                                         <th>Date</th>
                                         <th>type</th>
-                                        <th>Credit</th>
+                                        @* <th>Credit</th> *@
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -320,50 +324,54 @@
                                         <td>Mahatma Gandhi</td>
                                         <td>2023-05-10</td>
                                         <td>Referred by</td>
-                                        <td>X</td>
+                                        @* <td>X</td> *@
                                     </tr>
                                     <tr>
                                         <td>01-0009</td>
                                         <td>Mother Teresa</td>
                                         <td>2024-05-11</td>
                                         <td>Referred</td>
-                                        <td>.5</td>
+                                        @* <td>.5</td> *@
                                     </tr>
                                     <tr>
                                         <td>01-0010</td>
                                         <td>Charles Darwin</td>
                                         <td>2024-05-12</td>
                                         <td>Referred</td>
-                                        <td>.5</td>
+                                        @* <td>.5</td> *@
                                     </tr>
                                     <tr>
                                         <td>01-0024</td>
                                         <td>Isaac Newton</td>
                                         <td>2023-12-09</td>
                                         <td>Referred</td>
-                                        <td>0</td>
+                                        @* <td>0</td> *@
                                     </tr>
                                     <tr>
                                         <td>01-0033</td>
                                         <td>Leonhard Euler</td>
                                         <td>2023-05-13</td>
                                         <td>Referred</td>
-                                        <td>0</td>
+                                        @* <td>0</td> *@
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                        <td >01-0033</td>
+                                        <td>Leonhard Euler</td>
+                                        <td>2023-05-13</td>
+                                        <td>Referred</td>
+                                        @* <td>0</td> *@
+                                    </tr>                                 
+                                  
                                 </tbody>
                             </table>
                         </div>
                    </div>
                     <div class="col-4">
-                        <div class="mt-1">
-                            <label for="referral-credits" class="col-5">Cedits</label>
+                        <div>
+                            <label for="referral-credits" class="col-5" id="referral-credits-label">Credits</label>
+                            <input class="form-control my-3 m-auto" disabled type="text" placeholder="1 Credit" id="credits-balance" />
+                        </div>
+                        <div class="mt-1">                            
                             <select class="form-control form-select" id="referral-credits">
                                 <option selected value="">1 Credit</option>
                                 <option value="">2 Credit</option>
@@ -403,7 +411,7 @@
                                         <td><strong>10</strong></td>
                                         <td><strong>2024-02-15</strong></td>
                                         <td><strong>3.5</strong></td>
-                                    </tr>
+                                    </tr>                                   
                                     <tr>
                                         <td>2032</td>
                                         <td>5</td>
@@ -415,49 +423,43 @@
                                         <td>5</td>
                                         <td>2023-06-13</td>
                                         <td>0</td>
+                                    </tr>                                   
+                                    <tr>
+                                        <td class="text-white">2020</td>
+                                        <td class="text-white">5</td>
+                                        <td class="text-white">2023-06-13</td>
+                                        <td class="text-white">0</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td class="text-white">2020</td>
+                                        <td class="text-white">5</td>
+                                        <td class="text-white">2023-06-13</td>
+                                        <td class="text-white">0</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td class="text-white">2020</td>
+                                        <td class="text-white">5</td>
+                                        <td class="text-white">2023-06-13</td>
+                                        <td class="text-white">0</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td class="text-white">2020</td>
+                                        <td class="text-white">5</td>
+                                        <td class="text-white">2023-06-13</td>
+                                        <td class="text-white">0</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td class="text-white">2020</td>
+                                        <td class="text-white">5</td>
+                                        <td class="text-white">2023-06-13</td>
+                                        <td class="text-white">0</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td class="text-white">2020</td>
+                                        <td class="text-white">5</td>
+                                        <td class="text-white">2023-06-13</td>
+                                        <td class="text-white">0</td>
                                     </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>                                    
                                 </tbody>
                             </table>
                         </div>
@@ -479,10 +481,10 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>2001-011</td>
-                                    <td>2024-01-12</td>
+                                    <td>2001-086</td>
+                                    <td>2024-02-15</td>
                                     <td>60</td>
-                                    <td>9</td>                                    
+                                    <td>9</td>
                                 </tr>
                                 <tr>
                                     <td>2001-022</td>
@@ -500,7 +502,7 @@
                                     <td>2001-074</td>
                                     <td>2024-03-02</td>
                                     <td>150</td>
-                                    <td>4</td>                                    
+                                    <td>4</td>
                                 </tr>
                                 <tr>
                                     <td>2001-085</td>
@@ -509,16 +511,40 @@
                                     <td>1.5</td>
                                 </tr>
                                 <tr>
+                                    <td>2001-087</td>
+                                    <td>2024-03-16</td>
+                                    <td>90</td>
+                                    <td>1.5</td>
+                                </tr>
+                                <tr>
+                                    <td>2001-084</td>
+                                    <td>2024-03-23</td>
+                                    <td>90</td>
+                                    <td>1.5</td>
+                                </tr>
+                                <tr>
+                                    <td>2001-076</td>
+                                    <td>2024-03-30</td>
+                                    <td>90</td>
+                                    <td>1.5</td>
+                                </tr>
+                                <tr>
+                                    <td>2001-085</td>
+                                    <td>2024-04-06</td>
+                                    <td>90</td>
+                                    <td>1.5</td>
+                                </tr>
+                                <tr>
                                     <td>2001-011</td>
                                     <td>2024-04-10</td>
                                     <td>60</td>
                                     <td>0</td>
-                                </tr>                              
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
-                        <div class="menu-buttons mt-3">
+                        <div class="menu-buttons mt-3" id="package-session-buttons">
                             <button class="btn btn-outline-secondary mx-3">Add </button>
                             <button class="btn btn-outline-secondary">Remove </button>
                         </div>
@@ -528,146 +554,143 @@
         </div>
     </section>
     <!--End section-three-->
-    <section id="section-four" class="py-4">
-        <div class="row-cols-2 d-flex">
-            <fieldset>
+    <section id="section-four" class="py-3">
+        <div class="d-flex">
+            <fieldset class="w-100">
                 <legend>Purchase</legend>
-                <div id="session-history-container">
-
-                    <div class="d-flex row-cols-2">
-                        <div class="d-flex col-7">
-                            <label for="purchase-type" class="form-check-label col-3">Purchase:</label>
-                            <div class="align-content-center">
-                                <span>Session</span><input class="form-check-input mx-3" name="purchase-type" type="checkbox" id="purchase-session" />
-                                <span class="mx-3">Package</span><input class="form-check-input mx-2" name="purchase-type" type="checkbox" id="purchase-package" }" />
-                            </div>
-                        </div>
-
-                        <div class="col-5">
-                            <select class="form-control form-select w-100" id="search-criteria">
-                                <option selected value="">Select Package Type</option>
-                                <option value="">5 Session:</option>
-                                <option value="">10 Session:</option>
-                            </select>
+                <div id="purchase-top-row" class="row-cols-4">
+                    <div class="d-flex">
+                        <label for="purchase-type" class="form-check-label">Purchase:</label>
+                        <div class="align-content-center">
+                            <span>Session</span><input class="form-check-input mx-3" name="purchase-type" type="checkbox" id="purchase-session" />
+                            <span class="mx-3">Package</span><input class="form-check-input mx-2" name="purchase-type" type="checkbox" id="purchase-package" }" />
                         </div>
                     </div>
-                    <div class="row-cols-2 d-flex py-3">
-                        <div class="d-flex col-7">
-                            <label class="form-label col-3">Add-ons:</label>
-                            <select class="form-control form-select">
-                                <option selected value="">Select Services</option>
-                                <option value="">Foot Spa</option>
-                                <option value="">Ultra-red Therapy</option>
-                                <option value="">cold fusion laser</option>
-                            </select>
-                        </div>
-                        <div class="d-flex">
-                            <label class="form-label">Cost: </label>
-                            <input id="input-cost" class="form-control" placeholder="$50"/>
-                        </div>
+
+                    <div class="">
+                        <select class="form-control form-select w-100" id="select-package">
+                            <option selected value="">Select Package Type</option>
+                            <option value="">5 Session:</option>
+                            <option value="">10 Session:</option>
+                        </select>
                     </div>
+
+                    <div class="d-flex col-4 px-3">
+                        <label id="add-on-label" class="form-label">Add-ons:</label>
+                        <select class="form-control form-select" id="select-services">
+                            <option selected value="">Select Services</option>
+                            <option value="">Foot Spa</option>
+                            <option value="">Ultra-red Therapy</option>
+                            <option value="">cold fusion laser</option>
+                        </select>
+                    </div>
+                    <div class="d-flex col-2">
+                        <label class="form-label">Cost: </label>
+                        <input id="input-cost" class="form-control" placeholder="$50" />
+                    </div>
+                </div>
+
+                <div id="payment" class="row-cols-2 d-flex">
                     <div>
                         <div id="table-container-4" class="">
-                            <label class="form-label col-2 text-start"><strong>Summary:</strong></label>
                             <table class="table">
                                 <thead>
                                     <tr>
+                                        <th>Remove</th>
                                         <th>Item Description</th>
                                         <th>Price</th>
                                         <th>Qty</th>
                                         <th>ToTal</th>
-                                    </tr>                                    
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
+                                        <td>X</td>
                                         <td>Package 10 Sessions</td>
                                         <td>$900.00</td>
                                         <td>1</td>
                                         <th>$900.00</th>
                                     </tr>
                                     <tr>
+                                        <td>X</td>
                                         <td>Foot Spa</td>
                                         <td>$50.00</td>
                                         <td>1</td>
                                         <th>$50.00</th>
                                     </tr>
                                     <tr>
+                                        <td>X</td>
                                         <td>Session 1 hour</td>
                                         <td>$125.00</td>
                                         <td>1</td>
                                         <td>$125.00</td>
                                     </tr>
                                     <tr>
+                                        <td>X</td>
                                         <td>Free Session Credit</td>
                                         <td>-$125.00</td>
                                         <td>1</td>
                                         <td>-$125.00</td>
                                     </tr>
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <div>
-                        <div id="purchase-buttons"class="menu-buttons mt-3">
-                            <button class="btn btn-outline-secondary">Confirm Purchase</button>
-                            <button class="btn btn-outline-secondary mx-3">Cancel</button>
+                        <div class="row-cols-2 d-flex">
+                            <div class="col-4">
+                                <div class="d-flex">
+                                    <label for="subtotal" class="col-4">Subtotal:</label>
+                                    <input type="number" placeholder="$1275.00" class="form-control" id="subtotal" />
+                                </div>
+
+                                <div class="d-flex my-2">
+                                    <label for="gst" class="col-4">GST:</label>
+                                    <input class="form-control" placeholder="$63.75" id="gst" />
+                                </div>
+
+                                <div class="d-flex">
+                                    <label for="total" class="col-4">Total: </label>
+                                    <input class="form-control" placeholder="$1337.75" id="total" />
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <div class="d-flex">
+                                    <label class="col-4">Payment Method:</label>
+                                    <select class="form-control form-select">
+                                        <option selected value="">Payment Method</option>
+                                        <option value="cash">Cash</option>
+                                        <option value="credit">Credit Card</option>
+                                        <option value="credit">Debit Card</option>
+                                    </select>
+                                </div>
+
+                                <div class="d-flex my-2">
+                                    <label for="cc-number" class="col-4">Card #:</label>
+                                    <input type="number" class="form-control" placeholder="1234 5678 9012 0521" id="cc-number" />
+                                </div>
+                                <div class="d-flex">
+                                    <div class="d-flex col-7">
+                                        <label for="exp" class="col-7">Exp:</label>
+                                        <input type="text" class="form-control" placeholder="02/26" id="exp" />
+                                    </div>
+                                    <div class="d-flex">
+                                        <label for="cvc" class="col-4 mx-2">CVC:</label>
+                                        <input type="text" class="form-control" placeholder="654" id="cvc" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="payment-buttons" class="menu-buttons mt-1">
+                            <button class="btn btn-outline-secondary">Pay</button>
+                            <button disabled class="btn btn-outline-secondary">Override</button>
+                            <button class="btn btn-outline-secondary">Cancel</button>
                         </div>
                     </div>
-                </div>                
-            </fieldset>
-            <fieldset>
-                <legend>Payment</legend>
-                <div id="payment" class="row-cols-2 d-flex">
-                   <div class="col-4">
-                        <div class="d-flex">
-                            <label for="subtotal" class="col-4">Subtotal: </label>
-                            <input type="number" placeholder="$1275.00" class="form-control" id="subtotal" />
-                        </div>
-
-                        <div class="d-flex mt-2">
-                            <label for="gst"class="col-4">GST: </label>
-                            <input class="form-control" placeholder="$63.75" id="gst" />
-                        </div>
-
-                        <div class="d-flex mt-2">
-                            <label for="total"class="col-4">Total: </label>
-                            <input class="form-control" placeholder="$1337.75" id="total" />
-                        </div>
-                   </div>
-                    <div class="col-8">
-                        <div class="d-flex">
-                            <label class="col-4">Payment Method:</label>
-                            <select class="form-control form-select">
-                                <option selected value="">Payment Method</option>
-                                <option value="cash">Cash</option>
-                                <option value="credit">Credit Card</option>
-                                <option value="credit">Debit Card</option>
-
-                            </select>
-                        </div>
-
-                        <div class="d-flex my-2">
-                            <label for="cc-number" class="col-4">Card #: </label>
-                            <input type="number" class="form-control" placeholder="1234 5678 9012 0521" id="cc-number" />
-                        </div>
-                        <div class="d-flex">
-                            <div class="d-flex col-7">
-                                <label for="exp" class="col-7">Exp: </label>
-                                <input type="text" class="form-control" placeholder="02/26" id="exp" />
-                            </div>
-                            <div class="d-flex">
-                                <label for="cvc" class="col-4 mx-2">CVC: </label>
-                                <input type="text" class="form-control" placeholder="654" id="cvc" />
-                            </div>
-                        </div>
-
-                    </div>   
-                  
                 </div>
-                <div id="payment-buttons" class="menu-buttons mt-3">
-                    <button class="btn btn-outline-secondary mx-3">Pay</button>
-                    <button class="btn btn-outline-secondary">Cancel</button>
-                </div>
+               
+                
             </fieldset>
         </div>
     </section>
