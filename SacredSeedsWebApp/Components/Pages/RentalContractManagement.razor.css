@@ -21,8 +21,8 @@ td, th {
 
 
 table tr:hover {
-    background-color: black;
-    color: white;
+  /*  background-color: black;
+    color: white;*/
 }
 
     table tr:hover #edit-contract, #contact-renter, #add-new-contract {
@@ -112,4 +112,7 @@ label {
     margin-bottom: 1rem;
 }
 
-
+#renter-notes {
+    border: none;
+    background-color: transparent;
+}

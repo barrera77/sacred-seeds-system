@@ -65,7 +65,16 @@
                                             {
                                                 <td>@contract.DaysRemaining</td>
                                             }
-                                            <td class="text-start">@contract.Notes</td>
+                                            <td>
+                                                <div>
+                                                    <select class="form-select w-100" id="renter-notes">
+                                                        <option selected value="">@contract.Notes</option>
+                                                        <option value="">2024-04-01 - Carlito - Client responded that need more time to make a decision</option>
+                                                        <option value="">2024-04-07 - Christina - Sent a follow up reminder to client for contract renewal and awaiting response</option>
+                                                        <option value="">2024-04-11 - Christina - Tenant called to confirm renewal and set up contract signatu date</option>
+                                                    </select>
+                                                </div>
+                                            </td>
                                         </tr>                                       
                                     }
                                 }                             
